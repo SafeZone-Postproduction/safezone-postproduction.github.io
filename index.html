@@ -75,28 +75,21 @@
     section { padding: 6rem 2rem; }
     .inner { max-width: 1000px; margin: 0 auto; }
 
-    /* Home */
-    #home {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+    $1
+
+    .scroll-indicator {
+      font-size: 2rem;
+      text-align: center;
+      color: #999;
+      margin-top: 2rem;
+      animation: bounce 2s infinite;
     }
-    .logo-container {
-      width: 320px;
-      height: 180px;
-      background: #000;
-      -webkit-mask-image: url('logo.webp');
-      mask-image: url('logo.webp');
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-      -webkit-mask-position: center;
-      mask-position: center;
-      -webkit-mask-size: contain;
-      mask-size: contain;
-      transition: background 0.6s ease;
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
     }
-    .logo-container:hover {
+    .scrolled .logo-container {
       background: linear-gradient(135deg, #d1155c, #f58447);
     }
 
@@ -136,103 +129,6 @@
       margin-bottom: 0.5rem;
     }
 
-    /* Was tun wir */
-    .section-white {
-      background: #ffffff;
-      color: #111;
-    }
-    .section-white h2 {
-      font-size: 2.5rem;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-    .section-white .intro-text {
-      font-size: 1.2rem;
-      line-height: 1.7;
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .category { margin-bottom: 3rem; }
-    .category h3 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      color: #d1155c;
-    }
-    .category ul { padding-left: 1.2rem; }
-    .category li {
-      margin-bottom: 0.8rem;
-      line-height: 1.6;
-    }
-
-    /* Kontakt */
-    .section-contact {
-      background: #0f0f0f;
-      color: #fff;
-      text-align: center;
-    }
-    .section-contact h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .main-contact {
-      font-size: 1.2rem;
-      margin-bottom: 3rem;
-    }
-    .section-contact a {
-      color: #f58447;
-      text-decoration: none;
-    }
-    .team-contacts {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-    }
-    .profile-card {
-      background: #1a1a1a;
-      padding: 2rem;
-      border-radius: 16px;
-      max-width: 280px;
-      text-align: center;
-    }
-    .profile-card img {
-      width: 100%;
-      border-radius: 12px;
-      margin-bottom: 1rem;
-    }
-    .profile-card h3 {
-      margin: 0.5rem 0 0.2rem;
-      font-size: 1.3rem;
-    }
-    .profile-card p {
-      margin: 0 0 1rem;
-      font-size: 1rem;
-      color: #ccc;
-    }
-    .profile-card a {
-      display: block;
-      font-size: 0.95rem;
-      margin-bottom: 0.3rem;
-      word-break: break-word;
-    }
-
-    /* Footer */
-    .legal-section {
-      background: #1a1a1a;
-      color: #ddd;
-      font-size: 0.95rem;
-      line-height: 1.7;
-    }
-    .legal-section h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-      color: #fff;
-    }
-    .legal-section a {
-      color: #f58447;
-      text-decoration: none;
-    }
-
     /* Scroll to top */
     #topBtn {
       display: none;
@@ -270,7 +166,11 @@
     </div>
   </nav>
 
-  <!-- Weitere Inhalte folgen hier (Home, Abschnitte, etc.) -->
+  <!-- Home Section -->
+  <section id="home">
+  <div class="logo-container" title="SafeZone Postproduction"></div>
+  <div class="scroll-indicator">↓</div>
+</section>
 
   <!-- Scroll to Top Button -->
   <button onclick="topFunction()" id="topBtn" title="Nach oben">↑</button>
@@ -287,7 +187,15 @@
       } else {
         btn.style.display = "none";
       }
+
+      // Add class to trigger logo background change
+      if (document.documentElement.scrollTop > 100) {
+        document.body.classList.add("scrolled");
+      } else {
+        document.body.classList.remove("scrolled");
+      }
     };
+
     function topFunction() {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
