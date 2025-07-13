@@ -18,13 +18,13 @@
 
     /* Navigation */
     .navbar {
-      position: sticky;
-      top: 0;
-      background: rgba(15, 15, 15, 0.95);
-      padding: 1rem 2rem;
-      z-index: 999;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-    }
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  padding: 1rem 2rem;
+  z-index: 999;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
     .nav-inner {
       display: flex;
       justify-content: space-between;
@@ -49,10 +49,12 @@
       gap: 1.5rem;
     }
     .nav-links a {
-      text-decoration: none;
-      color: #f0f0f0;
-      font-weight: 500;
-    }
+  text-decoration: none;
+  background: linear-gradient(135deg, #d1155c, #f58447);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 500;
+}
     .nav-links a:hover {
       color: #f58447;
     }
@@ -169,59 +171,64 @@
 
   <!-- Home Section -->
   <section id="home">
-  <img src="logo.png" alt="SafeZone Logo" style="width: 300px; height: auto;">
-  <div class="scroll-indicator">↓</div>
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
+    <img src="logo.png" alt="SafeZone Logo" style="width: 300px; height: auto;">
+  </div>
 </section>
 
-  <!-- Wer sind wir? Section -->
-  <section id="wer-sind-wir" class="section-diagonal">
+  $1
+
+  $1
+
+  <!-- Kontakt Section -->
+  <section id="kontakt">
     <div class="inner">
-      <h2>Wer sind wir?</h2>
-      <p class="intro-text">
-        Gute Kampagnen entstehen nicht von allein. Gute Prozesse auch nicht.<br>
-        Wenn vieles gleichzeitig passieren muss, halten wir die Fäden zusammen. Wir koordinieren, strukturieren, priorisieren – und sorgen dafür, dass aus vielen Einzelteilen ein starkes Ganzes wird.<br><br>
-        Wir sind Möglichmacher:innen, Sparringspartner und kreative Ordnungsfanatiker – mit einem wachen Blick fürs große Ganze und einem klaren Gespür fürs Detail.<br>
-        Wir bleiben konzentriert, wenn’s eng wird – und beweglich, wenn sich was ändert.<br><br>
-        Ob für Marken, Agenturen oder Kolleg:innen:<br>
-        Gute Arbeit braucht nicht nur Talent und gute Ideen, sondern auch ein stabiles Umfeld. Genau das schaffen wir. Wir liefern nicht einfach ab. Wir liefern Qualität.
+      <h2>Let’s connect</h2>
+      <p>
+        <a href="mailto:office@safezone-postproduction.de">office@safezone-postproduction.de</a><br>
+        <a href="tel:+4917655110600">+49 176 5511 0600</a>
       </p>
-
-      <div class="infoboxes">
-        <div class="box">
-          <div class="icon">🧭</div>
-          <strong>SafeZone für Kund:innen</strong><br>
-          Weil wir den Überblick behalten – und Verantwortung übernehmen.<br>
-          Wir strukturieren, priorisieren und kommunizieren.
+      <div class="team-contacts" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+        <div class="profile-card" style="max-width: 280px; text-align: center;">
+          <img src="Anica.png" alt="Anica Walz" style="width: 100%; border-radius: 12px;">
+          <h3>Anica Walz</h3>
+          <p>GF | Senior Postproducerin</p>
+          <a href="mailto:anica@safezone-postproduction.de">anica@safezone-postproduction.de</a><br>
+          <a href="tel:+4917655110600">+49 176 5511 0600</a>
         </div>
-
-        <div class="box">
-          <div class="icon">⚙️</div>
-          <strong>SafeZone für Projekte</strong><br>
-          Weil wir früh mitdenken, klar steuern und sauber abliefern.<br>
-          Komplexität schreckt uns nicht ab – sie motiviert uns.
-        </div>
-
-        <div class="box">
-          <div class="icon">👥</div>
-          <strong>SafeZone für Kolleg:innen und Geschäftspartner</strong><br>
-          Weil gutes Arbeiten mit gutem Miteinander beginnt.<br>
-          Offene Kommunikation, gegenseitiges Vertrauen und ein respektvoller Umgang auf Augenhöhe.
-        </div>
-
-        <div class="box">
-          <div class="icon">🧪</div>
-          <strong>SafeZone für Qualität</strong><br>
-          Weil wir dafür sorgen, dass die Qualität bis zur Auslieferung stimmt.<br>
-          Präzise, verantwortungsvoll – und auf dem Qualitätsniveau, das unsere Kund:innen erwarten und die Projekte verdienen.
-        </div>
-
-        <div class="box">
-          <div class="icon">📈</div>
-          <strong>SafeZone für Entwicklung</strong><br>
-          Weil wir nicht nur liefern, sondern besser werden wollen – mit jedem Projekt.<br>
-          Wir hinterfragen Prozesse, optimieren Strukturen und integrieren neue Technologien – dort, wo sie echten Mehrwert bringen.
+        <div class="profile-card" style="max-width: 280px; text-align: center;">
+          <img src="Emily.png" alt="Emily Imhof" style="width: 100%; border-radius: 12px;">
+          <h3>Emily Imhof</h3>
+          <p>GF | Senior Motion Designerin</p>
+          <a href="mailto:emily@safezone-postproduction.de">emily@safezone-postproduction.de</a><br>
+          <a href="tel:+49176XXXXXXX">+49 176 XXXXXXX</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Datenschutz Section -->
+  <section id="datenschutz">
+    <div class="inner">
+      <h2>Datenschutz</h2>
+      <p>Diese Website erhebt keine personenbezogenen Daten. Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir Ihre Daten ausschließlich zur Bearbeitung Ihrer Anfrage und gemäß den gesetzlichen Datenschutzbestimmungen.</p>
+    </div>
+  </section>
+
+  <!-- Impressum Section -->
+  <section id="impressum">
+    <div class="inner">
+      <h2>Impressum</h2>
+      <p>
+        SafeZone Postproduction GmbH<br>
+        Anica Walz<br>
+        Stargarder Straße 35<br>
+        10347 Berlin<br>
+        office@safezone-postproduction.de<br>
+        HRB 276247 B<br>
+        Amtsgericht Berlin Charlottenburg<br>
+        USt-ID: DEXXXXXXXXXX
+      </p>
     </div>
   </section>
 
