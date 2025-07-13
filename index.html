@@ -150,7 +150,27 @@
       transition: background 0.3s ease;
     }
     #topBtn:hover { background-color: #d1155c; }
-  </style>
+    .logo-hover {
+    width: 300px;
+    height: auto;
+    aspect-ratio: 3/2;
+    background: #000;
+    -webkit-mask-image: url('logo.png');
+    mask-image: url('logo.png');
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    transition: background 0.6s ease;
+  }
+
+  .logo-hover:hover {
+    background: linear-gradient(135deg, #d1155c, #f58447);
+  }
+
+$1
 </head>
 <body>
   <!-- Navigation -->
@@ -171,19 +191,103 @@
 
   <!-- Home Section -->
   <section id="home">
-  <div style="display: flex; justify-content: center; align-items: center; height: 100vh;">
-    <img src="logo.png" alt="SafeZone Logo" style="width: 300px; height: auto;">
-  </div>
+  <div style="display: flex; justify-content: center; align-items: flex-start; height: 100vh; padding-top: 10vh;">
+  <div class="logo-hover"></div>
+</div>
 </section>
 
   $1
 
   $1
 
-  <!-- Kontakt Section -->
+  <!-- Wer sind wir? Section -->
+<section id="wer-sind-wir" class="section-diagonal">
+  <div class="inner">
+    <h2>Wer sind wir?</h2>
+    <p class="intro-text">
+      Gute Kampagnen entstehen nicht von allein. Gute Prozesse auch nicht.<br>
+      Wenn vieles gleichzeitig passieren muss, halten wir die Fäden zusammen. Wir koordinieren, strukturieren, priorisieren – und sorgen dafür, dass aus vielen Einzelteilen ein starkes Ganzes wird.<br><br>
+      Wir sind Möglichmacher:innen, Sparringspartner und kreative Ordnungsfanatiker – mit einem wachen Blick fürs große Ganze und einem klaren Gespür fürs Detail.<br>
+      Wir bleiben konzentriert, wenn’s eng wird – und beweglich, wenn sich was ändert.<br><br>
+      Ob für Marken, Agenturen oder Kolleg:innen:<br>
+      Gute Arbeit braucht nicht nur Talent und gute Ideen, sondern auch ein stabiles Umfeld. Genau das schaffen wir. Wir liefern nicht einfach ab. Wir liefern Qualität.
+    </p>
+    <div class="infoboxes">
+      <div class="box">
+        <div class="icon">🧭</div>
+        <strong>SafeZone für Kund:innen</strong><br>
+        Weil wir den Überblick behalten – und Verantwortung übernehmen.<br>
+        Wir strukturieren, priorisieren und kommunizieren.
+      </div>
+      <div class="box">
+        <div class="icon">⚙️</div>
+        <strong>SafeZone für Projekte</strong><br>
+        Weil wir früh mitdenken, klar steuern und sauber abliefern.<br>
+        Komplexität schreckt uns nicht ab – sie motiviert uns.
+      </div>
+      <div class="box">
+        <div class="icon">👥</div>
+        <strong>SafeZone für Kolleg:innen und Geschäftspartner</strong><br>
+        Weil gutes Arbeiten mit gutem Miteinander beginnt.<br>
+        Offene Kommunikation, gegenseitiges Vertrauen und ein respektvoller Umgang auf Augenhöhe.
+      </div>
+      <div class="box">
+        <div class="icon">🧪</div>
+        <strong>SafeZone für Qualität</strong><br>
+        Weil wir dafür sorgen, dass die Qualität bis zur Auslieferung stimmt.<br>
+        Präzise, verantwortungsvoll – und auf dem Qualitätsniveau, das unsere Kund:innen erwarten und die Projekte verdienen.
+      </div>
+      <div class="box">
+        <div class="icon">📈</div>
+        <strong>SafeZone für Entwicklung</strong><br>
+        Weil wir nicht nur liefern, sondern besser werden wollen – mit jedem Projekt.<br>
+        Wir hinterfragen Prozesse, optimieren Strukturen und integrieren neue Technologien – dort, wo sie echten Mehrwert bringen.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Was tun wir Section -->
+<section id="was-tun-wir">
+  <div class="inner">
+    <h2>Was tun wir?</h2>
+    <p>
+      Wir machen Kampagnenumsetzung effizient, präzise und verlässlich – mit Inhalten, die wirken und Prozessen, die halten.
+    </p>
+    <h3>🎯 Campaign Assets & Adaptionen</h3>
+    <ul>
+      <li>Bewegtbild-Inhalte für TV, Kino, Social Media, DOOH, In-Store, Außenwerbung etc.</li>
+      <li>Cutdowns, Formatadaptionen</li>
+      <li>Versionierung nach Sprache, Plattform, Format, Vermarkter</li>
+      <li>Encoding, Finishing, Mastering</li>
+    </ul>
+    <h3>🛍️ Produktbühnen & Markeninszenierung</h3>
+    <ul>
+      <li>Visuelle Produktwelten für TV, Retail, POS & Digital</li>
+      <li>CI-Entwicklung & visuelle Sprache</li>
+      <li>Motion Design & Animation</li>
+      <li>Titelanimation/Super, Untertitel</li>
+    </ul>
+    <h3>🤝 Projektmanagement & Schnittstelle</h3>
+    <ul>
+      <li>Steuerung zwischen Agentur, Kunde, Produktion, Media & Dienstleistern</li>
+      <li>Briefings, Timings, Budgetabstimmungen</li>
+      <li>Beratung zu Abläufen, Aufwand & Machbarkeit</li>
+    </ul>
+    <h3>✅ Qualitätssicherung & Übergabe</h3>
+    <ul>
+      <li>Versionen- & Freigabemanagement</li>
+      <li>Sendekopie-Versand & Übergabe an Media</li>
+      <li>Tech Checks & Qualitätskontrolle (Audio, Bild, Timing etc.)</li>
+    </ul>
+    <p>Ob Einzelspot oder internationaler Roll-out – wir sorgen dafür, dass alles passt. Und zwar bis zur letzten Sekunde.</p>
+  </div>
+</section>
+
+$1
   <section id="kontakt">
     <div class="inner">
-      <h2>Let’s connect</h2>
+      <h2 style="text-align: center;">Let’s connect</h2>
       <p>
         <a href="mailto:office@safezone-postproduction.de">office@safezone-postproduction.de</a><br>
         <a href="tel:+4917655110600">+49 176 5511 0600</a>
