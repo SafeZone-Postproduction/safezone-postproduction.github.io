@@ -69,6 +69,10 @@
       will-change: transform;
     }
     @media (max-width: 600px) {
+      canvas {
+        width: 90vw;
+        height: auto;
+      }
       .loading-text {
         font-size: 1.3rem;
         padding: 0 0.5rem;
@@ -96,6 +100,9 @@
       img.onload = function() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0, 600, 323);
+      };
+      img.onerror = function() {
+        console.error("Bild konnte nicht geladen werden: logo.png");
       };
       canvas.addEventListener('mousemove', function(e) {
         const rect = canvas.getBoundingClientRect();
