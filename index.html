@@ -1,355 +1,145 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SafeZone Postproduction</title>
-  <meta name="description" content="Postproduktion mit Liebe zum Detail – SafeZone Postproduction" />
-  <meta name="robots" content="index, follow" />
+  <title>Something new is taking shape</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
     body {
-  font-family: 'Helvetica Neue', sans-serif;
-  background: #ffffff;
-  color: #0f0f0f;
-  scroll-behavior: smooth;
-  min-height: 100vh;
-}
-
-    /* Navigation */
-    .navbar {
-  position: sticky;
-  top: 0;
-  background: #ffffff;
-  padding: 1rem 2rem;
-  z-index: 999;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-    .nav-inner {
+      min-height: 100vh;
+      background: #fff;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
+      justify-content: center;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      overflow: hidden;
     }
-    .logo {
-      font-weight: bold;
-      color: #f58447;
-      font-size: 1.2rem;
-    }
-    .menu-toggle {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #fff;
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-    .nav-links a {
-  text-decoration: none;
-  background: linear-gradient(135deg, #d1155c, #f58447);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 500;
-}
-    .nav-links a:hover {
-      color: #f58447;
-    }
-    @media (max-width: 768px) {
-      .menu-toggle { display: block; }
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 1rem;
-        background: #111;
-        position: absolute;
-        right: 2rem;
-        top: 70px;
-        padding: 1rem;
-        border-radius: 8px;
-      }
-      .nav-links.show { display: flex; }
-    }
-
-    /* Sections */
-    section { padding: 6rem 2rem; }
-    .inner { max-width: 1000px; margin: 0 auto; }
-
-    $1
-
-    .scroll-indicator {
-      font-size: 2rem;
-      text-align: center;
-      color: #999;
-      margin-top: 2rem;
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(8px); }
-    }
-    .scrolled .logo-container {
-  display: none;
-}
-
-    /* Wer sind wir */
-    .section-diagonal {
-      background: linear-gradient(135deg, #d1155c, #f58447);
-      transform: skewY(-6deg);
-      color: #fff;
-    }
-    .section-diagonal .inner { transform: skewY(6deg); }
-    .section-diagonal h2 {
-      font-size: 2.5rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .intro-text {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      margin-bottom: 3rem;
-    }
-    .infoboxes {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-    .box {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 16px;
-      padding: 1.5rem;
-    }
-    .box:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-    .icon {
-      font-size: 2rem;
+    canvas {
       display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: 70px;
     }
-
-    /* Scroll to top */
-    #topBtn {
-      display: none;
-      position: fixed;
-      bottom: 40px;
-      right: 30px;
-      z-index: 999;
-      font-size: 20px;
-      background-color: #f58447;
-      color: white;
-      border: none;
-      padding: 12px 16px;
+    .loading-container {
+      position: relative;
+      width: 100vw;
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .loading-text {
+      font-size: 2.3rem;
+      font-weight: 600;
+      color: #222;
+      letter-spacing: 0.01em;
+      text-align: center;
+      margin-bottom: 0;
+      position: relative;
+      z-index: 1;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      min-height: 2.5em;
+      white-space: nowrap;
+      overflow-x: auto;
+      max-width: 100vw;
+    }
+    .ball {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #d1155c, #f58447);
       border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      transition: background 0.3s ease;
+      box-shadow: 0 4px 16px rgba(245,132,71,0.18);
+      z-index: 2;
+      pointer-events: none;
+      will-change: transform;
     }
-    #topBtn:hover { background-color: #d1155c; }
-    $1
-}
-
-  .logo-hover:hover {
-    background: linear-gradient(135deg, #d1155c, #f58447);
-  }
-
-$1
-  </style>$2
+    @media (max-width: 600px) {
+      canvas { width: 98vw !important; height: 52vw !important; min-width: 220px; min-height: 120px; }
+      .loading-text { font-size: 1.3rem; }
+      .ball { width: 26px; height: 26px; }
+    }
+  </style>
+</head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-inner">
-      <div class="logo">SAFEZONE</div>
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#wer-sind-wir">Wer sind wir?</a></li>
-        <li><a href="#was-tun-wir">Was tun wir?</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-        <li><a href="#datenschutz">Datenschutz</a></li>
-        <li><a href="#impressum">Impressum</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Home Section -->
-  <section id="home">
-  <div style="display: flex; justify-content: center; align-items: flex-start; height: 100vh; padding-top: 10vh;">
-  <div class="logo-hover"></div>
-</div>
-</section>
-
-  $1
-
-  $1
-
-  <!-- Wer sind wir? Section -->
-<section id="wer-sind-wir" class="section-diagonal">
-  <div class="inner">
-    <h2>Wer sind wir?</h2>
-    <p class="intro-text">
-      Gute Kampagnen entstehen nicht von allein. Gute Prozesse auch nicht.<br>
-      Wenn vieles gleichzeitig passieren muss, halten wir die Fäden zusammen. Wir koordinieren, strukturieren, priorisieren – und sorgen dafür, dass aus vielen Einzelteilen ein starkes Ganzes wird.<br><br>
-      Wir sind Möglichmacher:innen, Sparringspartner und kreative Ordnungsfanatiker – mit einem wachen Blick fürs große Ganze und einem klaren Gespür fürs Detail.<br>
-      Wir bleiben konzentriert, wenn’s eng wird – und beweglich, wenn sich was ändert.<br><br>
-      Ob für Marken, Agenturen oder Kolleg:innen:<br>
-      Gute Arbeit braucht nicht nur Talent und gute Ideen, sondern auch ein stabiles Umfeld. Genau das schaffen wir. Wir liefern nicht einfach ab. Wir liefern Qualität.
-    </p>
-    <div class="infoboxes">
-      <div class="box">
-        <div class="icon">🧭</div>
-        <strong>SafeZone für Kund:innen</strong><br>
-        Weil wir den Überblick behalten – und Verantwortung übernehmen.<br>
-        Wir strukturieren, priorisieren und kommunizieren.
-      </div>
-      <div class="box">
-        <div class="icon">⚙️</div>
-        <strong>SafeZone für Projekte</strong><br>
-        Weil wir früh mitdenken, klar steuern und sauber abliefern.<br>
-        Komplexität schreckt uns nicht ab – sie motiviert uns.
-      </div>
-      <div class="box">
-        <div class="icon">👥</div>
-        <strong>SafeZone für Kolleg:innen und Geschäftspartner</strong><br>
-        Weil gutes Arbeiten mit gutem Miteinander beginnt.<br>
-        Offene Kommunikation, gegenseitiges Vertrauen und ein respektvoller Umgang auf Augenhöhe.
-      </div>
-      <div class="box">
-        <div class="icon">🧪</div>
-        <strong>SafeZone für Qualität</strong><br>
-        Weil wir dafür sorgen, dass die Qualität bis zur Auslieferung stimmt.<br>
-        Präzise, verantwortungsvoll – und auf dem Qualitätsniveau, das unsere Kund:innen erwarten und die Projekte verdienen.
-      </div>
-      <div class="box">
-        <div class="icon">📈</div>
-        <strong>SafeZone für Entwicklung</strong><br>
-        Weil wir nicht nur liefern, sondern besser werden wollen – mit jedem Projekt.<br>
-        Wir hinterfragen Prozesse, optimieren Strukturen und integrieren neue Technologien – dort, wo sie echten Mehrwert bringen.
-      </div>
-    </div>
+  <canvas id="logoAdhs" width="600" height="323" style="display:block;margin-bottom:70px;"></canvas>
+  <div style="height: 40px;"></div>
+  <div class="loading-container">
+    <div class="loading-text" id="loadingText">Hier entsteht etwas Neues – noch einen Moment Geduld.</div>
+    <div class="ball" id="bouncingBall"></div>
   </div>
-</section>
-
-<!-- Was tun wir Section -->
-<section id="was-tun-wir">
-  <div class="inner">
-    <h2>Was tun wir?</h2>
-    <p>
-      Wir machen Kampagnenumsetzung effizient, präzise und verlässlich – mit Inhalten, die wirken und Prozessen, die halten.
-    </p>
-    <h3>🎯 Campaign Assets & Adaptionen</h3>
-    <ul>
-      <li>Bewegtbild-Inhalte für TV, Kino, Social Media, DOOH, In-Store, Außenwerbung etc.</li>
-      <li>Cutdowns, Formatadaptionen</li>
-      <li>Versionierung nach Sprache, Plattform, Format, Vermarkter</li>
-      <li>Encoding, Finishing, Mastering</li>
-    </ul>
-    <h3>🛍️ Produktbühnen & Markeninszenierung</h3>
-    <ul>
-      <li>Visuelle Produktwelten für TV, Retail, POS & Digital</li>
-      <li>CI-Entwicklung & visuelle Sprache</li>
-      <li>Motion Design & Animation</li>
-      <li>Titelanimation/Super, Untertitel</li>
-    </ul>
-    <h3>🤝 Projektmanagement & Schnittstelle</h3>
-    <ul>
-      <li>Steuerung zwischen Agentur, Kunde, Produktion, Media & Dienstleistern</li>
-      <li>Briefings, Timings, Budgetabstimmungen</li>
-      <li>Beratung zu Abläufen, Aufwand & Machbarkeit</li>
-    </ul>
-    <h3>✅ Qualitätssicherung & Übergabe</h3>
-    <ul>
-      <li>Versionen- & Freigabemanagement</li>
-      <li>Sendekopie-Versand & Übergabe an Media</li>
-      <li>Tech Checks & Qualitätskontrolle (Audio, Bild, Timing etc.)</li>
-    </ul>
-    <p>Ob Einzelspot oder internationaler Roll-out – wir sorgen dafür, dass alles passt. Und zwar bis zur letzten Sekunde.</p>
-  </div>
-</section>
-
-$1
-  <section id="kontakt">
-    <div class="inner">
-      <h2 style="text-align: center;">Let’s connect</h2>
-      <p>
-        <a href="mailto:office@safezone-postproduction.de">office@safezone-postproduction.de</a><br>
-        <a href="tel:+4917655110600">+49 176 5511 0600</a>
-      </p>
-      <div class="team-contacts" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
-        <div class="profile-card" style="max-width: 280px; text-align: center;">
-          <img src="Anica.png" alt="Anica Walz" style="width: 100%; border-radius: 12px;">
-          <h3>Anica Walz</h3>
-          <p>GF | Senior Postproducerin</p>
-          <a href="mailto:anica@safezone-postproduction.de">anica@safezone-postproduction.de</a><br>
-          <a href="tel:+4917655110600">+49 176 5511 0600</a>
-        </div>
-        <div class="profile-card" style="max-width: 280px; text-align: center;">
-          <img src="Emily.png" alt="Emily Imhof" style="width: 100%; border-radius: 12px;">
-          <h3>Emily Imhof</h3>
-          <p>GF | Senior Motion Designerin</p>
-          <a href="mailto:emily@safezone-postproduction.de">emily@safezone-postproduction.de</a><br>
-          <a href="tel:+49176XXXXXXX">+49 176 XXXXXXX</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Datenschutz Section -->
-  <section id="datenschutz">
-    <div class="inner">
-      <h2>Datenschutz</h2>
-      <p>Diese Website erhebt keine personenbezogenen Daten. Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir Ihre Daten ausschließlich zur Bearbeitung Ihrer Anfrage und gemäß den gesetzlichen Datenschutzbestimmungen.</p>
-    </div>
-  </section>
-
-  <!-- Impressum Section -->
-  <section id="impressum">
-    <div class="inner">
-      <h2>Impressum</h2>
-      <p>
-        SafeZone Postproduction GmbH<br>
-        Anica Walz<br>
-        Stargarder Straße 35<br>
-        10347 Berlin<br>
-        office@safezone-postproduction.de<br>
-        HRB 276247 B<br>
-        Amtsgericht Berlin Charlottenburg<br>
-        USt-ID: DEXXXXXXXXXX
-      </p>
-    </div>
-  </section>
-
-$1
-  <button onclick="topFunction()" id="topBtn" title="Nach oben">↑</button>
-
-  <!-- JavaScript -->
   <script>
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("show");
+    // Logo Hover Effekt als Canvas mit Cursor-abhängigem Farbverlauf
+    const canvas = document.getElementById('logoAdhs');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      const img = new Image();
+      img.src = 'logo.png';
+      img.onload = function() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(img, 0, 0, 600, 323);
+      };
+      canvas.addEventListener('mousemove', function(e) {
+        // Nicht mehr löschen, sondern Verlauf dauerhaft hinzufügen
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        ctx.save();
+        ctx.globalCompositeOperation = 'source-atop';
+        const gradient = ctx.createRadialGradient(x, y, 0, x, y, 32);
+        gradient.addColorStop(0, '#f58447');
+        gradient.addColorStop(1, 'rgba(209,21,92,0.7)');
+        ctx.beginPath();
+        ctx.arc(x, y, 32, 0, 2 * Math.PI);
+        ctx.closePath();
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        ctx.restore();
+      });
     }
-    window.onscroll = function () {
-      const btn = document.getElementById("topBtn");
-      if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
-        btn.style.display = "block";
-      } else {
-        btn.style.display = "none";
-      }
 
-      // Add class to trigger logo background change
-      if (document.documentElement.scrollTop > 100) {
-        document.body.classList.add("scrolled");
-      } else {
-        document.body.classList.remove("scrolled");
+    // Ball-Animation über Text: von links nach rechts, hüpfend
+    const textEl = document.getElementById('loadingText');
+    const ball = document.getElementById('bouncingBall');
+    function animateBouncingBall() {
+      const textRect = textEl.getBoundingClientRect();
+      const containerRect = textEl.parentElement.getBoundingClientRect();
+      const startX = textRect.left - containerRect.left;
+      const endX = textRect.right - containerRect.left;
+      const baseY = textRect.top - containerRect.top - ball.offsetHeight - 18;
+      let x = startX;
+      const amplitudeStart = 56; // große Sprünge am Anfang
+      const amplitudeEnd = 18;   // kleine Sprünge am Ende
+      const periodStart = 160;   // weite Sprünge am Anfang
+      const periodEnd = 60;      // kurze Sprünge am Ende
+      const speedStart = 0.9;    // langsam am Anfang
+      const speedEnd = 2.5;      // schnell am Ende
+      function lerp(a, b, t) { return a + (b - a) * t; }
+      function loop() {
+        const progress = (x - startX) / (endX - startX);
+        const amplitude = lerp(amplitudeStart, amplitudeEnd, progress);
+        const period = lerp(periodStart, periodEnd, progress);
+        const speed = lerp(speedStart, speedEnd, progress);
+        const y = baseY - Math.abs(Math.sin(((x - startX) / period) * Math.PI)) * amplitude;
+        ball.style.transform = `translate(${x}px, ${y}px)`;
+        x += speed;
+        if (x <= endX - ball.offsetWidth/2) {
+          requestAnimationFrame(loop);
+        } else {
+          x = startX;
+          requestAnimationFrame(loop);
+        }
       }
-    };
-
-    function topFunction() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      loop();
     }
+    setTimeout(animateBouncingBall, 600);
   </script>
 </body>
 </html>
