@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,6 +9,10 @@
       height: 100%;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    *, *::before, *::after {
+      box-sizing: inherit;
     }
     body {
       min-height: 100vh;
@@ -19,19 +23,23 @@
       justify-content: center;
       font-family: 'Helvetica Neue', Arial, sans-serif;
       overflow: hidden;
+      padding: 1rem;
     }
     canvas {
       display: block;
       margin-bottom: 70px;
+      max-width: 100%;
+      height: auto;
     }
     .loading-container {
       position: relative;
-      width: 100vw;
+      width: 100%;
       max-width: 900px;
       margin: 0 auto;
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding: 0 1rem;
     }
     .loading-text {
       font-size: 2.3rem;
@@ -44,9 +52,8 @@
       z-index: 1;
       font-family: 'Helvetica Neue', Arial, sans-serif;
       min-height: 2.5em;
-      white-space: nowrap;
-      overflow-x: auto;
-      max-width: 100vw;
+      word-wrap: break-word;
+      white-space: normal;
     }
     .ball {
       position: absolute;
@@ -62,21 +69,25 @@
       will-change: transform;
     }
     @media (max-width: 600px) {
-      canvas { width: 98vw !important; height: 52vw !important; min-width: 220px; min-height: 120px; }
-      .loading-text { font-size: 1.3rem; }
-      .ball { width: 26px; height: 26px; }
+      .loading-text {
+        font-size: 1.3rem;
+        padding: 0 0.5rem;
+      }
+      .ball {
+        width: 26px;
+        height: 26px;
+      }
     }
   </style>
 </head>
 <body>
-  <canvas id="logoAdhs" width="600" height="323" style="display:block;margin-bottom:70px;"></canvas>
+  <canvas id="logoAdhs" width="600" height="323"></canvas>
   <div style="height: 40px;"></div>
   <div class="loading-container">
     <div class="loading-text" id="loadingText">Hier entsteht etwas Neues – noch einen Moment Geduld.</div>
     <div class="ball" id="bouncingBall"></div>
   </div>
   <script>
-    // Logo Hover Effekt als Canvas mit Cursor-abhängigem Farbverlauf
     const canvas = document.getElementById('logoAdhs');
     if (canvas) {
       const ctx = canvas.getContext('2d');
@@ -87,7 +98,6 @@
         ctx.drawImage(img, 0, 0, 600, 323);
       };
       canvas.addEventListener('mousemove', function(e) {
-        // Nicht mehr löschen, sondern Verlauf dauerhaft hinzufügen
         const rect = canvas.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -105,7 +115,6 @@
       });
     }
 
-    // Ball-Animation über Text: von links nach rechts, hüpfend
     const textEl = document.getElementById('loadingText');
     const ball = document.getElementById('bouncingBall');
     function animateBouncingBall() {
@@ -115,12 +124,12 @@
       const endX = textRect.right - containerRect.left;
       const baseY = textRect.top - containerRect.top - ball.offsetHeight - 18;
       let x = startX;
-      const amplitudeStart = 56; // große Sprünge am Anfang
-      const amplitudeEnd = 18;   // kleine Sprünge am Ende
-      const periodStart = 160;   // weite Sprünge am Anfang
-      const periodEnd = 60;      // kurze Sprünge am Ende
-      const speedStart = 0.9;    // langsam am Anfang
-      const speedEnd = 2.5;      // schnell am Ende
+      const amplitudeStart = 56;
+      const amplitudeEnd = 18;
+      const periodStart = 160;
+      const periodEnd = 60;
+      const speedStart = 0.9;
+      const speedEnd = 2.5;
       function lerp(a, b, t) { return a + (b - a) * t; }
       function loop() {
         const progress = (x - startX) / (endX - startX);
