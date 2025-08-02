@@ -1664,11 +1664,14 @@ const triggers = [
   ...document.querySelectorAll(".deconstructed-card"),
   ...document.querySelectorAll('.kontakt-mail'),
   ...document.querySelectorAll('a[href^="tel:+4917655110600"], a[href^="tel:+4915565101183"]'),
+  ...document.querySelectorAll('.nav-links a'),           // <-- Navlinks als Trigger
+  scrollDownBtn,                                          // <-- Scroll Down Button
+  scrollUpBtn                                             // <-- Scroll Up Button
 ].filter(Boolean);
 
 // Cursor-Animation
 function startRotation() {
-  if (isOverTrigger) return;
+  if (rotationTween) return; // Nur starten, wenn nicht schon aktiv
   gsap.set(cursor, { rotation: currentRotation });
   rotationTween = gsap.to(cursor, { rotation: "+=360", duration: 2.4, repeat: -1, ease: "linear", transformOrigin: "center center" });
 }
@@ -1676,24 +1679,31 @@ function stopRotation() {
   if (rotationTween) {
     currentRotation = gsap.getProperty(cursor, "rotation") % 360;
     rotationTween.kill();
+    rotationTween = null;
   }
 }
-function isVisible(el) {
-  return !!(el && (el.offsetParent !== null || (el instanceof SVGElement && el.getBBox().width > 0 && el.getBBox().height > 0)) && window.getComputedStyle(el).display !== 'none' && window.getComputedStyle(el).visibility !== 'hidden');
-}
+let mouseX = 0, mouseY = 0;
+
 document.addEventListener("mousemove", (e) => {
-  gsap.to(cursor, {autoAlpha: 1});
-  gsap.to(cursorPt, {autoAlpha: 1});
-  const el = document.elementFromPoint(e.clientX, e.clientY);
-  const onTrigger = triggers.some(t => isVisible(t) && (t === el || t.contains(el)));
-  if (!onTrigger) {
-    isOverTrigger = false;
-    currentTrigger = null;
-    gsap.to(cursor, { x: e.clientX - 16, y: e.clientY - 16, width: 32, height: 32, scale: 1, rotation: "+=0", duration: 0.1, ease: "expo.out" });
-    if (!rotationTween) startRotation();
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  gsap.to(cursorPt, {
+    x: mouseX - 3.5,
+    y: mouseY - 3.5,
+    duration: 0.1,
+    ease: "expo.out"
+  });
+  // Nur wenn NICHT über Trigger, Cursor bewegen!
+  if (!isOverTrigger) {
+    gsap.to(cursor, {
+      x: mouseX - 16,
+      y: mouseY - 16,
+      duration: 0.1,
+      ease: "expo.out"
+    });
   }
-  gsap.to(cursorPt, { x: e.clientX - 3.5, y: e.clientY - 3.5, duration: 0.1, ease: "expo.out" });
 });
+
 triggers.forEach(trigger => {
   trigger.addEventListener("mouseenter", (e) => {
     isOverTrigger = true; currentTrigger = trigger; stopRotation();
@@ -1703,26 +1713,57 @@ triggers.forEach(trigger => {
       rect = content ? content.getBoundingClientRect() : trigger.getBoundingClientRect();
     } else rect = trigger.getBoundingClientRect();
     if (exitTween) exitTween.kill();
-    enterTween = gsap.to(cursor, { width: rect.width + padding * 2, height: rect.height + padding * 2, duration: 0.2, scale: 1.1, rotation: 0, x: rect.left - padding, y: rect.top - padding, ease: "expo.out" });
+    // Cursor direkt auf die aktuelle Mausposition im Trigger setzen!
+    const dx = e.clientX - rect.left;
+    const dy = e.clientY - rect.top;
+    enterTween = gsap.to(cursor, {
+      width: rect.width + padding * 2,
+      height: rect.height + padding * 2,
+      scale: 1.1,
+      rotation: 0,
+      x: rect.left + dx * 0.09,
+      y: rect.top + dy * 0.09,
+      duration: 0.2,
+      ease: "expo.out"
+    });
   });
   trigger.addEventListener("mousemove", (e) => {
-    if (!isOverTrigger) return;
-    let rect, padding = 0;
-    if (trigger.classList && trigger.classList.contains('faecher-box')) {
-      const content = trigger.querySelector('.faecher-content');
-      rect = content ? content.getBoundingClientRect() : trigger.getBoundingClientRect();
-    } else rect = trigger.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2, cy = rect.top + rect.height / 2, dx = e.clientX - cx, dy = e.clientY - cy;
-    gsap.to(cursor, { x: cx - (rect.width / 2 + padding) + dx * 0.09, y: cy - (rect.height / 2 + padding) + dy * 0.09, width: rect.width + padding * 2, height: rect.height + padding * 2, scale: 1.1, duration: 0.1, ease: "power2.out" });
+  if (!isOverTrigger) return;
+  let rect, padding = 0;
+  if (trigger.classList && trigger.classList.contains('faecher-box')) {
+    const content = trigger.querySelector('.faecher-content');
+    rect = content ? content.getBoundingClientRect() : trigger.getBoundingClientRect();
+  } else rect = trigger.getBoundingClientRect();
+
+  // Magnetfaktor wie in der Vorlage
+  const factor = 0.09;
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  const dx = e.clientX - cx;
+  const dy = e.clientY - cy;
+
+  gsap.to(cursor, {
+    x: rect.left + dx * factor,
+    y: rect.top + dy * factor,
+    width: rect.width + padding * 2,
+    height: rect.height + padding * 2,
+    scale: 1.1,
+    duration: 0.1,
+    ease: "power2.out"
   });
+});
   trigger.addEventListener("mouseleave", (e) => {
-    const el = document.elementFromPoint(e.clientX, e.clientY);
-    const stillOnTrigger = triggers.some(t => isVisible(t) && (t === el || t.contains(el)));
-    if (!stillOnTrigger) {
-      isOverTrigger = false; currentTrigger = null;
-      exitTween = gsap.to(cursor, { x: e.clientX - 16, y: e.clientY - 16, width: 32, height: 32, scale: 1, duration: 0.5, ease: "elastic.out(1, .9)" });
-      startRotation();
-    }
+    isOverTrigger = false;
+    currentTrigger = null;
+    if (exitTween) exitTween.kill();
+    exitTween = gsap.to(cursor, {
+      width: 32,
+      height: 32,
+      scale: 1,
+      duration: 0.5,
+      ease: "elastic.out(1, .9)"
+    });
+    startRotation();
   });
 });
 startRotation();
