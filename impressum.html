@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum – SafeZone Postproduction</title>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500&family=Inter:wght@400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100vw;
+      min-height: 100vh;
+      background: #f1c1db;
+      color: #2d1a45;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1.08rem;
+      line-height: 1.7;
+      text-align: left;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    h1 {
+      font-family: 'Anton', Impact, 'Arial Black', sans-serif;
+      color: #2d1a45;
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      letter-spacing: -0.01em;
+      text-align: left;
+    }
+    h2, b, strong {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      color: #2d1a45;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-top: 2.2rem;
+      margin-bottom: 0.7rem;
+      letter-spacing: 0;
+      text-align: left;
+      display: block;
+    }
+    ul, ol {
+      margin-left: 1.2rem;
+      display: block;
+      text-align: left;
+    }
+    li { margin-bottom: 0.5rem; }
+    a { color: #2d1a45; text-decoration: underline; }
+    p { text-align: left; }
+    .navbar {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      background: none;
+      padding: 0;
+      z-index: 999;
+      box-shadow: none;
+    }
+    .nav-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      max-width: none;
+      margin: 0;
+      gap: 2rem;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #f1c1db;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      justify-content: center;
+      align-items: flex-end;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #f1c1db;
+      font-weight: 300;
+      font-size: 1.1rem;
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: normal;
+      transition: all 0.3s ease;
+      text-shadow: none;
+      background-color: #2d1a45;
+      padding: 0.6rem 1.2rem;
+      border-radius: 0px;
+      min-width: 100px;
+      text-align: center;
+    }
+    .nav-links a:hover {
+      opacity: 0.8;
+      transform: translateY(-2px);
+    }
+    #cursor {
+      --color: #fff;
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      pointer-events: none;
+      z-index: 10000;
+      visibility: visible;
+      background-image: linear-gradient(to right, var(--color) 10px, transparent 0),
+        linear-gradient(to bottom, var(--color) 10px, transparent 0),
+        linear-gradient(to left, var(--color) 10px, transparent 0),
+        linear-gradient(to bottom, var(--color) 10px, transparent 0),
+        linear-gradient(to right, var(--color) 10px, transparent 0),
+        linear-gradient(to top, var(--color) 10px, transparent 0),
+        linear-gradient(to left, var(--color) 10px, transparent 0),
+        linear-gradient(to top, var(--color) 10px, transparent 0);
+      background-repeat: no-repeat;
+      background-position: top left, top left, top right, top right, bottom left, bottom left, bottom right, bottom right;
+      background-size: 20px 2px, 2px 20px, 20px 2px, 2px 20px, 20px 2px, 2px 20px,
+        20px 2px, 2px 20px;
+      opacity: 1 !important;
+      left: 0; top: 0;
+      transition: none;
+    }
+    #cursorPt {
+      position: fixed;
+      width: 7px;
+      height: 7px;
+      pointer-events: none;
+      z-index: 9999;
+      background: #fff;
+      border-radius: 50%;
+      visibility: visible;
+      left: 0;
+      top: 0;
+      transition: none;
+    }
+    @media (max-width: 700px) {
+      body { padding: 1.2rem 0.7rem; max-width: 98vw; }
+      .navbar { top: 1rem; right: 1rem; }
+      .nav-links { gap: 1.2rem; }
+      .nav-links a { font-size: 1rem; padding: 0.6rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor"></div>
+  <div id="cursorPt"></div>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#leistungen">Leistungen</a></li>
+        <li><a href="index.html#profil">Profil</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+    <h1>Impressum</h1>
+    <p><b>Angaben gemäß § 5 TMG:</b></p>
+    <p>SafeZone Postproduction GmbH<br>
+    ℅ Anica Walz<br>
+    Stargarder Str. 35<br>
+    10437 Berlin</p>
+    <p><b>Vertreten durch:</b><br>
+    Emily Imhof, Anica Walz</p>
+    <p><b>Kontakt:</b><br>
+    E-Mail: <a href="mailto:office@safezone-postproduction.de">office@safezone-postproduction.de</a></p>
+    <p><b>Registereintrag:</b><br>
+    Eintragung im Handelsregister.<br>
+    Registergericht: Amtsgericht Charlottenburg<br>
+    Registernummer: HRB 276247 B</p>
+    <p><b>Umsatzsteuer:</b><br>
+    Umsatzsteuer-Identifikationsnummer gemäß § 27 a UStG: [wird nachgereicht]</p>
+    <p><b>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</b><br>
+    SafeZone Postproduction GmbH<br>
+    Stargarder Str. 35<br>
+    10437 Berlin</p>
+<script>
+// Fadenkreuz-Cursor mit Rotation wie auf index.html
+const cursor = document.getElementById("cursor");
+const cursorPt = document.getElementById("cursorPt");
+let rotation = 0;
+let rotationInterval = null;
+function startRotation() {
+  if(rotationInterval) return;
+  rotationInterval = setInterval(() => {
+    rotation = (rotation + 2) % 360;
+    if(cursor) cursor.style.transform = `rotate(${rotation}deg)`;
+  }, 16);
+}
+function stopRotation() {
+  if(rotationInterval) clearInterval(rotationInterval);
+  rotationInterval = null;
+}
+document.addEventListener("mousemove", (e) => {
+  if(cursor) {
+    cursor.style.left = (e.clientX - 16) + "px";
+    cursor.style.top = (e.clientY - 16) + "px";
+    cursor.style.opacity = 1;
+  }
+  if(cursorPt) {
+    cursorPt.style.left = (e.clientX - 3.5) + "px";
+    cursorPt.style.top = (e.clientY - 3.5) + "px";
+    cursorPt.style.opacity = 1;
+  }
+  startRotation();
+});
+document.addEventListener("mouseleave", stopRotation);
+startRotation();
+</script>
+</body>
+</html>

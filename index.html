@@ -1,0 +1,2055 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5JKHZKH68D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5JKHZKH68D');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeZone Postproduction</title>
+  <meta name="description" content="Postproduktion mit Liebe zum Detail – SafeZone Postproduction" />
+  <meta name="robots" content="index, follow" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500&family=Inter:wght@400&display=swap" rel="stylesheet">
+<!-- Standard-Favicon für Browser -->
+<link rel="icon" type="image/png" sizes="48x48" href="/Favicon_pink_48px.png">
+
+<!-- Apple Touch Icon für iOS-Geräte -->
+<link rel="apple-touch-icon" sizes="152x152" href="/Favicon_pink_152px.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  background: #f1c1db;
+  color: #2c1944;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+  cursor: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+    /* Navigation */
+    .navbar {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      background: none;
+      padding: 0;
+      z-index: 999;
+      box-shadow: none;
+    }
+    .nav-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: center;
+      max-width: none;
+      margin: 0;
+      gap: 2rem;
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #fff;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      justify-content: center;
+      align-items: flex-end;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #2d1a45;
+      font-weight: 300;
+      font-size: 1.1rem;
+      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+      letter-spacing: normal;
+      transition: all 0.3s ease;
+      text-shadow: none;
+      background-color: #d83f87;
+      padding: 0.6rem 1.2rem;
+      border-radius: 0px;
+      min-width: 100px;
+      text-align: center;
+    }
+    .nav-links a:hover {
+      opacity: 0.8;
+      transform: translateY(-2px);
+    }
+
+    /* Home Section */
+    #home {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      overflow: hidden;
+      scroll-snap-align: start;
+      background: #2c1944;
+      height: 100vh;
+      width: 100vw;
+    }
+    .home-content {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-adhs-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 343px;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    #logoAdhsVideo {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* Kernkompetenzen Section */
+    .kernkompetenz-section {
+      min-height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #2c1944;
+      position: relative;
+      z-index: 1;
+      overflow: visible;
+      scroll-snap-align: center;
+    }
+    .kernkompetenz-inner {
+      width: 100vw;
+      min-height: 100vh;
+      max-width: 100vw;
+      padding-left: 0;
+      padding-right: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      pointer-events: auto;
+      position: relative;
+    }
+    .kernkompetenz-headline {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 400;
+      font-family: "Anton", Impact, 'Arial Black', sans-serif;
+      max-width: 100vw;
+      width: 100vw;
+      margin: 0 auto 2.5rem auto;
+      text-align: right;
+      color: rgba(255, 255, 255, 0.9);
+      background: none;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      z-index: 10;
+      position: relative;
+      padding-left: 10vw;
+      padding-right: 24vw;
+      user-select: none;
+      display: block;
+      word-break: break-word;
+      overflow-wrap: break-word;
+    }
+    #headline-word-scroll {
+      display: inline-block;
+      padding: 0.18em 0.7em;
+      border-radius: 0;
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s;
+    }
+    /* Mobile only line break after headline-word-scroll */
+    .mobile-br { display: none; }
+    @media (max-width: 700px) { .mobile-br { display: inline; } }
+
+    /* Leistungen Section */
+    #leistungen {
+      padding: 0;
+      min-height: 120vh;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      background: #f1c1db;
+      position: relative;
+      margin-top: 0;
+    }
+    .leistungen-headline {
+      font-family: "Anton", Impact, 'Arial Black', sans-serif;
+      font-size: clamp(1.8rem, 4.2vw, 2.8rem);
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 4rem;
+      margin-top: 6rem;
+      color: #2d1a45;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      max-width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      width: 95%;
+    }
+    #leistungen > .inner {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+    }
+    .leistungen-faecher {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto 0;
+      gap: 0;
+      position: relative;
+      margin-bottom: 8rem;
+      perspective: 1000px;
+    }
+    .faecher-box {
+      width: 100%;
+      position: relative;
+      cursor: pointer;
+      transition: height 0.9s cubic-bezier(.4,1.6,.6,1), min-height 0.9s cubic-bezier(.4,1.6,.6,1), box-shadow 0.5s, background 0.6s, transform 0.5s cubic-bezier(.4,1.6,.6,1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 120px;
+      min-height: unset;
+      z-index: 1;
+      padding: 0;
+      margin-bottom: 1.2rem;
+      transform-origin: center;
+      overflow: hidden;
+      transform-style: preserve-3d;
+    }
+    .faecher-box:hover, .faecher-box.active {
+      transform: scale(1.04);
+      height: auto;
+      min-height: unset;
+      transition: height 0.9s cubic-bezier(.4,1.6,.6,1), min-height 0.9s cubic-bezier(.4,1.6,.6,1), box-shadow 0.5s, background 0.6s, transform 0.5s cubic-bezier(.4,1.6,.6,1);
+    }
+    .faecher-box:hover .faecher-content, .faecher-box.active .faecher-content {
+      padding: 2.2rem 3.2rem 2.2rem 3.2rem;
+      transition: padding 0.7s cubic-bezier(.4,1.6,.6,1);
+    }
+    .faecher-box:hover .faecher-title, .faecher-box.active .faecher-title {
+      color: #2d1a45;
+      background: none;
+      -webkit-text-fill-color: initial;
+      /* text-align: left; entfernt, damit JS wirkt */
+      display: block;
+      align-items: initial;
+      justify-content: initial;
+      width: auto;
+      height: auto;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      transform: scale(1.04);
+      white-space: normal;
+      transition: transform 0.5s cubic-bezier(.4,1.6,.6,1), background 0.6s, color 0.6s, text-align 0.4s;
+    }
+    .faecher-box:hover .faecher-details li, .faecher-box.active .faecher-details li {
+      color: #2d1a45;
+      transition: color 0.5s cubic-bezier(.4,1.6,.6,1);
+    }
+    .faecher-box:hover .faecher-frame .frame-path, .faecher-box.active .faecher-frame .frame-path {
+      stroke: #2d1a45;
+    }
+    .faecher-box:nth-child(1) {
+      background: linear-gradient(135deg, #ba4fcc, #7134c3);
+    }
+    .faecher-box:nth-child(2) {
+      background: linear-gradient(135deg, #ff79b8, #d83f87);
+    }
+    .faecher-box:nth-child(3) {
+      background: linear-gradient(135deg, #cc94fb, #9168b7);
+    }
+    .faecher-box:nth-child(4) {
+      background: linear-gradient(135deg, #ffa7ce, #fd84b7);
+    }
+    .faecher-box::after { display: none; }
+    .faecher-frame {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 1;
+    }
+    .faecher-content {
+      position: relative;
+      padding: 2.2rem 3.2rem 2.2rem 3.2rem;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .faecher-details {
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s cubic-bezier(.4,1.6,.6,1), max-height 0.9s cubic-bezier(.4,1.6,.6,1), transform 0.7s cubic-bezier(.4,1.6,.6,1);
+      max-height: 0;
+      overflow: hidden;
+      width: 100%;
+    }
+    .faecher-box:hover .faecher-details,
+    .faecher-box.active .faecher-details {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+      max-height: 500px;
+      margin-top: 0;
+    }
+    .faecher-title {
+      color: #3f2766;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      text-transform: none;
+      letter-spacing: normal;
+      white-space: normal;
+      line-height: 1.1;
+      transition: transform 0.5s cubic-bezier(.4,1.6,.6,1), background 0.6s, color 0.6s, text-align 0.4s;
+      background: none;
+      -webkit-text-fill-color: initial;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding-left: 0.5em;
+      padding-right: 0.5em;
+      padding-top: 0.3em;
+      padding-bottom: 0.3em;
+    }
+    .faecher-details ul {
+      list-style: none;
+      padding-left: 7rem;
+      padding-right: 0;
+      margin: 0;
+      text-align: left;
+      width: 100%;
+      columns: 2;
+      column-gap: 1rem;
+      transition: none;
+    }
+    .faecher-details li {
+      position: relative;
+      padding-left: 1.2em;
+    }
+    .faecher-details li::before {
+      content: "• ";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: bold;
+      color: currentColor;
+    }
+    .faecher-details li {
+      line-height: 1.4 !important;
+      margin-bottom: 0 !important;
+      padding-top: 0.1em !important;
+      padding-bottom: 0.1em !important;
+    }
+    @media (max-width: 1350px) {
+      .profil-cards-row {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 2.5rem !important;
+      max-width: 840px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      justify-items: center !important;
+    }
+      #profil {
+      min-height: 160vh !important; /* Erhöhe die Höhe nach Bedarf */
+    }
+  }
+    @media (max-width: 700px) {
+      /* 1. Home Logo vertikal mittig */
+      #home {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        min-height: 100vh;
+        position: relative;
+      }
+      .home-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        min-height: 100vh;
+      }
+      .logo-adhs-container {
+        width: 100%;
+        max-width: 300px;
+        min-width: unset;
+        min-height: unset;
+        height: 300px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+      #logoAdhsVideo, #logoAdhsImg {
+        width: 100%;
+        max-width: 300px;
+        height: 100%;
+        min-width: unset;
+        min-height: unset;
+        left: 0;
+        top: 0;
+        object-fit: contain;
+        position: absolute;
+        margin: 0 auto;
+      }
+      /* 2. Navbar Bugfix + Farben + Position */
+      .navbar {
+        top: 1rem;
+        right: 1rem;
+        left: auto;
+        width: auto;
+        background: none;
+        box-shadow: none;
+        z-index: 3000;
+        position: fixed;
+      }
+      .menu-toggle {
+        display: block;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+        max-width: 44px;
+        max-height: 44px;
+        font-size: 1.5rem;
+        border-radius: 50%;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+        cursor: pointer;
+        z-index: 2001;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        background: var(--scrollDownBg, #d83f87);
+        color: var(--scrollDownActiveBg, #2d1a45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s, color 0.3s;
+      }
+      .menu-toggle .burger-lines {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        color: inherit;
+        margin: 0 auto;
+        position: relative;
+        top: 0;
+        left: 0;
+      }
+      .menu-toggle .burger-line {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--scrollDownActiveBg, #2d1a45);
+        border-radius: 2px;
+        transition: all 0.3s;
+        margin: 2.5px 0;
+      }
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        left: auto;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 2.5rem;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 5rem 1rem 2.2rem 2.2rem;
+        z-index: 2002;
+        min-width: 44px;
+        width: auto;
+        height: auto;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+      .nav-links a {
+        /* entfernt: background: none; und color: var(--navColor, ...); damit JS wirkt */
+        font-size: 1.2rem;
+        padding: 0.7rem 1.2rem;
+        min-width: 100px;
+        text-align: right;
+        border-radius: 0rem;
+        font-weight: 600;
+      }
+      /* 2b. Cursor auf Mobil ausblenden */
+      #cursor, #cursorPt {
+        display: none;
+      }
+      /* 3. Kernkompetenzen: Padding rechts/links angleichen */
+      #kernkompetenz-section {
+        padding-left: 0;
+        padding-right: 0;
+        height: 120vh;
+        min-height: 120vh;
+      }
+      .kernkompetenz-inner {
+        padding-left: 0vw;
+        padding-right: 0vw;
+      }
+      .kernkompetenz-headline {
+        font-size: 2rem;
+        padding-left: 0rem;
+        padding-right: 0rem;
+        margin-left: 0;
+        margin-right: 0;
+        line-height: 1.5;
+        text-align: center;
+      }
+      #headline-word-scroll {
+        text-align: center;
+        font-size: 2.6rem;
+        margin-bottom: 2rem;
+      }
+      /* Leistungen mobil: Fächer auf 90% Breite, Text einzeilig, Details einspaltig */
+      #leistungen {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        min-height: 100vh;
+        position: relative;
+      }
+      .leistungen-headline {
+        font-size: 1.3rem !important;
+      }
+      .leistungen-faecher {
+        width: 90vw !important;
+        max-width: 90vw !important;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .faecher-box {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: unset !important;
+      }
+      .faecher-frame {
+    width: 98%;
+    left: 1%;
+    right: 1%;
+    position: absolute;
+  }
+      .faecher-content {
+        padding: 2.2rem 2.2rem 2.2rem 2.2rem;
+        width: 100% !important;
+      }
+        .faecher-box.active .faecher-content,
+        .faecher-box:hover .faecher-content {
+        padding: 2.2rem 2.2rem 2.2rem 2.2rem;
+      }
+      .faecher-title {
+        white-space: nowrap !important;
+        overflow: visible !important;
+        width: 100% !important;
+        text-align: middle !important;
+        font-size: 1.2rem !important;
+      }
+      .faecher-details ul {
+        columns: 1 !important;
+        column-gap: 0 !important;
+        padding-left: 0rem !important;
+        padding-right: 0rem !important;
+        width: 100% !important;
+  }
+      /* Profilseite: 2x2-Grid, volle Breite, Karten mittig, kein Überstand */
+      #profil {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        min-height: 100vh !important;
+        position: relative;
+      }
+      .safezone-claim {
+        font-size: 1.5rem !important;
+        margin-bottom: 5rem !important;
+        margin-top: -4.5rem !important;
+      }
+      .profil-cards-row {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1.2rem !important;
+        max-width: 840px !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        justify-items: center !important;
+      }
+      .deconstructed-card {
+        max-width: 160px !important;
+        min-width: 160px !important;
+        width: 160px !important;
+        height: 243px !important;
+        padding: 0 !important;
+      }
+      .deconstructed-card .card-image svg,
+      .deconstructed-card .card-frame svg {
+        width: 160px !important;
+        height: 230px !important;
+        min-width: 160px !important;
+        min-height: 230px !important;
+        max-width: 160px !important;
+        max-height: 230px !important;
+        display: block;
+      }
+      .deconstructed-card .card-content {
+        padding: 0.3rem 0.2rem 0.3rem 0.2rem !important;
+      }
+      .deconstructed-card .fragment-meta {
+        padding-top: 0rem !important;
+        padding-bottom: 0.05rem !important;
+        font-size: 0.6rem !important;
+      }
+      .deconstructed-card .card-content h2.content-text {
+        font-size: 1.15rem !important;
+        margin-bottom: 0.05em !important;
+        margin-top: 0.05em !important;
+      }
+      .deconstructed-card .fragment-body {
+        padding-left: 0.05rem !important;
+        padding-right: 0.05rem !important;
+        padding-top: 0.3rem !important;
+      }
+      .deconstructed-card .fragment-body .content-text {
+        font-size: 0.6rem !important;
+        padding-top: 1rem !important;
+      }
+      /* Profilseite: Meta und Heading weiter links auf Karten */
+      .deconstructed-card .fragment-meta,
+      .deconstructed-card .fragment-heading {
+        margin-left: -0.9rem !important;
+        text-align: left !important;
+        align-items: flex-start !important;
+      }
+        #kontakt {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        width: 100% !important;
+        }
+        .kontakt-mail {
+    margin-bottom: 2.2rem !important;
+    display: block;
+      }
+  .footer-links {
+    gap: 0.5rem !important;
+  }
+  .footer-link {
+    padding: 0.7rem 1.1rem !important;
+    font-size: 0.93rem !important;
+  }
+  .footer-sep {
+    margin: 0 0.2rem !important;
+  }
+    }
+
+    /* Kontakt */
+    #kontakt {
+      background: #f1c1db;
+      color: #fff;
+      flex: 1 1 auto;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
+      padding-top: 1.2rem;
+      padding-bottom: 0;
+    }
+        #kontakt h2 {
+      font-size: 2.7rem;
+      text-align: center;
+      margin-bottom: 0.7rem;
+      margin-top: 2.5rem;
+      color: #d83f87;
+      font-weight: bold;
+      display: block;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #kontakt .team-contacts-img-wrapper img {
+      max-width: 800px;
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #kontakt, #kontakt * {
+      color: #51318d;
+    }
+    #kontakt .kontakt-mail {
+      color: #51318d;
+      text-decoration: none;
+    }
+    #kontakt .kontakt-person-anica {
+      text-align: left;
+      align-items: flex-start;
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+    }
+    #kontakt .kontakt-person-emily {
+      text-align: right;
+      align-items: flex-end;
+      flex: 1 1 0;
+      display: flex;
+      flex-direction: column;
+    }
+    #kontakt .kontakt-flex-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 2.5rem;
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    #kontakt-legal-links {
+      display: none;
+    }
+    .kontakt-headline {
+      font-family: "Anton", Impact, 'Arial Black', sans-serif;
+      font-size: clamp(1.8rem, 2.8rem);
+      font-weight: 400;
+      text-align: center;
+      margin-top: 0rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+    }
+    .kontakt-name {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 800;
+      line-height: 1.5;
+      margin-bottom: 0.5em;
+      margin-top: 0;
+    }
+    .kontakt-person p,
+    .kontakt-tel {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1.13rem;
+      font-weight: 400;
+      line-height: 1.5;
+      margin: 0 0 0.5em 0;
+    }
+    .kontakt-tel {
+      color: #8265a9;
+      display: block;
+      text-decoration: none;
+    }
+    .team-contacts h3 {
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    .team-contacts p {
+      margin-top: 0;
+      margin-bottom: 0rem;
+    }
+    .team-contacts .kontakt-mail {
+      margin-top: 0rem;
+      margin-bottom: 2.5rem;
+      display: inline-block;
+    }
+    @media (max-width: 760px) {
+      #kontakt .team-contacts-img-wrapper img,
+      #kontakt .team-contacts {
+        max-width: 90vw;
+      }
+    }
+    /* Profil */
+    .section-diagonal {
+      background: #2d1a45;
+      transform: none;
+      color: #fff;
+      padding-top: 3rem;
+      position: relative;
+      overflow: visible;
+      min-height: 120vh;
+      transition: background 0.3s ease;
+    }
+    .section-diagonal .inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      padding-top: 0;
+    }
+    .safezone-claim {
+      font-family: "Anton", Impact, 'Arial Black', sans-serif;
+      font-size: clamp(1.8rem, 4.2vw, 2.8rem);
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 10rem;
+      margin-top: 4rem;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      max-width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      width: 95%;
+    }
+
+.deconstructed-card {
+  position: relative;
+  min-width: 300px;
+  max-width: 300px;
+  height: 400px;
+  margin-bottom: 0;
+  overflow: hidden;
+  transition: transform 0.5s cubic-bezier(.4,2,.6,1), box-shadow 0.4s;
+  box-shadow: 0 2px 16px 0 rgba(40,0,60,0.08);
+  will-change: transform, box-shadow;
+}
+.deconstructed-card:hover {
+  transform: scale(1.06) rotateY(8deg);
+  box-shadow: 0 12px 32px 0 rgba(40,0,60,0.18);
+  z-index: 10;
+}
+.deconstructed-card.active {
+  transform: scale(1.06) rotateY(8deg);
+  box-shadow: 0 12px 32px 0 rgba(40,0,60,0.18);
+  z-index: 10;
+}
+.deconstructed-card.active .card-content,
+.deconstructed-card:hover .card-content .content-text,
+.deconstructed-card.active .card-content .content-text,
+.deconstructed-card:hover .card-content h2,
+.deconstructed-card.active .card-content h2,
+.deconstructed-card:hover .card-content .fragment-meta,
+.deconstructed-card.active .card-content .fragment-meta {
+  color: #2d1a45;
+  transform: scale(1.08);
+}
+.deconstructed-card:hover .card-content ul,
+.deconstructed-card.active .card-content ul,
+.deconstructed-card:hover .card-content li,
+.deconstructed-card.active .card-content li {
+  color: #2d1a45;
+  transform: scale(1.005);
+}
+.deconstructed-card .card-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.deconstructed-card .card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem 1.2rem 1.2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  pointer-events: auto;
+}
+.deconstructed-card .fragment-body {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 120px;
+  margin-top: 0;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
+  padding-top: 2.2rem;
+}
+.deconstructed-card .card-content h2.content-text {
+  font-size: 2.2rem;
+  font-weight: bold;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  margin-top: 0;
+  margin-bottom: 0.15em;
+  text-align: left;
+  transform-origin: left center;
+}
+.deconstructed-card:hover .card-content h2.content-text {
+  transform: scale(1.04);
+}
+.deconstructed-card .card-frame svg .frame-path,
+.faecher-box .frame-path {
+  stroke: #2d2766;
+  stroke-width: 2.2;
+  fill: none;
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  transition: stroke-dashoffset 0.8s cubic-bezier(.4,2,.6,1);
+}
+.deconstructed-card:hover .card-frame svg .frame-path,
+.deconstructed-card:focus-within .card-frame svg .frame-path,
+.deconstructed-card.active .card-frame svg .frame-path {
+  stroke-dashoffset: 0;
+}
+.faecher-box .frame-path {
+  stroke: currentColor;
+  stroke-width: 0.5;
+  fill: none;
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  transition: stroke-dashoffset 1.5s cubic-bezier(.4,2,.6,1);
+}
+.faecher-box:hover .frame-path,
+.faecher-box.active .frame-path {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 0;
+}
+.deconstructed-card .card-content,
+.deconstructed-card .card-content .content-text,
+.deconstructed-card .card-content h2,
+.deconstructed-card .card-content .fragment-meta {
+  color: #3f2766;
+  transition: color 0.4s, transform 0.4s cubic-bezier(.4,2,.6,1);
+  transform: scale(1);
+}
+.deconstructed-card .fragment-meta {
+  padding-top: 0.7rem;
+  padding-bottom: 0.1rem;
+  transform-origin: left;
+}
+.deconstructed-card .card-content ul,
+.deconstructed-card .card-content li {
+  color: #3f2766;
+  transition: color 0.4s;
+  transform: scale(1);
+}
+.deconstructed-card:hover .card-content,
+.deconstructed-card:hover .card-content .content-text,
+.deconstructed-card:hover .card-content h2,
+.deconstructed-card:hover .card-content .fragment-meta {
+  color: #2d1a45;
+  transform: scale(1.08);
+}
+.deconstructed-card:hover .card-content ul,
+.deconstructed-card:hover .card-content li {
+  color: #2d1a45;
+  transform: scale(1.005);
+}
+.profil-cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: center;
+  justify-content: center;
+}
+section#profil .inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+#kontakt {
+  background: #f1c1db;
+  color: #fff;
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  padding-top: 3rem;
+  padding-bottom: 0.5rem;
+}
+#kontakt .team-contacts-img-wrapper img {
+  max-width: 800px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#kontakt, #kontakt * {
+  color: #51318d;
+}
+#kontakt .kontakt-mail {
+  color: #51318d;
+  text-decoration: none;
+}
+#kontakt .kontakt-person-anica {
+  text-align: left;
+  align-items: flex-start;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}
+#kontakt .kontakt-person-emily {
+  text-align: right;
+  align-items: flex-end;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}
+#kontakt .kontakt-flex-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 840px;
+  margin: 0 auto;
+}
+#kontakt-legal-links {
+  display: none;
+}
+.scroll-arrow-btn {
+  background: transparent;
+  color: inherit;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  cursor: pointer;
+  transition: color 0.2s;
+  opacity: 1;
+  padding: 0;
+  width: 44px;
+  height: 44px;
+  position: fixed;
+  right: 2.2rem;
+  bottom: 2.2rem;
+}
+/* Up-Button: gleiche Bubble wie Down-Button */
+.scroll-arrow-btn#scrollUpBtn {
+  position: fixed;
+  right: 2.2rem;
+  bottom: 2.2rem;
+  z-index: 1200;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--scrollDownBg, #d83f87);
+  transition: background 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
+}
+.scroll-arrow-btn#scrollDownBtn {
+  position: fixed;
+  right: 2.2rem;
+  bottom: 2.2rem;
+  z-index: 1200;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--scrollDownBg, #d83f87);
+  transition: background 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
+}
+@media (max-width: 700px) {
+  .scroll-arrow-btn#scrollDownBtn, .scroll-arrow-btn#scrollUpBtn {
+    width: 44px;
+    height: 44px;
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+    /* Home Section immer bildfüllend, zentriert und sticky/fixiert */
+  #home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: #2d1a45;
+  height: 100vh;
+  width: 100vw;
+}
+body {
+  scroll-snap-type: y mandatory;
+}
+
+.home-content {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#headline-word {
+  background: #d83f87;
+  color: #fff;
+  padding: 0.3em 0.7em;
+  border-radius: 0;
+  display: inline-block;
+  font-weight: 500;
+  box-shadow: 0 2px 12px 0 rgba(216,63,135,0.08);
+  white-space: nowrap;
+  vertical-align: baseline;
+  margin-top: -0.08em;
+  margin-bottom: 0;
+}
+#cursor {
+  --color: #fff;
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+  z-index: 10000;
+  visibility: visible;
+  background-image: linear-gradient(to right, var(--color) 10px, transparent 0),
+    linear-gradient(to bottom, var(--color) 10px, transparent 0),
+    linear-gradient(to left, var(--color) 10px, transparent 0),
+    linear-gradient(to bottom, var(--color) 10px, transparent 0),
+    linear-gradient(to right, var(--color) 10px, transparent 0),
+    linear-gradient(to top, var(--color) 10px, transparent 0),
+    linear-gradient(to left, var(--color) 10px, transparent 0),
+    linear-gradient(to top, var(--color) 10px, transparent 0);
+  background-repeat: no-repeat;
+  background-position: top left, top left, top right, top right, bottom left, bottom left, bottom right, bottom right;
+  background-size: 20px 2px, 2px 20px, 20px 2px, 2px 20px, 20px 2px, 2px 20px,
+    20px 2px, 2px 20px;
+  opacity: 1;
+}
+#cursorPt {
+  position: fixed;
+  width: 7px;
+  height: 7px;
+  background: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10001;
+  left: 0;
+  top: 0;
+  opacity: 1;
+  box-shadow: 0 0 6px 0 rgba(0,0,0,0.10);
+  transition: opacity 0.2s;
+}
+.kontakt-headline {
+  font-family: "Anton", Impact, 'Arial Black', sans-serif;
+  font-size: clamp(1.8rem, 2.8rem);
+  font-weight: 400;
+  text-align: center;
+  margin-top: 0rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+.kontakt-name {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.5;
+  margin-bottom: 0.5em;
+  margin-top: 0;
+}
+.kontakt-person p,
+.kontakt-tel {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.13rem;
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 0 0 0.5em 0;
+}
+.kontakt-tel {
+  color: #8265a9;
+  display: block;
+  text-decoration: none;
+}
+/* Footer Styles */
+.site-footer {
+  width: 100vw;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem 0 0.4rem 0;
+  pointer-events: none;
+  position: static;
+  margin-top: 1.5rem;
+}
+.footer-links {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+}
+.footer-link {
+  text-decoration: none;
+  color: #8265a9;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: none;
+  padding: 0.9rem 2.5rem;
+  border-radius: 0.7rem;
+  transition: color 0.3s;
+  text-align: center;
+  display: inline-block;
+  box-shadow: none;
+}
+.footer-sep {
+  color: #8265a9 !important;
+  opacity: 1;
+}
+.footer-link:hover {
+  color: #8265a9;
+  /* margin-top: 2em; entfernt, damit kein Springen beim Hover */
+}
+/* Briefsymbol vor E-Mail: Größe wie Text, Farbe wie Text */
+.mail-icon {
+  height: 2em;
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  /* PNG einfärben: Filter auf Textfarbe anpassen */
+  filter: brightness(0) saturate(100%) invert(22%) sepia(33%) saturate(1100%) hue-rotate(230deg);
+  /* Die Filter-Werte machen aus Schwarz das Lila (#51318d) deiner Mail – ggf. anpassen! */
+}
+.kontakt-mail {
+  color: #51318d;
+}
+  </style>
+</head>
+<body>
+  <div id="cursor"></div>
+  <div id="cursorPt"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+  <div class="nav-inner">
+    <div class="menu-toggle">
+      <div class="burger-lines">
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+      </div>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#profil">Profil</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </div>
+</nav>
+
+  <!-- Home Section -->
+  <section id="home" style="display: flex; align-items: center; justify-content: center;">
+    <div class="home-content">
+      <div class="logo-adhs-container" style="margin-bottom: 4rem; position:relative; width:600px; height:343px;">
+        <video id="logoAdhsVideo" width="600" height="343" autoplay muted playsinline style="display:block;position:absolute;top:0;left:0;z-index:1;background:transparent;" preload="auto" src="Logo_Hero_pink.webm"></video>
+        <img id="logoAdhsImg" src="" style="display:none;position:absolute;top:0;left:0;width:600px;height:343px;z-index:2;object-fit:contain;" alt="Logo" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Kernkompetenzen Section -->
+  <section id="kernkompetenzen" class="kernkompetenz-section">
+    <div class="kernkompetenz-inner">
+      <h1 class="kernkompetenz-headline">
+        <span id="headline-word-scroll" class="headline-word" style="background:#d83f87;color:#fff;">Postproduktion</span><br class="mobile-br"> für Bewegtbildformate –<br>
+        <span>TV, Social Media, Kino,<br class="mobile-br"> Messe, dOOH, uvm.</span>
+      </h1>
+    </div>
+  </section>
+  <div id="headline-scroll-spacer" style="height: 600vh; background: linear-gradient(to bottom, #2c1944 0%, #ce93d8 100%);"></div>
+
+  <!-- Leistungen Section (direkt nach Kernkompetenzen) -->
+  <section id="leistungen">
+    <div class="inner">
+      <h2 class="leistungen-headline">
+        Ob Einzelspot oder internationaler Roll-out:<br>
+        Wir sorgen dafür, dass alles passt – <br>
+        bis zur letzten Sekunde.
+      </h2>
+      <div class="leistungen-faecher">
+        <div class="faecher-box">
+          <svg class="faecher-frame" viewBox="0 0 300 100" width="100%" height="100%" preserveAspectRatio="none" fill="none">
+        <path class="frame-path" d="M 6,6 H 294 V 94 H 6 Z" />
+      </svg>
+          <div class="faecher-content">
+            <div class="faecher-title">Projektmanagement & Beratung</div>
+            <div class="faecher-details">
+              <ul>
+                <li>Kundenberatung</li>
+                <li>Koordination zwischen Kundschaft, Agentur, Produktion, Media und Dienstleistenden</li>
+                <li>Workflow-Optimierung</li>
+                <li>Postproduktionberatung zu Abläufen, Aufwand & Machbarkeit</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="faecher-box">
+          <svg class="faecher-frame" viewBox="0 0 300 100" width="100%" height="100%" preserveAspectRatio="none" fill="none">
+        <path class="frame-path" d="M 6,6 H 294 V 94 H 6 Z" />
+      </svg>
+          <div class="faecher-content">
+            <div class="faecher-title">Animation & Kreativentwicklung</div>
+            <div class="faecher-details">
+              <ul>
+                <li>Motion Design & 2D-/3D-Animation</li>
+                <li>Produktbühnen für TV, Retail, POS & Online</li>
+                <li>Titelanimation</li>
+                <li>VFX, Retuschen</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="faecher-box">
+          <svg class="faecher-frame" viewBox="0 0 300 100" width="100%" height="100%" preserveAspectRatio="none" fill="none">
+        <path class="frame-path" d="M 6,6 H 294 V 94 H 6 Z" />
+      </svg>
+          <div class="faecher-content">
+            <div class="faecher-title">Versionierung & Adaption</div>
+            <div class="faecher-details">
+              <ul>
+                <li>TV, Kino, Social Media, dOOH, Bandenwerbung, In-Store, Stadionscreens, Event- und Messebespielung, Erklär- und Schulungsvideos, etc.</li>
+                <li>Int. Länderadaptionen, Lokalisierung</li>
+                <li>Cutdowns</li>
+                <li>Format- und Plattformanpassungen</li>
+                <li>Integration der Corporate Identity</li>
+                <li>Finishing, Mastering</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="faecher-box">
+          <svg class="faecher-frame" viewBox="0 0 300 100" width="100%" height="100%" preserveAspectRatio="none" fill="none">
+        <path class="frame-path" d="M 6,6 H 294 V 94 H 6 Z" />
+      </svg>
+          <div class="faecher-content">
+            <div class="faecher-title">Qualitätssicherung & Auslieferung</div>
+            <div class="faecher-details">
+              <ul>
+                <li>Sendekopie-Versand<br>(national & international)</li>
+                <li>Versand der Deliverables an die Vermarkter</li>
+                <li>Encodings</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profil Section -->
+  <section id="profil" class="section-diagonal">
+    <div class="inner" style="max-width:none;">
+      <h3 class="safezone-claim">SafeZone ist mehr als ein Name.<br>Es ist unser Anspruch.</h3>
+      <div class="profil-cards-row">
+        <!-- Card 1: Lila -->
+        <article class="deconstructed-card">
+          <div class="card-layer card-image">
+        <svg class="wave-svg" viewBox="0 0 300 400" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="profilCard1Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ba4fcc" />
+              <stop offset="100%" stop-color="#7134c3" />
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="300" height="400" fill="url(#profilCard1Gradient)" />
+        </svg>
+      </div>
+      <div class="card-layer card-frame">
+        <svg viewBox="0 0 300 400" preserveAspectRatio="none">
+          <path class="frame-path" d="M 20,20 H 280 V 380 H 20 Z" />
+        </svg>
+      </div>
+      <div class="card-layer card-content pregnancy-content" style="position:absolute;top:0;left:0;width:100%;padding:2.7rem 2.2rem 0 2.2rem;z-index:2;">
+            <div style="position:absolute;top:0;left:0;width:100%;padding:2.2rem 2.2rem 0 2.2rem;z-index:2;">
+              <div class="content-fragment fragment-meta">
+                <span class="meta-text">FÜR</span>
+                <div class="meta-line"></div>
+              </div>
+              <div class="content-fragment fragment-heading">
+                <h2 class="content-text">Kund:innen</h2>
+              </div>
+            </div>
+            <div class="content-fragment fragment-body" style="margin-top:0.3rem;">
+              <div class="content-text" style="font-size:1.02rem;">
+                Weil wir den<br>
+                Überblick behalten:<br>
+                Wir strukturieren,<br>
+                priorisieren und<br>
+                kommunizieren.<br>
+                Als Partner:innen<br>
+                auf Augenhöhe.
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- Card 2: Pink -->
+        <article class="deconstructed-card">
+          <div class="card-layer card-image">
+        <svg class="wave-svg" viewBox="0 0 300 400" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="profilCard2Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ff79b8" />
+              <stop offset="100%" stop-color="#d83f87" />
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="300" height="400" fill="url(#profilCard2Gradient)" />
+        </svg>
+      </div>
+      <div class="card-layer card-frame">
+        <svg viewBox="0 0 300 400" preserveAspectRatio="none">
+          <path class="frame-path" d="M 20,20 H 280 V 380 H 20 Z" />
+        </svg>
+      </div>
+      <div class="card-layer card-content baby-content" style="position:absolute;top:0;left:0;width:100%;padding:2.7rem 2.2rem 0 2.2rem;z-index:2;">
+            <div style="position:absolute;top:0;left:0;width:100%;padding:2.2rem 2.2rem 0 2.2rem;z-index:2;">
+              <div class="content-fragment fragment-meta">
+                <span class="meta-text">FÜR</span>
+                <div class="meta-line"></div>
+              </div>
+              <div class="content-fragment fragment-heading">
+                <h2 class="content-text">Kolleg:innen</h2>
+              </div>
+            </div>
+            <div class="content-fragment fragment-body" style="margin-top:0.3rem;">
+              <div class="content-text" style="font-size:1.02rem;">
+                Weil gutes Arbeiten<br>
+                mit gutem Miteinander<br>
+                beginnt. Mit über<br>
+                20 Jahren Erfahrung<br>
+                wissen wir: Erfolg<br>
+                entsteht durch<br>
+                Teamgeist, Engagement<br>
+                und eine klare Haltung.
+              </div>
+            </div>
+          </div>
+        </article>
+        <!-- Card 3: Lavendel -->
+        <article class="deconstructed-card">
+          <div class="card-layer card-image">
+        <svg class="wave-svg" viewBox="0 0 300 400" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="profilCard3Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#cc94fb" />
+              <stop offset="100%" stop-color="#9168b7" />
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="300" height="400" fill="url(#profilCard3Gradient)" />
+        </svg>
+      </div>
+      <div class="card-layer card-frame">
+        <svg viewBox="0 0 300 400" preserveAspectRatio="none">
+          <path class="frame-path" d="M 20,20 H 280 V 380 H 20 Z" />
+        </svg>
+      </div>
+      <div class="card-layer card-content percentage-content" style="position:absolute;top:0;left:0;width:100%;padding:2.7rem 2.2rem 0 2.2rem;z-index:2;">
+            <div style="position:absolute;top:0;left:0;width:100%;padding:2.2rem 2.2rem 0 2.2rem;z-index:2;">
+              <div class="content-fragment fragment-meta text-align-right">
+                <span class="meta-text">FÜR</span>
+                <div class="meta-line"></div>
+              </div>
+              <div class="content-fragment fragment-heading">
+                <h2 class="content-text align-right">Projekte</h2>
+              </div>
+            </div>
+            <div class="content-fragment fragment-body text-align-right" style="margin-top:0.3rem;">
+              <div class="content-text text-align-right" style="font-size:1.02rem;">
+                Weil wir früh mitdenken,<br>
+                klar steuern und<br>
+                CI-konform abliefern.<br>
+                Komplexität schreckt<br>
+                uns nicht ab –<br>
+                sie motiviert uns.
+              </div>
+            </div>
+          </div>
+               </article>
+        <!-- Card 4: Rosa -->
+        <article class="deconstructed-card">
+          <div class="card-layer card-image">
+        <svg class="wave-svg" viewBox="0 0 300 400" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="eggGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#faa2c1" />
+              <stop offset="100%" stop-color="#fd84b7" />
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="300" height="400" fill="url(#eggGradient)" />
+        </svg>
+      </div>
+      <div class="card-layer card-frame">
+        <svg viewBox="0 0 300 400" preserveAspectRatio="none">
+          <path class="frame-path" d="M 20,20 H 280 V 380 H 20 Z" />
+        </svg>
+      </div>
+      <div class="card-layer card-content egg-content" style="position:absolute;top:0;left:0;width:100%;padding:2.7rem 2.2rem 0 2.2rem;z-index:2;">
+            <div style="position:absolute;top:0;left:0;width:100%;padding:2.2rem 2.2rem 0 2.2rem;z-index:2;">
+              <div class="content-fragment fragment-meta">
+                <span class="meta-text">FÜR</span>
+                <div class="meta-line"></div>
+              </div>
+              <div class="content-fragment fragment-heading">
+                <h2 class="content-text">Workflows</h2>
+              </div>
+            </div>
+            <div class="content-fragment fragment-body" style="margin-top:0.3rem;">
+              <div class="content-text" style="font-size:1.02rem;">
+                Weil wir nicht nur<br>
+                liefern, sondern<br>
+                besser werden wollen –<br>
+                mit jedem Projekt.<br>
+                Wir hinterfragen,<br>
+                optimieren und<br>
+                integrieren neue<br>
+                Technologien mit<br>
+                echtem Mehrwert.
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt Section -->
+  <section id="kontakt" style="position:relative; min-height: 420px;">
+      <h2 class="kontakt-headline"><span id="target">Kontakt</span></h2>
+      <div style="width:100%;display:flex;justify-content:center;align-items:center;margin-bottom:1rem;">
+        <a href="mailto:office@safezone-postproduction.de" class="kontakt-mail" style="font-size:1.25rem;font-weight:700;text-align:center;display:inline-flex;align-items:center;gap:0.5em;">
+  <img src="Briefsymbol.png" alt="Brief" class="mail-icon" />
+  office@safezone-postproduction.de
+</a>
+      </div>
+      <div class="inner">
+        <div class="team-contacts" style="display: flex; flex-direction: column; align-items: center;">
+          <div class="team-contacts-img-wrapper">
+            <div class="kontakt-rect1"></div>
+            <div class="kontakt-rect2"></div>
+            <img src="AniEmi.jpeg" alt="Anica Walz und Emily Imhof">
+          </div>
+          <div class="kontakt-flex-row">
+            <div class="kontakt-person kontakt-person-anica">
+              <h3 class="kontakt-name">Anica Walz</h3>
+              <p>GF | Senior Postproducerin</p>
+              <a href="tel:+4917655110600" class="kontakt-tel">+49 176 55110600</a>
+            </div>
+            <div class="kontakt-person kontakt-person-emily">
+              <h3 class="kontakt-name">Emily Imhof</h3>
+              <p>GF | Senior Motion Designerin</p>
+              <a href="tel:+4915565101183" class="kontakt-tel">+49 155 65101183</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="footer-links">
+    <a href="impressum.html" class="footer-link" id="footer-impressum">Impressum</a>
+    <span class="footer-sep">|</span>
+    <a href="datenschutz.html" class="footer-link" id="footer-datenschutz">Datenschutz</a>
+  </div>
+</footer>
+
+<!-- Scroll-Buttons (Down: fixed, Up: fixed) -->
+<button id="scrollDownBtn" class="scroll-arrow-btn" aria-label="Nach unten scrollen" style="display:none;">
+  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6 9l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<button id="scrollUpBtn" class="scroll-arrow-btn scroll-up-footer" aria-label="Nach oben scrollen" style="display:none;">
+  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 13l-5-5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</button>
+<!-- SCRIPTS: Cursor, Scroll-Buttons, Farbwechsel, Parallax, etc. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+// ===== HOME: Cursor, Logo, Farbwechsel =====
+const cursor = document.getElementById("cursor");
+const cursorPt = document.getElementById("cursorPt");
+const logoAdhsVideo = document.getElementById("logoAdhsVideo");
+const logoAdhsImg = document.getElementById("logoAdhsImg");
+const scrollDownBtn = document.getElementById('scrollDownBtn');
+const scrollUpBtn = document.getElementById('scrollUpBtn');
+const menuToggle = document.querySelector('.menu-toggle');
+const navLinks = document.getElementById('navLinks');
+const sectionOrder = ['home', 'kernkompetenzen', 'leistungen', 'profil', 'kontakt'];
+let isOverTrigger = false, currentTrigger = null, rotationTween, exitTween = null, enterTween = null, currentRotation = 0;
+let logoVariantIndex = 0, videoWasShown = false, isScrollUp = false;
+
+// Cursor-Trigger
+const triggers = [
+  document.querySelector(".logo-adhs-container"),
+  ...document.querySelectorAll(".faecher-box"),
+  ...document.querySelectorAll(".deconstructed-card"),
+  ...document.querySelectorAll('.kontakt-mail'),
+  ...document.querySelectorAll('a[href^="tel:+4917655110600"], a[href^="tel:+4915565101183"]'),
+].filter(Boolean);
+
+// Cursor-Animation
+function startRotation() {
+  if (isOverTrigger) return;
+  gsap.set(cursor, { rotation: currentRotation });
+  rotationTween = gsap.to(cursor, { rotation: "+=360", duration: 2.4, repeat: -1, ease: "linear", transformOrigin: "center center" });
+}
+function stopRotation() {
+  if (rotationTween) {
+    currentRotation = gsap.getProperty(cursor, "rotation") % 360;
+    rotationTween.kill();
+  }
+}
+function isVisible(el) {
+  return !!(el && (el.offsetParent !== null || (el instanceof SVGElement && el.getBBox().width > 0 && el.getBBox().height > 0)) && window.getComputedStyle(el).display !== 'none' && window.getComputedStyle(el).visibility !== 'hidden');
+}
+document.addEventListener("mousemove", (e) => {
+  gsap.to(cursor, {autoAlpha: 1});
+  gsap.to(cursorPt, {autoAlpha: 1});
+  const el = document.elementFromPoint(e.clientX, e.clientY);
+  const onTrigger = triggers.some(t => isVisible(t) && (t === el || t.contains(el)));
+  if (!onTrigger) {
+    isOverTrigger = false;
+    currentTrigger = null;
+    gsap.to(cursor, { x: e.clientX - 16, y: e.clientY - 16, width: 32, height: 32, scale: 1, rotation: "+=0", duration: 0.1, ease: "expo.out" });
+    if (!rotationTween) startRotation();
+  }
+  gsap.to(cursorPt, { x: e.clientX - 3.5, y: e.clientY - 3.5, duration: 0.1, ease: "expo.out" });
+});
+triggers.forEach(trigger => {
+  trigger.addEventListener("mouseenter", (e) => {
+    isOverTrigger = true; currentTrigger = trigger; stopRotation();
+    let rect, padding = 0;
+    if (trigger.classList && trigger.classList.contains('faecher-box')) {
+      const content = trigger.querySelector('.faecher-content');
+      rect = content ? content.getBoundingClientRect() : trigger.getBoundingClientRect();
+    } else rect = trigger.getBoundingClientRect();
+    if (exitTween) exitTween.kill();
+    enterTween = gsap.to(cursor, { width: rect.width + padding * 2, height: rect.height + padding * 2, duration: 0.2, scale: 1.1, rotation: 0, x: rect.left - padding, y: rect.top - padding, ease: "expo.out" });
+  });
+  trigger.addEventListener("mousemove", (e) => {
+    if (!isOverTrigger) return;
+    let rect, padding = 0;
+    if (trigger.classList && trigger.classList.contains('faecher-box')) {
+      const content = trigger.querySelector('.faecher-content');
+      rect = content ? content.getBoundingClientRect() : trigger.getBoundingClientRect();
+    } else rect = trigger.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2, cy = rect.top + rect.height / 2, dx = e.clientX - cx, dy = e.clientY - cy;
+    gsap.to(cursor, { x: cx - (rect.width / 2 + padding) + dx * 0.09, y: cy - (rect.height / 2 + padding) + dy * 0.09, width: rect.width + padding * 2, height: rect.height + padding * 2, scale: 1.1, duration: 0.1, ease: "power2.out" });
+  });
+  trigger.addEventListener("mouseleave", (e) => {
+    const el = document.elementFromPoint(e.clientX, e.clientY);
+    const stillOnTrigger = triggers.some(t => isVisible(t) && (t === el || t.contains(el)));
+    if (!stillOnTrigger) {
+      isOverTrigger = false; currentTrigger = null;
+      exitTween = gsap.to(cursor, { x: e.clientX - 16, y: e.clientY - 16, width: 32, height: 32, scale: 1, duration: 0.5, ease: "elastic.out(1, .9)" });
+      startRotation();
+    }
+  });
+});
+startRotation();
+
+// Logo- und Farbwechsel-Konfiguration
+const logoVariants = [
+  { type: 'video', src: 'Logo_Hero_pink.webm', bg: '#2c1943', navBg: '#d83f87', navColor: '#2c1943' },
+  { type: 'image', src: 'Logo_weiß.png', bg: '#d83f87', navBg: '#fff', navColor: '#d83f87' },
+  { type: 'image', src: 'Logo_rosa.png', bg: '#51318d', navBg: '#f1c1db', navColor: '#51318d' },
+  { type: 'image', src: 'Logo_lila.png', bg: '#f1c1db', navBg: '#51318d', navColor: '#f1c1db' },
+  { type: 'image', src: 'Logo_dunkellila.png', bg: '#8265a9', navBg: '#2d1a45', navColor: '#8265a9' }
+];
+
+// Farbwechsel-Logik für Scroll-Button, Menü, Burgerlines
+function setScrollDownBtnBg(color) {
+  if (scrollDownBtn) scrollDownBtn.style.setProperty('--scrollDownBg', color);
+}
+function setScrollDownBtnActiveBg(color) {
+  if (scrollDownBtn) scrollDownBtn.style.setProperty('--scrollDownActiveBg', color);
+}
+function setScrollDownBtnStroke(color) {
+  if (scrollDownBtn) {
+    const svgPath = scrollDownBtn.querySelector('svg path');
+    if (svgPath) svgPath.setAttribute('stroke', color);
+  }
+}
+function setScrollUpBtnBg(color) {
+  if (scrollUpBtn) scrollUpBtn.style.background = color;
+}
+function setScrollUpBtnStroke(color) {
+  if (scrollUpBtn) {
+    const svgPath = scrollUpBtn.querySelector('svg path');
+    if (svgPath) svgPath.setAttribute('stroke', color);
+  }
+}
+function updateBurgerLinesColor() {
+  if (!menuToggle) return;
+  const burgerLines = menuToggle.querySelectorAll('.burger-line');
+  const color = getComputedStyle(document.documentElement).getPropertyValue('--scrollDownActiveBg') || logoVariants[logoVariantIndex].navColor;
+  burgerLines.forEach(line => { line.style.background = color.trim() || '#2d1a45'; });
+}
+function updateMenuToggleBg() {
+  if (!menuToggle) return;
+  const bg = getComputedStyle(document.documentElement).getPropertyValue('--scrollDownBg') || logoVariants[logoVariantIndex].navBg;
+  menuToggle.style.background = bg.trim() || '#d83f87';
+}
+
+// Logo und Navigation aktualisieren
+function updateHomeColorsAndLogo() {
+  if (videoWasShown && logoVariants[0].type === 'video') {
+    logoVariants[0] = { type: 'image', src: 'Logo_Hero_pink.png', bg: '#2d1a45', navBg: '#d83f87', navColor: '#2d1a45' };
+  }
+  const variant = logoVariants[logoVariantIndex];
+  // Home-Hintergrund
+  const homeSection = document.getElementById('home');
+  if (homeSection) homeSection.style.background = variant.bg;
+  // Navigation
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.style.background = variant.navBg;
+    link.style.color = variant.navColor;
+    link.style.textShadow = 'none';
+  });
+  // Logo
+  if (variant.type === 'video') {
+    if (logoAdhsImg) logoAdhsImg.style.display = 'none';
+    if (logoAdhsVideo) {
+      logoAdhsVideo.src = variant.src;
+      logoAdhsVideo.style.display = 'block';
+      logoAdhsVideo.currentTime = 0;
+      logoAdhsVideo.play();
+    }
+    videoWasShown = true;
+  } else {
+    if (logoAdhsVideo) logoAdhsVideo.style.display = 'none';
+    if (logoAdhsImg) {
+      logoAdhsImg.src = variant.src;
+      logoAdhsImg.style.display = 'block';
+    }
+  }
+  // Scroll-Button, Menü, Burgerlines
+setScrollDownBtnBg(variant.navBg);
+setScrollDownBtnActiveBg(variant.navColor);
+setScrollDownBtnStroke(variant.navColor);
+setScrollUpBtnBg(variant.navBg);
+setScrollUpBtnStroke(variant.navColor);
+scrollUpBtn.style.color = variant.navColor; // <--- NEU
+updateBurgerLinesColor();
+updateMenuToggleBg();
+}
+
+// Farbwechsel per Klick auf Seite (außer auf Buttons, Links, Cards, Nav)
+document.addEventListener('DOMContentLoaded', function() {
+  updateHomeColorsAndLogo();
+  document.body.addEventListener('click', function(e) {
+    const isScrollBtn = e.target.closest('#scrollDownBtn, #scrollUpBtn');
+    if (
+      !e.target.closest('a, .memory-card, .faecher-box, .deconstructed-card, nav') &&
+      !isScrollBtn
+    ) {
+      logoVariantIndex = (logoVariantIndex + 1) % logoVariants.length;
+      updateHomeColorsAndLogo();
+    }
+    updateBurgerLinesColor();
+    updateMenuToggleBg();
+  });
+});
+
+// ===== LEISTUNGEN & PROFIL: Parallax-Effekt für Fächer-Boxen und Profilkarten =====
+(function() {
+  function parallaxBox(box, titleSelector, detailsSelector, frameSelector) {
+    if (window.innerWidth <= 700) return;
+    const title = titleSelector ? box.querySelector(titleSelector) : null;
+    const details = detailsSelector ? box.querySelector(detailsSelector) : null;
+    box.addEventListener('mousemove', function(e) {
+      if (box.classList.contains('active')) return;
+      const rect = box.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const tx = (x - centerX) * 0.04;
+      const ty = (y - centerY) * 0.04;
+      box.style.transform = `translateX(${tx}px) translateY(${ty}px)`;
+      const frame = frameSelector ? box.querySelector(frameSelector) : null;
+      if(frame) frame.style.transform = `translateY(${(y-centerY)*0.02}px) translateX(${(x-centerX)*0.02}px)`;
+      if(title) title.style.transform = `scale(1.08) translateY(${(y-centerY)*0.03}px) translateX(${(x-centerX)*0.03}px)`;
+      if(details) details.style.transform = `scale(1.04) translateY(${(y-centerY)*0.02}px) translateX(${(x-centerX)*0.02}px)`;
+    });
+    box.addEventListener('mouseleave', function() {
+      if (box.classList.contains('active')) return;
+      box.style.transform = '';
+      const frame = frameSelector ? box.querySelector(frameSelector) : null;
+      if(frame) frame.style.transform = '';
+      if(title) title.style.transform = '';
+      if(details) details.style.transform = '';
+    });
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faecher-box').forEach(box => parallaxBox(box, '.faecher-title', '.faecher-details', 'svg.faecher-frame'));
+    document.querySelectorAll('.deconstructed-card').forEach(card => parallaxBox(card, '.content-text', null, '.card-frame'));
+  });
+})();
+
+// ===== KERNKOMPETENZEN: ScrollTrigger Headline Wortwechsel & Pin =====
+gsap.registerPlugin(ScrollTrigger);
+
+const scrollWords = [
+  "Postproduktion",
+  "Adaption",
+  "Animation",
+  "Versionierung",
+  "Titelanimation",
+  "Länderfassungen",
+  "Kreativentwicklung",
+  "Cutdowns",
+  "Encodings",
+  "Mastering",
+  "Sendekopien"
+];
+const wordBgColors = [
+  '#d83f87', '#51318d', '#f1c1db', '#8265a9',
+];
+const wordTextColors = [
+  '#fff', '#fff', '#2d1a45', '#fff',
+];
+const scrollWordEl = document.getElementById('headline-word-scroll');
+if (scrollWordEl) {
+  scrollWordEl.style.background = '#d83f87';
+  scrollWordEl.style.color = '#fff';
+}
+const kernkompetenzenSection = document.getElementById('kernkompetenzen');
+const scrollSpacer = document.getElementById('headline-scroll-spacer');
+let lastIdx = 0;
+ScrollTrigger.create({
+  trigger: kernkompetenzenSection,
+  start: "top top",
+  end: `+=${scrollSpacer.offsetHeight}`,
+  pin: ".kernkompetenz-headline",
+  scrub: true,
+  anticipatePin: 1,
+  onUpdate: self => {
+    const progress = self.progress;
+    const mapped = progress;
+    const idx = Math.min(scrollWords.length - 1, Math.floor(mapped * scrollWords.length));
+    if (scrollWordEl.textContent !== scrollWords[idx]) {
+      // Altes Wort animiert nach oben raus
+      const rect = scrollWordEl.getBoundingClientRect();
+      const parentRect = scrollWordEl.parentNode.getBoundingClientRect();
+      const oldEl = scrollWordEl.cloneNode(true);
+      oldEl.style.position = 'absolute';
+      oldEl.style.left = (rect.left - parentRect.left) + 'px';
+      oldEl.style.top = (rect.top - parentRect.top) + 'px';
+      oldEl.style.width = rect.width + 'px';
+      oldEl.style.height = rect.height + 'px';
+      oldEl.style.lineHeight = getComputedStyle(scrollWordEl).lineHeight;
+      oldEl.style.pointerEvents = 'none';
+      oldEl.style.zIndex = 2;
+      oldEl.style.margin = '0';
+      scrollWordEl.parentNode.appendChild(oldEl);
+      gsap.to(oldEl, {y: -rect.height, opacity: 0, duration: 0.18, ease: "power1.in", onComplete: () => oldEl.remove()});
+      // Neues Wort sofort sichtbar, keine Einblendung
+      scrollWordEl.textContent = scrollWords[idx];
+      scrollWordEl.style.background = wordBgColors[idx % wordBgColors.length];
+      scrollWordEl.style.color = wordTextColors[idx % wordTextColors.length];
+      gsap.set(scrollWordEl, {y: 0, opacity: 1});
+    }
+    lastIdx = idx;
+  }
+});
+
+// ===== SCROLLDOWN/UP BUTTON: Sichtbarkeit, Icon-Wechsel, Farbwechsel =====
+function showScrollBtns() {
+  // Down-Button immer sichtbar außer am Seitenende
+  if (scrollDownBtn) {
+    if (isAtPageBottom()) {
+      scrollDownBtn.style.display = 'none';
+    } else {
+      scrollDownBtn.style.display = 'flex';
+    }
+  }
+  // Up-Button nur am Seitenende anzeigen (NICHT bei Kontakt)
+  if (scrollUpBtn) {
+    if (isAtPageBottom()) {
+      scrollUpBtn.style.display = 'flex';
+      scrollUpBtn.style.color = logoVariants[logoVariantIndex].navColor; // <-- hier!
+    } else {
+      scrollUpBtn.style.display = 'none';
+    }
+  }
+}
+function isAtPageBottom() {
+  return (window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 2);
+}
+function getCurrentSectionIndex() {
+  const scrollY = window.scrollY || window.pageYOffset;
+  let idx = 0;
+  for (let i = 0; i < sectionOrder.length; i++) {
+    const el = document.getElementById(sectionOrder[i]);
+    if (el) {
+      const rect = el.getBoundingClientRect();
+      const top = rect.top + scrollY;
+      if (scrollY + 10 >= top) idx = i;
+    }
+  }
+  return idx;
+}
+function scrollToSection(idx) {
+  const el = document.getElementById(sectionOrder[idx]);
+  if (el) el.scrollIntoView({behavior: 'smooth'});
+}
+function updateScrollBtnIcon() {
+  if (!scrollDownBtn) return;
+  const color = logoVariants[logoVariantIndex].navColor;
+  if (isAtPageBottom()) {
+    isScrollUp = true;
+    scrollDownBtn.innerHTML = `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 13l-5-5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    scrollDownBtn.setAttribute('aria-label', 'Nach oben scrollen');
+    scrollDownBtn.style.color = color;
+    setScrollDownBtnStroke(color); // redundanz, falls SVG schon geladen
+  } else {
+    isScrollUp = false;
+    scrollDownBtn.innerHTML = `<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 9l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+    scrollDownBtn.setAttribute('aria-label', 'Nach unten scrollen');
+    scrollDownBtn.style.color = color;
+    setScrollDownBtnStroke(color);
+  }
+}
+if (scrollDownBtn) {
+  scrollDownBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (isScrollUp) {
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    } else {
+      const idx = getCurrentSectionIndex();
+      // Wenn letzter Abschnitt, scrolle ganz nach unten (Footer)
+      if (idx >= sectionOrder.length - 1) {
+        window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
+      } else {
+        scrollToSection(idx + 1);
+      }
+    }
+  });
+}
+if (scrollUpBtn) {
+  scrollUpBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+}
+window.addEventListener('scroll', function() {
+  showScrollBtns();
+  updateScrollBtnIcon();
+});
+window.addEventListener('hashchange', function() {
+  showScrollBtns();
+  updateScrollBtnIcon();
+});
+document.addEventListener('DOMContentLoaded', function() {
+  showScrollBtns();
+  updateScrollBtnIcon();
+});
+
+// ===== MENU TOGGLE: Farben und Öffnen/Schließen =====
+document.addEventListener('DOMContentLoaded', function() {
+  updateBurgerLinesColor();
+  updateMenuToggleBg();
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 700) {
+          navLinks.classList.remove('open');
+        }
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (window.innerWidth <= 700 && navLinks.classList.contains('open')) {
+        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+          navLinks.classList.remove('open');
+        }
+      }
+    });
+  }
+});
+</script>
+</body>
+</html>
