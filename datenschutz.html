@@ -57,6 +57,8 @@
     li { margin-bottom: 0.5rem; }
     a { color: #2d1a45; text-decoration: underline; }
     p { text-align: left; }
+
+    /* Navigation */
     .navbar {
       position: fixed;
       top: 2rem;
@@ -75,17 +77,11 @@
       margin: 0;
       gap: 2rem;
     }
-    .menu-toggle {
-      display: none;
-      font-size: 1.2rem;
-      cursor: pointer;
-      color: #f1c1db;
-    }
     .nav-links {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 0.7rem;
       justify-content: center;
       align-items: flex-end;
       padding: 0;
@@ -93,22 +89,18 @@
     }
     .nav-links a {
       text-decoration: none;
-      color: #f1c1db;
+      color: #2d1a45;
       font-weight: 300;
       font-size: 1.1rem;
       font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
       letter-spacing: normal;
       transition: all 0.3s ease;
       text-shadow: none;
-      background-color: #2d1a45;
+      background-color: #d83f87;
       padding: 0.6rem 1.2rem;
       border-radius: 0px;
       min-width: 100px;
       text-align: center;
-    }
-    .nav-links a:hover {
-      opacity: 0.8;
-      transform: translateY(-2px);
     }
     #cursor {
       --color: #fff;
@@ -160,7 +152,6 @@
   <div id="cursorPt"></div>
   <nav class="navbar">
     <div class="nav-inner">
-      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html#home">Home</a></li>
         <li><a href="index.html#leistungen">Leistungen</a></li>
