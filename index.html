@@ -13,7 +13,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SafeZone Postproduction</title>
-  <meta name="description" content="Postproduktion mit Liebe zum Detail – SafeZone Postproduction" />
+  <meta name="description" content="Postproduktion für Bewegtbild mit Fokus auf Versionierung, Animation, Adaption uvm. – SafeZone Postproduction" />
   <meta name="robots" content="index, follow" />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500&family=Inter:wght@400&display=swap" rel="stylesheet">
 <!-- Standard-Favicon für Browser -->
@@ -53,7 +53,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      justify-content: center;
+      justify-content: right;
       max-width: none;
       margin: 0;
       gap: 2rem;
@@ -64,16 +64,16 @@
       cursor: pointer;
       color: #fff;
     }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      justify-content: center;
-      align-items: flex-end;
-      padding: 0;
-      margin: 0;
-    }
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;   /* <-- horizontal! */
+  gap: 2rem;           /* kleineres gap */
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0;
+  margin: 0;
+}
     .nav-links a {
       text-decoration: none;
       color: #2d1a45;
@@ -87,13 +87,17 @@
       padding: 0.6rem 1.2rem;
       border-radius: 0px;
       min-width: 100px;
-      text-align: center;
+      text-align: right;
     }
     .nav-links a:hover {
       opacity: 1;
       color: inherit;
       background: inherit;
       transform: none;
+    }
+    .nav-links li {
+      padding: 0;
+      margin: 0;
     }
 
     /* Home Section immer bildfüllend, zentriert und sticky/fixiert */
@@ -122,81 +126,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-#scroll-indicator {
-  position: absolute;
-  left: 50%;
-  bottom: 5.5vh;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 30;
-  pointer-events: auto;
-  cursor: pointer;
-  animation: scrollIndicatorIn 0.8s cubic-bezier(.6,1.5,.6,1) 1;
-  user-select: none;
-  /* Abstand nach unten, damit nichts angeschnitten ist */
-  padding-bottom: 0.5rem;
-}
-#scroll-indicator .scroll-text {
-  font-family: 'Inter', Arial, sans-serif;
-  font-size: 0.75rem;
-  color: var(--scrollIndicatorColor, #d83f87);
-  letter-spacing: 0.12em;
-  margin-bottom: 0.1em;
-  font-weight: 600;
-  opacity: 0.85;
-  text-shadow: 0 1px 4px rgba(0,0,0,0.10);
-}
-#scroll-indicator .scroll-arrows {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  animation: bounce 1.2s infinite 0.8s;
-}
-#scroll-indicator svg {
-  width: 38px;
-  height: 22px;
-  display: block;
-}
-:root {
-  --scrollIndicatorColor: #d83f87;
-}
-@keyframes scrollIndicatorIn {
-  0% {
-    opacity: 0;
-    transform: translateX(-50%) translateY(40px) scale(0.7);
-  }
-  60% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(-8px) scale(1.05);
-  }
-  80% {
-    transform: translateX(-50%) translateY(2px) scale(0.98);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
-  }
-}
-@keyframes bounce {
-  0%, 100% { transform: translateY(0);}
-  30% { transform: translateY(10px);}
-  60% { transform: translateY(0);}
-}
-@media (max-width: 700px) {
-  #scroll-indicator {
-    bottom: 2vh;
-    padding-bottom: 0.2rem;
-  }
-  #scroll-indicator .scroll-text {
-    font-size: 0.85rem;
-  }
-  #scroll-indicator svg {
-    width: 28px;
-    height: 16px;
-  }
 }
 #cursor {
   --color: #fff;
@@ -414,7 +343,7 @@ body {
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  padding: 2.5rem 3.8rem 2rem 3rem;
+  padding: 2.5rem 3.8rem 2.2rem 4rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;   /* <-- von flex-end auf flex-start */
@@ -429,18 +358,19 @@ body {
   font-size: 1.8rem;
   font-weight: bold;
   font-family: 'Helvetica Neue', Arial, sans-serif;
+  margin-left: -0.5em;
   margin-top: 0;
-  margin-bottom: 0.7em;
+  margin-bottom: 0.6em;
   text-align: left;
   align-self: flex-start;
   transform-origin: left center;
   transition: transform 0.5s cubic-bezier(.4,2,.6,1);
 }
 .faecher-details {
-  display: block !important;
-  opacity: 1 !important;
-  transform: none !important;
-  max-height: none !important;
+  display: block;
+  opacity: 1;
+  transform: none;
+  max-height: none;
   margin-top: 0rem;
 }
 .faecher-details ul {
@@ -724,7 +654,7 @@ body {
 /* Kontaktbereich */
 #kontakt,
 #kontakt * {
-  color: #51318d !important;
+  color: #51318d;
 }
 
 #kontakt {
@@ -846,6 +776,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
 }
 /* Footer Styles */
 .site-footer {
@@ -881,7 +812,7 @@ body {
   box-shadow: none;
 }
 .footer-sep {
-  color: #8265a9 !important;
+  color: #8265a9;
   opacity: 1;
 }
 .footer-link:hover {
@@ -944,15 +875,15 @@ body {
 }
     @media (max-width: 1350px) {
       .profil-cards-row {
-      grid-template-columns: 1fr 1fr !important;
-      gap: 2.5rem !important;
-      max-width: 840px !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      justify-items: center !important;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      max-width: 840px;
+      margin-left: auto;
+      margin-right: auto;
+      justify-items: center;
     }
       #profil {
-      min-height: 160vh !important; /* Erhöhe die Höhe nach Bedarf */
+      min-height: 160vh; /* Erhöhe die Höhe nach Bedarf */
     }
   }
   /* Responsive: 2x2 Grid ab 1200px, 1x4 ab 700px */
@@ -1073,7 +1004,7 @@ body {
     left: auto;
     flex-direction: column;
     align-items: flex-end;
-    gap: 2.5rem;
+    gap: 2rem;
     box-shadow: none;
     border-radius: 0;
     padding: 5rem 1rem 2.2rem 2.2rem;
@@ -1086,12 +1017,12 @@ body {
     display: flex;
   }
   .nav-links a {
-    font-size: 1.2rem;
-    padding: 0.7rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 300;
+  padding: 0.6rem 1.2rem;
     min-width: 100px;
     text-align: right;
     border-radius: 0rem;
-    font-weight: 600;
   }
   /* 2b. Cursor auf Mobil ausblenden */
   #cursor, #cursorPt {
@@ -1102,124 +1033,124 @@ body {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    height: auto !important;
-    min-height: unset !important;
+    height: auto;
+    min-height: unset;
     position: relative;
     padding: 0;
     background: #f1c1db;
   }
     .leistungen-headline {
-    font-size: 1.25rem !important;
-    margin-top: 2.2rem !important;
-    margin-bottom: 2.2rem !important;
-    line-height: 1.15 !important;
+    font-size: 1.25rem;
+    margin-top: 2.2rem;
+    margin-bottom: 2.2rem;
+    line-height: 1.15;
   }
   .headline-flex {
-    max-width: 98vw !important;
+    max-width: 98vw;
   }
   .headline-word,
   #headline-word-scroll {
-    font-size: 1.05rem !important;
-    padding: 0.22em 0.5em !important;
+    font-size: 1.05rem;
+    padding: 0.22em 0.5em;
   }
   .wechselwort-dummy {
-    font-size: 1.05rem !important;
+    font-size: 1.05rem;
   }
   .headline-static {
-    font-size: 1.05rem !important;
+    font-size: 1.05rem;
   }
   .leistungen-faecher {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 1.2rem !important;
-    width: 95% !important;
-    max-width: 650vw !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    justify-items: center !important;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    width: 95%;
+    max-width: 650vw;
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center;
   }
   .faecher-box {
-    width: 95% !important;
-    max-width: 95% !important;
-    min-width: 325px !important;
-    height: 160px !important;
+    width: 95%;
+    max-width: 95%;
+    min-width: 325px;
+    height: 160px;
   }
   .faecher-content {
-    padding: 1rem 2rem 1rem 2rem !important; /* oben weniger, unten mehr */
-    justify-content: flex-start !important; /* Headline bleibt oben */
+    padding: 1rem 2rem 1rem 2rem; /* oben weniger, unten mehr */
+    justify-content: flex-start; /* Headline bleibt oben */
   }
   .faecher-title {
-    font-size: 1.15rem !important;
-    margin-top: 0 !important;
-    margin-bottom: -0.7em !important;
+    font-size: 1.15rem;
+    margin-top: 0;
+    margin-bottom: -0.7em;
   }
   .faecher-details,
   .faecher-details ul,
   .faecher-details li {
-    font-size: 0.8rem !important;
+    font-size: 0.8rem;
     word-break: break-word;
     hyphens: auto;
   }
   .faecher-details ul {
-    columns: 1 !important;
+    columns: 1;
   }
 
   /* Profil Section: Grid 2x2, 90% Breite, Höhe nach Inhalt */
   .section-diagonal {
-    min-height: unset !important;
-    height: auto !important;
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
+    min-height: unset;
+    height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
   }
   .profil-headline,
   .safezone-claim {
-    font-size: 1.3rem !important;
-    margin-bottom: 5rem !important;
-    margin-top: 2rem !important;
+    font-size: 1.3rem;
+    margin-bottom: 5rem;
+    margin-top: 2rem;
   }
   .profil-cards-row {
-    display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 1.2rem !important;
-        max-width: 840px !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-        justify-items: center !important;
+    display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        max-width: 840px;
+        margin-left: auto;
+        margin-right: auto;
+        justify-items: center;
   }
   .karte {
-        max-width: 180px !important;
-        min-width: 160px !important;
-        width: 180px !important;
-        height: 280px !important;
-        padding: 0 !important;
+        max-width: 180px;
+        min-width: 160px;
+        width: 180px;
+        height: 280px;
+        padding: 0;
   }
   .karten-content {
-    font-size: 0.6rem !important;
-    padding-left: 0.2rem !important;
-    padding-right: 0.2rem !important;
-    padding-top: 1.1rem !important;
-    padding-bottom: 1.1rem !important;
+    font-size: 0.6rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    padding-top: 1.1rem;
+    padding-bottom: 1.1rem;
   }
   .karten-title {
-    font-size: 1.15rem !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
-    padding-bottom: 0.8em !important;
+    font-size: 1.15rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.8em;
   }
   .karten-meta {
-    font-size: 0.6rem !important;
-    padding-left: 1rem !important;
-    padding-right: 1rem !important;
+    font-size: 0.6rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   .karten-body {
-    font-size: 0.82rem !important;
-    text-align: left !important;
-    white-space: normal !important;
-    word-break: break-word !important;
-    line-height: 1.15 !important;
-    display: block !important;
-    padding-left: 1.5rem !important;
-    padding-right: 1.2rem !important;
+    font-size: 0.82rem;
+    text-align: left;
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.15;
+    display: block;
+    padding-left: 1.5rem;
+    padding-right: 1.2rem;
   }
 
     #kontakt {
@@ -1239,19 +1170,19 @@ body {
   }
   .kontakt-person-anica,
   .kontakt-person-emily {
-    align-items: center !important; /* mittig */
-    text-align: center !important;  /* mittig */
+    align-items: center; /* mittig */
+    text-align: center;  /* mittig */
   }
 
   .footer-links {
-    gap: 0.5rem !important;
+    gap: 0.5rem;
   }
   .footer-link {
-    padding: 0.7rem 1.1rem !important;
-    font-size: 0.93rem !important;
+    padding: 0.7rem 1.1rem;
+    font-size: 0.93rem;
   }
   .footer-sep {
-    margin: 0 0.2rem !important;
+    margin: 0 0.2rem;
   }
   .scroll-arrow-btn#scrollDownBtn, .scroll-arrow-btn#scrollUpBtn {
     width: 44px;
@@ -1272,7 +1203,7 @@ body {
   .karte:hover .karten-body li,
   .karte:hover {
     /* Entfernt Hover-Effekt auf Mobil */
-    transform: none !important;
+    transform: none;
   }
 }
   </style>
@@ -1320,16 +1251,6 @@ body {
   <img id="logoAdhsImg" src="" style="display:none;position:absolute;top:0;left:0;width:600px;height:343px;z-index:2;object-fit:contain;" alt="Logo" />
 </div>
     </div>
-    </div><!-- .home-content -->
-   <div id="scroll-indicator" class="scroll-indicator" style="display:none;">
-  <span class="scroll-text">SCROLL</span>
-  <span class="scroll-arrows">
-    <svg id="scroll-indicator-svg" width="38" height="28" viewBox="0 0 38 28" fill="none">
-      <polyline points="5,6 19,18 33,6" stroke="var(--scrollIndicatorColor, #d83f87)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-      <polyline points="5,14 19,26 33,14" stroke="var(--scrollIndicatorColor, #d83f87)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  </span>
-</div>
   </section>
 
   <!-- Leistungen Section -->
@@ -1575,7 +1496,6 @@ const scrollUpBtn = document.getElementById('scrollUpBtn');
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.getElementById('navLinks');
 const sectionOrder = ['home', 'leistungen', 'profil', 'kontakt'];
-const scrollIndicator = document.getElementById('scroll-indicator'); // <-- ganz oben!
 let isOverTrigger = false, currentTrigger = null, rotationTween, exitTween = null, enterTween = null, currentRotation = 0;
 let logoVariantIndex = 0, videoWasShown = false, isScrollUp = false;
 
@@ -1589,7 +1509,6 @@ const triggers = [
   ...document.querySelectorAll('.nav-links a'),           // <-- Navlinks als Trigger
   scrollDownBtn,                                          // <-- Scroll Down Button
   scrollUpBtn,                                           // <-- Scroll Up Button
-  scrollIndicator                                        // <-- Scroll Indicator
 ].filter(Boolean);
 
 // Cursor-Animation
@@ -1630,18 +1549,14 @@ document.addEventListener("mousemove", (e) => {
 triggers.forEach(trigger => {
   trigger.addEventListener("mouseenter", (e) => {
     isOverTrigger = true; currentTrigger = trigger; stopRotation();
-    let rect, padding = 0;
-    if (trigger.classList && trigger.classList.contains('faecher-box')) {
-      const content = trigger.querySelector('.faecher-content');
-      rect = content ? content.getBoundingClientRect() : trigger.getBoundingClientRect();
-    } else rect = trigger.getBoundingClientRect();
+    let rect = trigger.getBoundingClientRect(); // <-- immer das äußere Element!
     if (exitTween) exitTween.kill();
     // Cursor direkt auf die aktuelle Mausposition im Trigger setzen!
     const dx = e.clientX - rect.left;
     const dy = e.clientY - rect.top;
     enterTween = gsap.to(cursor, {
-      width: rect.width + padding * 2,
-      height: rect.height + padding * 2,
+      width: rect.width,
+      height: rect.height,
       scale: 1.1,
       rotation: 0,
       x: rect.left + dx * 0.09,
@@ -1651,30 +1566,23 @@ triggers.forEach(trigger => {
     });
   });
   trigger.addEventListener("mousemove", (e) => {
-  if (!isOverTrigger) return;
-  let rect, padding = 0;
-  if (trigger.classList && trigger.classList.contains('faecher-box')) {
-    const content = trigger.querySelector('.faecher-content');
-    rect = content ? content.getBoundingClientRect() : trigger.getBoundingClientRect();
-  } else rect = trigger.getBoundingClientRect();
-
-  // Magnetfaktor wie in der Vorlage
-  const factor = 0.09;
-  const cx = rect.left + rect.width / 2;
-  const cy = rect.top + rect.height / 2;
-  const dx = e.clientX - cx;
-  const dy = e.clientY - cy;
-
-  gsap.to(cursor, {
-    x: rect.left + dx * factor,
-    y: rect.top + dy * factor,
-    width: rect.width + padding * 2,
-    height: rect.height + padding * 2,
-    scale: 1.1,
-    duration: 0.1,
-    ease: "power2.out"
+    if (!isOverTrigger) return;
+    let rect = trigger.getBoundingClientRect(); // <-- immer das äußere Element!
+    const factor = 0.09;
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = e.clientX - cx;
+    const dy = e.clientY - cy;
+    gsap.to(cursor, {
+      x: rect.left + dx * factor,
+      y: rect.top + dy * factor,
+      width: rect.width,
+      height: rect.height,
+      scale: 1.1,
+      duration: 0.1,
+      ease: "power2.out"
+    });
   });
-});
   trigger.addEventListener("mouseleave", (e) => {
     isOverTrigger = false;
     currentTrigger = null;
@@ -1775,14 +1683,6 @@ setScrollUpBtnStroke(variant.navColor);
 scrollUpBtn.style.color = variant.navColor; // <--- NEU
 updateBurgerLinesColor();
 updateMenuToggleBg();
-
-  // Scroll-Indikator-Farbe synchronisieren
-  document.documentElement.style.setProperty('--scrollIndicatorColor', logoVariants[logoVariantIndex].navColor);
-  // NEU: Setze die Variable auch direkt auf das SVG
-  const scrollIndicatorSvg = document.getElementById('scroll-indicator-svg');
-if (scrollIndicator && homeSection) {
-  scrollIndicator.style.display = 'flex';
-}
 }
 
 // Farbwechsel per Klick auf Seite (außer auf Buttons, Links, Cards, Nav)
@@ -1848,6 +1748,9 @@ const scrollWords = [
   "Versionierung",
   "Titelanimation",
   "Länderfassungen",
+  "Cutdowns",
+  "Encodings",
+  "Mastering",
   "Sendekopien"
 ];
 const wordBgColors = [
@@ -2035,33 +1938,6 @@ document.addEventListener('DOMContentLoaded', function() {
       activeFaecher = null;
     }
   });
-});
-document.addEventListener('DOMContentLoaded', function() {
-  const scrollIndicator = document.getElementById('scroll-indicator');
-  const logoAdhsVideo = document.getElementById('logoAdhsVideo');
-  // Zeige den Scroll-Indikator nach 2.5s, wenn das Video sichtbar ist
-  function showScrollIndicator() {
-    if (scrollIndicator && logoAdhsVideo && logoAdhsVideo.style.display !== 'none') {
-      scrollIndicator.style.display = 'flex';
-    }
-  }
-  if (logoAdhsVideo) {
-    logoAdhsVideo.addEventListener('play', function() {
-      setTimeout(showScrollIndicator, 2500);
-    });
-    // Fallback falls Video sofort startet
-    setTimeout(showScrollIndicator, 2500);
-  }
-  // Klick auf den Indikator scrollt zur nächsten Section
-  if (scrollIndicator) {
-    scrollIndicator.addEventListener('click', function(e) {
-      e.preventDefault();
-      const nextSection = document.getElementById('leistungen');
-      if (nextSection) {
-        nextSection.scrollIntoView({behavior: 'smooth'});
-      }
-    });
-  }
 });
 </script>
 </body>
