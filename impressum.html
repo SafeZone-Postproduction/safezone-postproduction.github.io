@@ -19,6 +19,7 @@
 
 <!-- Apple Touch Icon für iOS-Geräte -->
 <link rel="apple-touch-icon" sizes="152x152" href="Favicon_pink_152px.png">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -92,21 +93,26 @@
       padding: 0;
       margin: 0;
     }
-    .nav-links a {
-      text-decoration: none;
-      color: #2d1a45;
-      font-weight: 300;
-      font-size: 1.1rem;
-      font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-      letter-spacing: normal;
-      transition: all 0.3s ease;
-      text-shadow: none;
-      background-color: #d83f87;
-      padding: 0.6rem 1.2rem;
-      border-radius: 0px;
-      min-width: 100px;
-      text-align: center;
+.nav-links a {
+  text-decoration: none;
+  color: #f1c1db;           /* rosa Schrift */
+  font-weight: 300;
+  font-size: 1.1rem;
+  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: normal;
+  transition: all 0.3s ease;
+  text-shadow: none;
+  background-color: #2d1a45; /* dunkellila Hintergrund */
+  padding: 0.6rem 1.2rem;
+  border-radius: 0px;
+  min-width: 100px;
+  text-align: right;
+}
+    .nav-links a:hover {
+      opacity: 1;
+      transform: none;
     }
+
     #cursor {
       --color: #fff;
       position: fixed;
@@ -147,24 +153,123 @@
     @media (max-width: 700px) {
       body { padding: 1.2rem 0.7rem; max-width: 98vw; }
       .navbar { top: 1rem; right: 1rem; }
-      .nav-links { gap: 1.2rem; }
-      .nav-links a { font-size: 1rem; padding: 0.6rem 1.2rem; }
     }
+    /* Burger-Menü für mobil */
+.menu-toggle {
+  display: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #fff;
+}
+.menu-toggle .burger-lines {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  color: inherit;
+  margin: 0 auto;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.menu-toggle .burger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: #2d1a45;
+  border-radius: 2px;
+  transition: all 0.3s;
+  margin: 2.5px 0;
+}
+@media (max-width: 700px) {
+   .menu-toggle {
+        display: block;
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+        max-width: 44px;
+        max-height: 44px;
+        font-size: 1.5rem;
+        border-radius: 50%;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+        cursor: pointer;
+        z-index: 2001;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        background: #2d1a45;      /* dunkellila Hintergrund */
+        color: #f1c1db;           /* rosa Schrift */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.3s, color 0.3s;
+  }
+  .menu-toggle .burger-line {
+    background: #f1c1db !important; /* rosa Linien */
+  }
+  .nav-links {
+        display: none;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        left: auto;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1.2rem;
+        background: transparent !important; /* Kein weißer Hintergrund */
+        box-shadow: none;
+        border-radius: 0;
+        padding: 5rem 1rem 2.2rem 2.2rem;
+        z-index: 2002;
+        min-width: 44px;
+        width: auto;
+        height: auto;
+      }
+      .nav-links.open {
+        display: flex;
+      }
+  .nav-links a {
+        font-size: 1.2rem;
+        padding: 0.7rem 1.2rem;
+        min-width: 100px;
+        text-align: right;
+        border-radius: 0rem;
+        font-weight: 600;
+    color: #f1c1db;           /* rosa Schrift */
+    background: #2d1a45;      /* dunkellila Hintergrund */
+  }
+   #cursor, #cursorPt {
+    display: none !important;
+  }
+}
   </style>
 </head>
 <body>
   <div id="cursor"></div>
   <div id="cursorPt"></div>
-  <nav class="navbar">
-    <div class="nav-inner">
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html#home">Home</a></li>
-        <li><a href="index.html#leistungen">Leistungen</a></li>
-        <li><a href="index.html#profil">Profil</a></li>
-        <li><a href="index.html#kontakt">Kontakt</a></li>
-      </ul>
+  <!-- Navbar mit Burger-Menü für mobil -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="menu-toggle">
+      <div class="burger-lines">
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+      </div>
     </div>
-  </nav>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html#leistungen">Leistungen</a></li>
+      <li><a href="index.html#profil">Profil</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+  </div>
+</nav>
     <h1>Impressum</h1>
     <p><b>Angaben gemäß § 5 TMG:</b></p>
     <p>SafeZone Postproduction GmbH<br>
@@ -190,35 +295,148 @@
     Foto: Jonas Wresch – <a href="https://www.jonaswresch.com" target="_blank" rel="noopener">www.jonaswresch.com</a>
     </p>
 <script>
-// Fadenkreuz-Cursor mit Rotation wie auf index.html
 const cursor = document.getElementById("cursor");
 const cursorPt = document.getElementById("cursorPt");
-let rotation = 0;
-let rotationInterval = null;
+let rotationTween = null, isOverTrigger = false, currentTrigger = null, exitTween = null, enterTween = null, currentRotation = 0;
+
 function startRotation() {
-  if(rotationInterval) return;
-  rotationInterval = setInterval(() => {
-    rotation = (rotation + 2) % 360;
-    if(cursor) cursor.style.transform = `rotate(${rotation}deg)`;
-  }, 16);
+  if (rotationTween) return;
+  gsap.set(cursor, { rotation: currentRotation });
+  rotationTween = gsap.to(cursor, { rotation: "+=360", duration: 2.4, repeat: -1, ease: "linear", transformOrigin: "center center" });
 }
 function stopRotation() {
-  if(rotationInterval) clearInterval(rotationInterval);
-  rotationInterval = null;
+  if (rotationTween) {
+    currentRotation = gsap.getProperty(cursor, "rotation") % 360;
+    rotationTween.kill();
+    rotationTween = null;
+  }
 }
+let mouseX = 0, mouseY = 0;
+
 document.addEventListener("mousemove", (e) => {
-  if(cursor) {
-    cursor.style.left = (e.clientX - 16) + "px";
-    cursor.style.top = (e.clientY - 16) + "px";
-    cursor.style.opacity = 1;
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  gsap.to(cursorPt, {
+    x: mouseX - 3.5,
+    y: mouseY - 3.5,
+    duration: 0.1,
+    ease: "expo.out"
+  });
+  if (!isOverTrigger) {
+    gsap.to(cursor, {
+      x: mouseX - 16,
+      y: mouseY - 16,
+      duration: 0.1,
+      ease: "expo.out"
+    });
   }
-  if(cursorPt) {
-    cursorPt.style.left = (e.clientX - 3.5) + "px";
-    cursorPt.style.top = (e.clientY - 3.5) + "px";
-    cursorPt.style.opacity = 1;
-  }
-  startRotation();
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Nur Nav-Links als Trigger
+  const triggers = [
+    ...document.querySelectorAll('.nav-links a')
+  ].filter(Boolean);
+
+  triggers.forEach(trigger => {
+  trigger.addEventListener("mouseenter", (e) => {
+    isOverTrigger = true; currentTrigger = trigger; stopRotation();
+    let rect = trigger.getBoundingClientRect();
+    if (exitTween) exitTween.kill();
+
+    // Textbreite bestimmen
+    const textRect = trigger.querySelector('span') 
+      ? trigger.querySelector('span').getBoundingClientRect() 
+      : (() => {
+          const range = document.createRange();
+          range.selectNodeContents(trigger);
+          return range.getBoundingClientRect();
+        })();
+
+    // Optische Mitte berechnen
+    const cx = textRect.left + textRect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = e.clientX - cx;
+    const dy = e.clientY - cy;
+
+    enterTween = gsap.to(cursor, {
+      width: rect.width,
+      height: rect.height,
+      scale: 1.1,
+      rotation: 0,
+      x: cx - 16 + dx * 0.09,
+      y: cy - 16 + dy * 0.09,
+      duration: 0.2,
+      ease: "expo.out"
+    });
+  });
+  trigger.addEventListener("mousemove", (e) => {
+    if (!isOverTrigger) return;
+    let rect = trigger.getBoundingClientRect();
+
+    const textRect = trigger.querySelector('span') 
+      ? trigger.querySelector('span').getBoundingClientRect() 
+      : (() => {
+          const range = document.createRange();
+          range.selectNodeContents(trigger);
+          return range.getBoundingClientRect();
+        })();
+
+    const factor = 0.09;
+    const cx = textRect.left + textRect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = e.clientX - cx;
+    const dy = e.clientY - cy;
+    gsap.to(cursor, {
+      x: cx - 16 + dx * factor,
+      y: cy - 16 + dy * factor,
+      width: rect.width,
+      height: rect.height,
+      scale: 1.1,
+      duration: 0.1,
+      ease: "power2.out"
+    });
+  });
+    trigger.addEventListener("mouseleave", (e) => {
+      isOverTrigger = false;
+      currentTrigger = null;
+      if (exitTween) exitTween.kill();
+      exitTween = gsap.to(cursor, {
+        width: 32,
+        height: 32,
+        scale: 1,
+        duration: 0.5,
+        ease: "elastic.out(1, .9)"
+      });
+      startRotation();
+    });
+  });
+
+  // Burger-Menü für mobil
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.getElementById('navLinks');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function() {
+        if (window.innerWidth <= 700) {
+          navLinks.classList.remove('open');
+        }
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (window.innerWidth <= 700 && navLinks.classList.contains('open')) {
+        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+          navLinks.classList.remove('open');
+        }
+      }
+    });
+  }
+});
+
 document.addEventListener("mouseleave", stopRotation);
 startRotation();
 </script>
