@@ -60,6 +60,7 @@
     }
     .menu-toggle {
       display: none;
+      z-index: 3002; /* Höher als .nav-links */
       font-size: 1.2rem;
       cursor: pointer;
       color: #fff;
@@ -67,6 +68,7 @@
 .nav-links {
   list-style: none;
   display: flex;
+  z-index: 2002;
   flex-direction: column;   /* <-- horizontal! */
   gap: 2rem;           /* kleineres gap */
   justify-content: flex-end;
@@ -482,7 +484,6 @@ body {
 }
 .section-diagonal {
   background: #2d1a45;
-  color: #fff;
   min-height: 100vh;
   height: 100vh;
   display: flex;
@@ -540,7 +541,6 @@ body {
     box-shadow 0.4s,
     z-index 0.2s;
   will-change: transform, box-shadow;
-  background: #fff; /* fallback */
   cursor: pointer;
   z-index: 1;
 }
@@ -873,25 +873,22 @@ body {
   border: none;
   padding: 0;
 }
-    @media (max-width: 1350px) {
-      .profil-cards-row {
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      max-width: 840px;
-      margin-left: auto;
-      margin-right: auto;
-      justify-items: center;
-    }
-      #profil {
-      min-height: 160vh; /* Erhöhe die Höhe nach Bedarf */
-    }
-  }
-  /* Responsive: 2x2 Grid ab 1200px, 1x4 ab 700px */
-@media (max-width: 1200px) {
+@media (max-width: 1350px) {
   .profil-cards-row {
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
-    max-width: 90vw;
+    gap: 2.5rem;
+    max-width: 840px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center;
+  }
+  #profil,
+  #profil.section-diagonal,
+  .section-diagonal {
+    min-height: unset;
+    height: auto;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 }
   @media (max-width: 700px) {
@@ -963,7 +960,7 @@ body {
     box-shadow: none;
     border: none;
     cursor: pointer;
-    z-index: 2001;
+    z-index: 3003;
     position: fixed;
     top: 1rem;
     right: 1rem;
@@ -1040,24 +1037,24 @@ body {
     background: #f1c1db;
   }
     .leistungen-headline {
-    font-size: 1.25rem;
-    margin-top: 2.2rem;
-    margin-bottom: 2.2rem;
+    margin-top: 4.5rem;
+    margin-bottom: 3rem;
     line-height: 1.15;
   }
   .headline-flex {
+    font-size: 1.45rem;
     max-width: 98vw;
   }
   .headline-word,
   #headline-word-scroll {
-    font-size: 1.05rem;
+    font-size: 1.45rem;
     padding: 0.22em 0.5em;
   }
   .wechselwort-dummy {
-    font-size: 1.05rem;
+    font-size: 1.45rem;
   }
   .headline-static {
-    font-size: 1.05rem;
+    font-size: 1.45rem;
   }
   .leistungen-faecher {
     display: grid;
@@ -1073,26 +1070,53 @@ body {
     width: 95%;
     max-width: 95%;
     min-width: 325px;
-    height: 160px;
+    height: 170px;
   }
   .faecher-content {
-    padding: 1rem 2rem 1rem 2rem; /* oben weniger, unten mehr */
+    padding: 1.5rem 3rem 1rem 3rem; /* oben weniger, unten mehr */
     justify-content: flex-start; /* Headline bleibt oben */
   }
   .faecher-title {
-    font-size: 1.15rem;
+    font-size: 1rem;
     margin-top: 0;
-    margin-bottom: -0.7em;
+    margin-bottom: -0.5em;
   }
   .faecher-details,
   .faecher-details ul,
   .faecher-details li {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    margin-top: 0.5em;
     word-break: break-word;
     hyphens: auto;
   }
+    .faecher-details li {
+    margin-bottom: 0.05em; /* Weniger Abstand zwischen den Stichpunkten */
+    line-height: 1.15;     /* Optional: Zeilenabstand etwas enger */
+  }
   .faecher-details ul {
     columns: 1;
+  }
+    /* Nur aktiver Zustand, kein Hover auf Mobil */
+  .faecher-box.active .faecher-content,
+  .faecher-box.active .faecher-title,
+  .faecher-box.active .faecher-details {
+    transform: scale(1.04);
+    color: #2d1a45;
+    transition: transform 0.5s cubic-bezier(.4,2,.6,1), color 0.4s;
+  }
+  .faecher-box.active .faecher-details li {
+    transform: scale(1.05);
+    color: #2d1a45;
+  }
+
+  /* Optional: Hover komplett entfernen auf Mobil */
+  .faecher-box:hover .faecher-content,
+  .faecher-box:hover .faecher-title,
+  .faecher-box:hover .faecher-details,
+  .faecher-box:hover .faecher-details li,
+  .faecher-box:hover {
+    transform: none !important;
+    color: inherit !important;
   }
 
   /* Profil Section: Grid 2x2, 90% Breite, Höhe nach Inhalt */
@@ -1106,7 +1130,6 @@ body {
   .safezone-claim {
     font-size: 1.3rem;
     margin-bottom: 5rem;
-    margin-top: 2rem;
   }
   .profil-cards-row {
     display: grid;
@@ -1124,37 +1147,78 @@ body {
         height: 280px;
         padding: 0;
   }
-  .karten-content {
-    font-size: 0.6rem;
+    .karte .karten-content {
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+  }
+  .karte .karten-title {
+    font-size: 1.3rem;
+  }
+  .karte .karten-meta {
+    font-size: 0.8rem;
+  }
+  .karte .karten-body {
+    font-size: 0.7rem;
     padding-left: 0.2rem;
     padding-right: 0.2rem;
-    padding-top: 1.1rem;
-    padding-bottom: 1.1rem;
+    line-height: 1.5;
   }
-  .karten-title {
-    font-size: 1.15rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 0.8em;
+  /* Weniger Skalierung auf den Profilkarten auf Mobil */
+  .karte.active .karten-content,
+  .karte.active .karten-body,
+  .karte.active .karten-title,
+  .karte.active .karten-meta {
+    transform: scale(1.05);
+    color: #2d1a45 !important;
+    transition: transform 0.5s cubic-bezier(.4,2,.6,1), color 0.4s;
   }
-  .karten-meta {
-    font-size: 0.6rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .karten-body {
-    font-size: 0.82rem;
-    text-align: left;
-    white-space: normal;
-    word-break: break-word;
-    line-height: 1.15;
-    display: block;
-    padding-left: 1.5rem;
-    padding-right: 1.2rem;
+  .karte.active .karten-body ul,
+  .karte.active .karten-body li {
+    transform: scale(1.06);
+    color: #2d1a45 !important;
   }
 
+  /* Optional: Hover komplett entfernen auf Mobil */
+  .karte:hover .karten-content,
+  .karte:hover .karten-body,
+  .karte:hover .karten-title,
+  .karte:hover .karten-meta,
+  .karte:hover .karten-body ul,
+  .karte:hover .karten-body li,
+  .karte:hover {
+    transform: none !important;
+    color: inherit !important;
+  }
+    /* Fix: Aktive Karte/Fächerbox auf Mobil trotzdem skalieren! */
+  .faecher-box.active .faecher-content,
+  .faecher-box.active .faecher-title,
+  .faecher-box.active .faecher-details,
+  .faecher-box.active .faecher-details li,
+  .faecher-box.active,
+  .karte.active .karten-content,
+  .karte.active .karten-body,
+  .karte.active .karten-title,
+  .karte.active .karten-meta,
+  .karte.active .karten-body ul,
+  .karte.active .karten-body li,
+  .karte.active {
+    transform: scale(1.04) !important;
+    color: #2d1a45 !important;
+    transition: transform 0.5s cubic-bezier(.4,2,.6,1), color 0.4s;
+  }
+  
     #kontakt {
     padding: 2rem 0 1rem 0;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+    .kontakt-footer-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
   .kontakt-headline {
     font-size: 2rem;
@@ -1173,7 +1237,14 @@ body {
     align-items: center; /* mittig */
     text-align: center;  /* mittig */
   }
-
+  .kontakt-mail {
+    font-size: 1rem;
+  }
+  .kontakt-name,
+  .kontakt-role,
+  .kontakt-tel {
+    font-size: 0.93rem;
+  }
   .footer-links {
     gap: 0.5rem;
   }
@@ -1205,6 +1276,58 @@ body {
     /* Entfernt Hover-Effekt auf Mobil */
     transform: none;
   }
+}
+/* Speziell für iPhone 12 Pro und ähnliche Geräte */
+@media (max-width: 400px) {
+  /* Leistungen */
+  #leistungen > .inner,
+  .leistungen-faecher,
+  .faecher-box {
+    width: 95% !important;
+    max-width: 95% !important;
+    min-width: unset !important;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+  .faecher-content {
+    padding: 1.5rem 2rem 2rem 2.1rem !important; /* Weniger Padding */
+  }
+
+  /* Profil */
+  #profil.section-diagonal .inner,
+  .profil-cards-row,
+  .karte {
+    width: 95% !important;
+    max-width: 95% !important;
+    min-width: unset !important;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+  .karte .karten-content {
+    padding: 1rem 1rem 1rem 1rem !important; /* Weniger Padding */
+  }
+    /* Automatischer Zeilenumbruch für Inhalte */
+  .faecher-content,
+  .faecher-title,
+  .faecher-details,
+  .faecher-details ul,
+  .faecher-details li,
+  .karten-content,
+  .karten-title,
+  .karten-meta,
+  .karten-body {
+    white-space: normal !important;
+    word-break: break-word !important;
+    hyphens: auto !important;
+  }
+    .karte .karten-body {
+    font-size: 0.65rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    line-height: 1.4;
+}
 }
   </style>
 </head>
@@ -1878,11 +2001,13 @@ document.addEventListener('DOMContentLoaded', function() {
     menuToggle.addEventListener('click', function(e) {
       e.stopPropagation();
       navLinks.classList.toggle('open');
+      menuToggle.classList.toggle('open');
     });
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', function() {
         if (window.innerWidth <= 700) {
           navLinks.classList.remove('open');
+          menuToggle.classList.remove('open');
         }
       });
     });
@@ -1890,6 +2015,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (window.innerWidth <= 700 && navLinks.classList.contains('open')) {
         if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
           navLinks.classList.remove('open');
+          menuToggle.classList.remove('open');
         }
       }
     });
