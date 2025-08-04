@@ -21,141 +21,47 @@
 <link rel="apple-touch-icon" sizes="152x152" href="Favicon_pink_152px.png">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-      background: #f1c1db;
-      color: #2d1a45;
-      min-height: 100vh;
-      cursor: none;
-      padding: 2.5rem 1.5rem;
-      font-size: 1.08rem;
-      line-height: 1.7;
-      text-align: left;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    h1 {
-      font-family: 'Anton', Impact, 'Arial Black', sans-serif;
-      color: #2d1a45;
-      font-size: 2.2rem;
-      margin-bottom: 2rem;
-      letter-spacing: -0.01em;
-      text-align: left;
-    }
-    h2, b, strong {
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-      color: #2d1a45;
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-top: 2.2rem;
-      margin-bottom: 0.7rem;
-      letter-spacing: 0;
-      text-align: left;
-      display: block;
-    }
-    ul, ol {
-      margin-left: 1.2rem;
-      display: block;
-      text-align: left;
-    }
-    li { margin-bottom: 0.5rem; }
-    a { color: #2d1a45; text-decoration: underline; }
-    p { text-align: left; }
-
-    /* Navigation */
-    .navbar {
-      position: fixed;
-      top: 2rem;
-      right: 2rem;
-      background: none;
-      padding: 0;
-      z-index: 999;
-      box-shadow: none;
-    }
-    .nav-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-      max-width: none;
-      margin: 0;
-      gap: 2rem;
-    }
-    .nav-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-      justify-content: center;
-      align-items: flex-end;
-      padding: 0;
-      margin: 0;
-    }
-.nav-links a {
-  text-decoration: none;
-  color: #f1c1db;           /* rosa Schrift */
-  font-weight: 300;
-  font-size: 1.1rem;
-  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
-  letter-spacing: normal;
-  transition: all 0.3s ease;
-  text-shadow: none;
-  background-color: #2d1a45; /* dunkellila Hintergrund */
-  padding: 0.6rem 1.2rem;
-  border-radius: 0px;
-  min-width: 100px;
-  text-align: right;
+/* --- Reset & Grundlayout --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  background: #f1c1db;
+  color: #2d1a45;
+  min-height: 100vh;
+  cursor: none;
+  padding: 2.5rem 1.5rem;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  text-align: left;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 }
-    .nav-links a:hover {
-      opacity: 1;
-      transform: none;
-    }
-    
-    #cursor {
-      --color: #fff;
-      position: fixed;
-      width: 30px;
-      height: 30px;
-      pointer-events: none;
-      z-index: 10000;
-      visibility: visible;
-      background-image: linear-gradient(to right, var(--color) 10px, transparent 0),
-        linear-gradient(to bottom, var(--color) 10px, transparent 0),
-        linear-gradient(to left, var(--color) 10px, transparent 0),
-        linear-gradient(to bottom, var(--color) 10px, transparent 0),
-        linear-gradient(to right, var(--color) 10px, transparent 0),
-        linear-gradient(to top, var(--color) 10px, transparent 0),
-        linear-gradient(to left, var(--color) 10px, transparent 0),
-        linear-gradient(to top, var(--color) 10px, transparent 0);
-      background-repeat: no-repeat;
-      background-position: top left, top left, top right, top right, bottom left, bottom left, bottom right, bottom right;
-      background-size: 20px 2px, 2px 20px, 20px 2px, 2px 20px, 20px 2px, 2px 20px,
-        20px 2px, 2px 20px;
-      opacity: 1 !important;
-      left: 0; top: 0;
-      transition: none;
-    }
-    #cursorPt {
-      position: fixed;
-      width: 7px;
-      height: 7px;
-      pointer-events: none;
-      z-index: 9999;
-      background: #fff;
-      border-radius: 50%;
-      visibility: visible;
-      left: 0;
-      top: 0;
-      transition: none;
-    }
-    
-     @media (max-width: 700px) {
-      body { padding: 1.2rem 0.7rem; max-width: 98vw; }
-      .navbar { top: 1rem; right: 1rem; }
-    }
-    /* Burger-Menü für mobil */
+
+/* --- Navigation --- */
+.navbar {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  left: auto;
+  background: none;
+  padding: 0;
+  z-index: 999;
+  box-shadow: none;
+  width: auto;
+  max-width: none;
+  pointer-events: auto;
+}
+.nav-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  max-width: none;
+  margin: 0;
+  gap: 2rem;
+}
 .menu-toggle {
   display: none;
   font-size: 1.2rem;
@@ -179,73 +85,238 @@
   display: block;
   width: 24px;
   height: 2px;
-  background: #2d1a45;
+  background: #2d1a45; /* oder Wunschfarbe */
   border-radius: 2px;
   transition: all 0.3s;
   margin: 2.5px 0;
 }
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0;
+  margin: 0;
+}
+.nav-links li {
+  padding: 0;
+  margin: 0;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #f1c1db; /* oder Wunschfarbe */
+  font-weight: 300;
+  font-size: 1.1rem;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  letter-spacing: normal;
+  transition: all 0.3s ease;
+  text-shadow: none;
+  background-color: #2d1a45; /* oder Wunschfarbe */
+  padding: 0.6rem 1.2rem;
+  border-radius: 0px;
+  min-width: 100px;
+  text-align: right;
+}
+.nav-links a:hover {
+  opacity: 1;
+  color: inherit;
+  background: inherit;
+  transform: none;
+}
+.nav-links a,
+.nav-links a:hover,
+.nav-links a:active,
+.nav-links a:focus {
+  color: #f1c1db !important;
+  background: #2d1a45 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  opacity: 1 !important;
+  transition: none !important;
+}
+.main-content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem;
+  background: transparent;
+  color: inherit;
+}
+.main-content h1 {
+  font-family: 'Anton', Arial, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2d1a45;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.main-content h2,
+.main-content h3 {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  color: #2d1a45;
+}
+
+.main-content h2 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.main-content h3 {
+  font-size: 1.15rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.7rem;
+  line-height: 1.4;
+}
+.main-content a,
+.main-content a:visited,
+.main-content a:hover,
+.main-content a:active,
+.main-content a:focus {
+  text-decoration: none;
+  color: #2d1a45; /* oder inherit, je nach Wunsch */
+  background: none;
+  box-shadow: none;
+  outline: none;
+  transition: color 0.2s;
+}
+
+/* --- Cursor (optional, wie auf index.html) --- */
+#cursor {
+  --color: #fff;
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+  z-index: 10000;
+  visibility: visible;
+  background-image: linear-gradient(to right, var(--color) 10px, transparent 0),
+    linear-gradient(to bottom, var(--color) 10px, transparent 0),
+    linear-gradient(to left, var(--color) 10px, transparent 0),
+    linear-gradient(to bottom, var(--color) 10px, transparent 0),
+    linear-gradient(to right, var(--color) 10px, transparent 0),
+    linear-gradient(to top, var(--color) 10px, transparent 0),
+    linear-gradient(to left, var(--color) 10px, transparent 0),
+    linear-gradient(to top, var(--color) 10px, transparent 0);
+  background-repeat: no-repeat;
+  background-position: top left, top left, top right, top right, bottom left, bottom left, bottom right, bottom right;
+  background-size: 20px 2px, 2px 20px, 20px 2px, 2px 20px, 20px 2px, 2px 20px,
+    20px 2px, 2px 20px;
+  opacity: 1 !important;
+  left: 0; top: 0;
+  transition: none;
+}
+#cursorPt {
+  position: fixed;
+  width: 7px;
+  height: 7px;
+  pointer-events: none;
+  z-index: 9999;
+  background: #fff;
+  border-radius: 50%;
+  visibility: visible;
+  left: 0;
+  top: 0;
+  transition: none;
+}
+
+/* --- Responsive: Burger-Menü für mobil --- */
 @media (max-width: 700px) {
-   .menu-toggle { 
-        display: block;
-        width: 44px;
-        height: 44px;
-        min-width: 44px;
-        min-height: 44px;
-        max-width: 44px;
-        max-height: 44px;
-        font-size: 1.5rem;
-        border-radius: 50%;
-        padding: 0;
-        box-shadow: none;
-        border: none;
-        cursor: pointer;
-        z-index: 2001;
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        background: #2d1a45;      /* dunkellila Hintergrund */
-        color: #f1c1db;           /* rosa Schrift */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background 0.3s, color 0.3s;
+  body { padding: 1.2rem 0.7rem; max-width: 98vw; }
+  .navbar {
+    top: 1rem;
+    right: 1rem;
+    left: auto;
+    width: auto;
+    max-width: none;
+    position: fixed;
+    z-index: 2000;
+  }
+  .menu-toggle {
+    display: block;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    max-width: 44px;
+    max-height: 44px;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+    z-index: 3003;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: #2d1a45;      /* oder Wunschfarbe */
+    color: #f1c1db;           /* oder Wunschfarbe */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.3s;
   }
   .menu-toggle .burger-line {
-    background: #f1c1db !important; /* rosa Linien */
+    background: #f1c1db !important; /* oder Wunschfarbe */
   }
   .nav-links {
-        display: none;
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        left: auto;
-        flex-direction: column;
-        align-items: flex-end;
-        gap: 1.2rem;
-        background: transparent !important; /* Kein weißer Hintergrund */
-        box-shadow: none;
-        border-radius: 0;
-        padding: 5rem 1rem 2.2rem 2.2rem;
-        z-index: 2002;
-        min-width: 44px;
-        width: auto;
-        height: auto;
-      }
-      .nav-links.open {
-        display: flex;
-      }
-  .nav-links a {
-        font-size: 1.2rem;
-        padding: 0.7rem 1.2rem;
-        min-width: 100px;
-        text-align: right;
-        border-radius: 0rem;
-        font-weight: 600;
-    color: #f1c1db;           /* rosa Schrift */
-    background: #2d1a45;      /* dunkellila Hintergrund */
+    display: none;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    left: auto;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2rem;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 5rem 1rem 2.2rem 2.2rem;
+    z-index: 2002;
+    min-width: 44px;
+    width: auto;
+    height: auto;
   }
-   #cursor, #cursorPt {
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links a {
+    font-size: 1.1rem;
+    font-weight: 300;
+    padding: 0.6rem 1.2rem;
+    min-width: 100px;
+    text-align: right;
+    border-radius: 0px;
+    color: #f1c1db;
+    background: #2d1a45;
+  }
+  #cursor, #cursorPt {
     display: none !important;
+  }
+    .main-content h1 {
+    font-size: 1.5rem;
+    margin-top: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  .main-content h2 {
+    font-size: 1.1rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.7rem;
+  }
+  .main-content h3 {
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .main-content {
+    font-size: 0.98rem;
+    padding: 1.2rem 0.7rem;
   }
 }
   </style>
@@ -253,70 +324,107 @@
 <body>
   <div id="cursor"></div>
   <div id="cursorPt"></div>
-  <!-- Navbar mit Burger-Menü für mobil -->
-<nav class="navbar">
-  <div class="nav-inner">
-    <div class="menu-toggle">
-      <div class="burger-lines">
-        <div class="burger-line"></div>
-        <div class="burger-line"></div>
-        <div class="burger-line"></div>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <div class="menu-toggle">
+        <div class="burger-lines">
+          <div class="burger-line"></div>
+          <div class="burger-line"></div>
+          <div class="burger-line"></div>
+        </div>
       </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#leistungen">Leistungen</a></li>
+        <li><a href="index.html#profil">Profil</a></li>
+        <li><a href="index.html#kontakt">Kontakt</a></li>
+      </ul>
     </div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html#home">Home</a></li>
-      <li><a href="index.html#leistungen">Leistungen</a></li>
-      <li><a href="index.html#profil">Profil</a></li>
-      <li><a href="index.html#kontakt">Kontakt</a></li>
-    </ul>
-  </div>
-</nav>
+  </nav>
+  <div class="main-content">
     <h1>Datenschutzerklärung</h1>
-    <p><b>Stand:</b> Juli 2025</p>
-    <p><b>1. Verantwortliche Stelle</b>
-    SafeZone Postproduction GmbH<br>
-    Stargarder Str. 35, 10437 Berlin<br>
-    E-Mail: office@safezone-postproduction.de<br>
-    Geschäftsführung: Emily Imhof, Anica Walz</p>
-    <p><b>2. Hosting & Auftragsverarbeitung</b>
-    Die Website läuft über Google Workspace bzw. dessen Infrastruktur. Dabei verarbeitet Google personenbezogene Daten wie IP-Adressen; ein entsprechender AV-Vertrag (Art. 28 DSGVO) besteht.</p>
-    <p><b>3. Zugriffsdaten und Server-Logfiles</b>
-    Beim Besuch der Website werden automatisch Daten wie IP-Adresse, Browsertyp, Betriebssystem, Referrer-URL und Zugriffzeit als Logfiles erhoben. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse: Betrieb + Sicherheit). Die Daten werden spätestens nach max. 30 Tagen gelöscht.</p>
-    <p><b>4. Kontaktaufnahme per E-Mail</b>
-    Wenn Sie uns per E-Mail kontaktieren, speichern wir Name, E-Mail-Adresse, Inhalt der Nachricht zum Zweck der Bearbeitung und ggf. Anschlussfragen. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) oder lit. f (berechtigtes Interesse).</p>
-    <p><b>5. Google Analytics</b>
-    Wir nutzen Google Analytics 4 mit aktivierter IP-Anonymisierung (IP-Masking). Die erfassten Nutzungsdaten werden in der Regel in den USA verarbeitet, jedoch auf Grundlage der EU-Standardvertragsklauseln. Ein Opt-out ist jederzeit möglich über Browser-Add-ons: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">https://tools.google.com/dlpage/gaoptout</a>. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).</p>
-    <p><b>6. Einbindung von YouTube/Vimeo</b>
-    Unsere Website kann zukünftig Inhalte der Plattformen YouTube oder Vimeo einbinden. Beim Aufruf solcher Seiten wird Ihre IP-Adresse an den Anbieter übermittelt. Nutzer werden vorab informiert und um Einwilligung gebeten.</p>
-    <p><b>7. Social-Media-Präsenzen</b>
-    Wir sind mit Profilen auf LinkedIn, Xing und Meta aktiv. Beim Besuch unserer Profile gelten die Datenschutzbestimmungen der jeweiligen Plattformbetreiber.</p>
-    <p><b>8. Cookies & Consent</b>
-    Unsere Website verwendet technisch notwendige Cookies. Tracking-Cookies wie Google Analytics oder Social Plugins setzen wir nur nach expliziter Einwilligung (Consent-Banner). Die Einwilligung kann jederzeit widerrufen werden.</p>
-    <p><b>9. Rechtsgrundlage der Verarbeitung</b>
-    Wir verarbeiten personenbezogene Daten auf Grundlage folgender Rechtsnormen:
-      <ul>
-        <li>Art. 6 Abs. 1 lit. a DSGVO – Einwilligung</li>
-        <li>Art. 6 Abs. 1 lit. b DSGVO – Vertragserfüllung</li>
-        <li>Art. 6 Abs. 1 lit. f DSGVO – berechtigtes Interesse</li>
-      </ul>
+    <p><strong>Stand:</strong> Juli 2025</p>
+
+    <h2>1. Verantwortliche Stelle</h2>
+    <p>
+      SafeZone Postproduction GmbH<br>
+      Stargarder Str. 35, 10437 Berlin<br>
+      E-Mail: office@safezone-postproduction.de<br>
+      Geschäftsführung: Emily Imhof, Anica Walz
     </p>
-    <p><b>10. Auftragsverarbeitung</b>
-    Wir haben mit unseren Dienstleistern (z. B. Google für Hosting und Analytics) schriftliche Auftragsverarbeitungsverträge (AV-Verträge gemäß Art. 28 DSGVO) abgeschlossen.</p>
-    <p><b>11. Speicherdauer</b>
-    Personenbezogene Daten werden nur solange gespeichert, wie es zweckgebunden erforderlich ist:
-      <ul>
-        <li>Logfiles: max. 30 Tage</li>
-        <li>E-Mail-Daten: bis zur Abschlussbearbeitung</li>
-        <li>Analytics-Daten: i.d.R. 14 Monate</li>
-      </ul>
+
+    <h2>2. Hosting & Auftragsverarbeitung</h2>
+    <p>
+      Die Website läuft über Google Workspace bzw. dessen Infrastruktur. Dabei verarbeitet Google personenbezogene Daten wie IP-Adressen; ein entsprechender AV-Vertrag (Art. 28 DSGVO) besteht.
     </p>
-    <p><b>12. Widerspruch gegen Werbe-Mails</b>
-    Wir widersprechen der Nutzung unserer veröffentlichten Kontaktdaten zur Zusendung unaufgeforderter Werbung oder Informationsmaterialien (§ 7 UWG).</p>
-    <p><b>13. Betroffenenrechte</b>
-    Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch, Datenübertragbarkeit und Widerruf erteilter Einwilligungen (Art. 15–21 DSGVO). Zudem steht Ihnen ein Beschwerderecht bei der Aufsichtsbehörde (z. B. Berliner Datenschutzbeauftragte) zu.</p>
-    <p><b>14. Automatisierte Entscheidungen / Profiling</b>
-    Wir setzen keine automatisierten Entscheidungsverfahren oder Profiling ein. Sie haben das Recht, hiervon ausgenommen zu werden.</p>
-<script>
+
+    <h2>3. Zugriffsdaten und Server-Logfiles</h2>
+    <p>
+      Beim Besuch der Website werden automatisch Daten wie IP-Adresse, Browsertyp, Betriebssystem, Referrer-URL und Zugriffzeit als Logfiles erhoben. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse: Betrieb + Sicherheit). Die Daten werden spätestens nach max. 30 Tagen gelöscht.
+    </p>
+
+    <h2>4. Kontaktaufnahme per E-Mail</h2>
+    <p>
+      Wenn Sie uns per E-Mail kontaktieren, speichern wir Name, E-Mail-Adresse, Inhalt der Nachricht zum Zweck der Bearbeitung und ggf. Anschlussfragen. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung) oder lit. f (berechtigtes Interesse).
+    </p>
+
+    <h2>5. Google Analytics</h2>
+    <p>
+      Wir nutzen Google Analytics 4 mit aktivierter IP-Anonymisierung (IP-Masking). Die erfassten Nutzungsdaten werden in der Regel in den USA verarbeitet, jedoch auf Grundlage der EU-Standardvertragsklauseln. Ein Opt-out ist jederzeit möglich über Browser-Add-ons: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">https://tools.google.com/dlpage/gaoptout</a>. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).
+    </p>
+
+    <h2>6. Einbindung von YouTube/Vimeo</h2>
+    <p>
+      Unsere Website kann zukünftig Inhalte der Plattformen YouTube oder Vimeo einbinden. Beim Aufruf solcher Seiten wird Ihre IP-Adresse an den Anbieter übermittelt. Nutzer werden vorab informiert und um Einwilligung gebeten.
+    </p>
+
+    <h2>7. Social-Media-Präsenzen</h2>
+    <p>
+      Wir sind mit Profilen auf LinkedIn, Xing und Meta aktiv. Beim Besuch unserer Profile gelten die Datenschutzbestimmungen der jeweiligen Plattformbetreiber.
+    </p>
+
+    <h2>8. Cookies & Consent</h2>
+    <p>
+      Unsere Website verwendet technisch notwendige Cookies. Tracking-Cookies wie Google Analytics oder Social Plugins setzen wir nur nach expliziter Einwilligung (Consent-Banner). Die Einwilligung kann jederzeit widerrufen werden.
+    </p>
+
+    <h2>9. Rechtsgrundlage der Verarbeitung</h2>
+    <p>Wir verarbeiten personenbezogene Daten auf Grundlage folgender Rechtsnormen:</p>
+    <ul>
+      <li>Art. 6 Abs. 1 lit. a DSGVO – Einwilligung</li>
+      <li>Art. 6 Abs. 1 lit. b DSGVO – Vertragserfüllung</li>
+      <li>Art. 6 Abs. 1 lit. f DSGVO – berechtigtes Interesse</li>
+    </ul>
+
+    <h2>10. Auftragsverarbeitung</h2>
+    <p>
+      Wir haben mit unseren Dienstleistern (z. B. Google für Hosting und Analytics) schriftliche Auftragsverarbeitungsverträge (AV-Verträge gemäß Art. 28 DSGVO) abgeschlossen.
+    </p>
+
+    <h2>11. Speicherdauer</h2>
+    <p>Personenbezogene Daten werden nur solange gespeichert, wie es zweckgebunden erforderlich ist:</p>
+    <ul>
+      <li>Logfiles: max. 30 Tage</li>
+      <li>E-Mail-Daten: bis zur Abschlussbearbeitung</li>
+      <li>Analytics-Daten: i.d.R. 14 Monate</li>
+    </ul>
+
+    <h2>12. Widerspruch gegen Werbe-Mails</h2>
+    <p>
+      Wir widersprechen der Nutzung unserer veröffentlichten Kontaktdaten zur Zusendung unaufgeforderter Werbung oder Informationsmaterialien (§ 7 UWG).
+    </p>
+
+    <h2>13. Betroffenenrechte</h2>
+    <p>
+      Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch, Datenübertragbarkeit und Widerruf erteilter Einwilligungen (Art. 15–21 DSGVO). Zudem steht Ihnen ein Beschwerderecht bei der Aufsichtsbehörde (z. B. Berliner Datenschutzbeauftragte) zu.
+    </p>
+
+    <h2>14. Automatisierte Entscheidungen / Profiling</h2>
+    <p>
+      Wir setzen keine automatisierten Entscheidungsverfahren oder Profiling ein. Sie haben das Recht, hiervon ausgenommen zu werden.
+    </p>
+  </div>
+  <script>
 const cursor = document.getElementById("cursor");
 const cursorPt = document.getElementById("cursorPt");
 let rotationTween = null, isOverTrigger = false, currentTrigger = null, exitTween = null, enterTween = null, currentRotation = 0;
@@ -366,31 +474,22 @@ document.addEventListener('DOMContentLoaded', function() {
     let rect = trigger.getBoundingClientRect();
     if (exitTween) exitTween.kill();
 
-    // Textbreite bestimmen
-    const textRect = trigger.querySelector('span') 
-      ? trigger.querySelector('span').getBoundingClientRect() 
-      : (() => {
-          const range = document.createRange();
-          range.selectNodeContents(trigger);
-          return range.getBoundingClientRect();
-        })();
+// Optische Mitte berechnen (wie auf index.html)
+const cx = rect.left + rect.width / 2;
+const cy = rect.top + rect.height / 2;
+const dx = e.clientX - cx;
+const dy = e.clientY - cy;
 
-    // Optische Mitte berechnen
-    const cx = textRect.left + textRect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = e.clientX - cx;
-    const dy = e.clientY - cy;
-
-    enterTween = gsap.to(cursor, {
-      width: rect.width,
-      height: rect.height,
-      scale: 1.1,
-      rotation: 0,
-      x: cx - 16 + dx * 0.09,
-      y: cy - 16 + dy * 0.09,
-      duration: 0.2,
-      ease: "expo.out"
-    });
+enterTween = gsap.to(cursor, {
+  width: rect.width,
+  height: rect.height,
+  scale: 1.1,
+  rotation: 0,
+  x: rect.left + dx * 0.09,
+  y: rect.top + dy * 0.09,
+  duration: 0.2,
+  ease: "expo.out"
+});
   });
   trigger.addEventListener("mousemove", (e) => {
     if (!isOverTrigger) return;
@@ -404,20 +503,20 @@ document.addEventListener('DOMContentLoaded', function() {
           return range.getBoundingClientRect();
         })();
 
-    const factor = 0.09;
-    const cx = textRect.left + textRect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = e.clientX - cx;
-    const dy = e.clientY - cy;
-    gsap.to(cursor, {
-      x: cx - 16 + dx * factor,
-      y: cy - 16 + dy * factor,
-      width: rect.width,
-      height: rect.height,
-      scale: 1.1,
-      duration: 0.1,
-      ease: "power2.out"
-    });
+const factor = 0.09;
+const cx = rect.left + rect.width / 2;
+const cy = rect.top + rect.height / 2;
+const dx = e.clientX - cx;
+const dy = e.clientY - cy;
+gsap.to(cursor, {
+  x: rect.left + dx * factor,
+  y: rect.top + dy * factor,
+  width: rect.width,
+  height: rect.height,
+  scale: 1.1,
+  duration: 0.1,
+  ease: "power2.out"
+});
   });
     trigger.addEventListener("mouseleave", (e) => {
       isOverTrigger = false;
