@@ -311,7 +311,6 @@ body {
   cursor: pointer;
   overflow: hidden;
   border-radius: 0;
-  background: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -329,7 +328,7 @@ body {
   pointer-events: none;
 }
 .faecher-box .frame-path {
-  stroke: #2d2766;
+  stroke: #2d1a45;
   stroke-width: 2.2;
   fill: none;
   stroke-dasharray: 1600;
@@ -351,7 +350,7 @@ body {
   justify-content: flex-start;   /* <-- von flex-end auf flex-start */
   align-items: flex-start;
   z-index: 3;
-  color: #3f2766;
+  color: #2d1a45;
   transition: color 0.4s, transform 0.5s cubic-bezier(.4,2,.6,1);
   transform: scale(1);
   text-align: left;
@@ -403,7 +402,6 @@ body {
 .faecher-box.active {
   /* transform: scale(1.08) rotateY(8deg);  <-- ENTFERNEN */
   z-index: 10;
-  background: #f1c1db;
 }
 
 .karte:hover,
@@ -420,13 +418,11 @@ body {
 .faecher-box:hover .faecher-details,
 .faecher-box.active .faecher-details {
   transform: scale(1.08);
-  color: #2d1a45;
   transition: transform 0.5s cubic-bezier(.4,2,.6,1), color 0.4s;
 }
 .faecher-box:hover .faecher-details li,
 .faecher-box.active .faecher-details li {
   transform: scale(1.005);
-  color: #2d1a45;
 }
 
 .karte:hover .karten-content,
@@ -438,7 +434,6 @@ body {
 .karte:hover .karten-meta,
 .karte.active .karten-meta {
   transform: scale(1.08);
-  color: #2d1a45;
   transition: transform 0.5s cubic-bezier(.4,2,.6,1), color 0.4s;
 }
 .karte:hover .karten-body ul,
@@ -446,7 +441,6 @@ body {
 .karte:hover .karten-body li,
 .karte.active .karten-body li {
   transform: scale(1.005);
-  color: #2d1a45;
 }
 
 /* Farbverläufe für jede Box */
@@ -567,7 +561,7 @@ body {
   pointer-events: none;
 }
 .karte .karten-frame svg .frame-path {
-  stroke: #2d2766;
+  stroke: #2d1a45;
   stroke-width: 2.2;
   fill: none;
   stroke-dasharray: 1200;      /* Länge des Pfads */
@@ -591,7 +585,7 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   z-index: 3;
-  color: #3f2766;
+  color: #2d1a45;
   transition: color 0.4s, transform 0.5s cubic-bezier(.4,2,.6,1);
   transform: scale(1);
 }
@@ -641,7 +635,6 @@ body {
 .karte:hover .karten-meta,
 .karte.active .karten-meta {
   transform: scale(1.08);
-  color: #2d1a45;
   transition: transform 0.5s cubic-bezier(.4,2,.6,1), color 0.4s;
 }
 .karte:hover .karten-body ul,
@@ -649,7 +642,6 @@ body {
 .karte:hover .karten-body li,
 .karte.active .karten-body li {
   transform: scale(1.005);
-  color: #2d1a45;
 }
 /* Kontaktbereich */
 #kontakt,
@@ -873,7 +865,57 @@ body {
   border: none;
   padding: 0;
 }
-@media (max-width: 1350px) {
+/* Desktop schmal */
+@media (max-width: 1350px){
+  /* Leistungen Section: Grid 1x4, 90% Breite, Höhe nach Inhalt */
+  #leistungen {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: auto;
+    min-height: unset;
+    position: relative;
+    padding: 0;
+    background: #f1c1db;
+  }
+  .leistungen-faecher {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    width: 80%;
+    max-width: 650vw;
+    justify-items: center;
+  }
+  .faecher-box {
+    width: 80%;
+    max-width: 80%;
+    min-width: 625px;
+    height: 250px;
+  }
+  .faecher-content {
+    padding: 2rem 5rem 1.8rem 5rem;
+    justify-content: flex-start; /* Headline bleibt oben */
+  }
+  .faecher-title {
+    margin-top: 0;
+    margin-bottom: -0.3em;
+  }
+  .faecher-details,
+  .faecher-details ul,
+  .faecher-details li {
+    margin-top: 0.5em;
+    word-break: break-word;
+    hyphens: auto;
+  }
+    .faecher-details li {
+    margin-bottom: 0.05em; /* Weniger Abstand zwischen den Stichpunkten */
+    line-height: 1.15;     /* Optional: Zeilenabstand etwas enger */
+  }
+  .faecher-details ul {
+    columns: 1;
+  }
+
+  /* Profilbereich */
   .profil-cards-row {
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem;
@@ -891,7 +933,470 @@ body {
     padding-bottom: 8rem;
   }
 }
-  @media (max-width: 700px) {
+/* Desktop schmaler */
+@media (max-width: 700px){
+  /* 1. Home Logo vertikal mittig */
+  #home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    min-height: 100vh;
+    position: relative;
+  }
+  .home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    min-height: 100vh;
+  }
+  .logo-adhs-container {
+    width: 100%;
+    max-width: 300px;
+    min-width: unset;
+    min-height: unset;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  #logoAdhsVideo, #logoAdhsImg {
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    min-width: unset;
+    min-height: unset;
+    left: 0;
+    top: 0;
+    object-fit: contain;
+    position: absolute;
+    margin: 0 auto;
+  }
+  /* 2. Navbar Bugfix + Farben + Position */
+  .navbar {
+    top: 1rem;
+    right: 1rem;
+    left: auto;
+    width: auto;
+    background: none;
+    box-shadow: none;
+    z-index: 3000;
+    position: fixed;
+  }
+  .menu-toggle {
+    display: block;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    max-width: 44px;
+    max-height: 44px;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+    z-index: 3003;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: var(--scrollDownBg, #d83f87);
+    color: var(--scrollDownActiveBg, #2d1a45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.3s;
+  }
+  .menu-toggle .burger-lines {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    color: inherit;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .menu-toggle .burger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--scrollDownActiveBg, #2d1a45);
+    border-radius: 2px;
+    transition: all 0.3s;
+    margin: 2.5px 0;
+  }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    left: auto;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2rem;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 5rem 1rem 2.2rem 2.2rem;
+    z-index: 2002;
+    min-width: 44px;
+    width: auto;
+    height: auto;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links a {
+  font-size: 1.1rem;
+  font-weight: 300;
+  padding: 0.6rem 1.2rem;
+    min-width: 100px;
+    text-align: right;
+    border-radius: 0rem;
+  }
+  /* Leistungen Section: Grid 1x4, 90% Breite, Höhe nach Inhalt */
+  #leistungen {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: auto;
+    min-height: unset;
+    position: relative;
+    padding: 0;
+    background: #f1c1db;
+  }
+  .leistungen-headline {
+    margin-top: 4.5rem;
+    margin-bottom: 3rem;
+    line-height: 1.15;
+  }
+  .headline-flex {
+    font-size: 1.45rem;
+    max-width: 98vw;
+  }
+  .headline-word,
+  #headline-word-scroll {
+    font-size: 1.45rem;
+    padding: 0.22em 0.5em;
+  }
+  .wechselwort-dummy {
+    font-size: 1.45rem;
+  }
+  .headline-static {
+    font-size: 1.45rem;
+  }
+  .leistungen-faecher {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    width: 95%;
+    max-width: 650vw;
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center;
+  }
+  .faecher-box {
+    width: 95%;
+    max-width: 95%;
+    min-width: 325px;
+    height: 180px;
+  }
+  .faecher-content {
+    padding: 1.5rem 4rem 1rem 4rem; /* oben weniger, unten mehr */
+    justify-content: flex-start; /* Headline bleibt oben */
+  }
+  .faecher-title {
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: -0.3em;
+  }
+  .faecher-details,
+  .faecher-details ul,
+  .faecher-details li {
+    font-size: 0.7rem;
+    margin-top: 0.5em;
+    word-break: break-word;
+    hyphens: auto;
+  }
+    .faecher-details li {
+    margin-bottom: 0.05em; /* Weniger Abstand zwischen den Stichpunkten */
+    line-height: 1.15;     /* Optional: Zeilenabstand etwas enger */
+  }
+  .faecher-details ul {
+    columns: 1;
+  }
+  /* Profil Section: Grid 2x2, 90% Breite, Höhe nach Inhalt */
+  .section-diagonal {
+    min-height: unset;
+    height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .profil-headline,
+  .safezone-claim {
+    font-size: 1.3rem;
+    margin-bottom: 5rem;
+  }
+  .profil-cards-row {
+    display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        max-width: 840px;
+        margin-left: auto;
+        margin-right: auto;
+        justify-items: center;
+  }
+  .karte {
+        max-width: 180px;
+        min-width: 160px;
+        width: 180px;
+        height: 280px;
+        padding: 0;
+  }
+    .karte .karten-content {
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+  }
+  .karte .karten-title {
+    font-size: 1.3rem;
+  }
+  .karte .karten-meta {
+    font-size: 0.8rem;
+  }
+  .karte .karten-body {
+    font-size: 0.7rem;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    line-height: 1.5;
+  }
+    /* Fix: Aktive Karte/Fächerbox auf Mobil trotzdem skalieren! */
+  .faecher-box.active .faecher-content,
+  .faecher-box.active .faecher-title,
+  .faecher-box.active .faecher-details,
+  .faecher-box.active .faecher-details li,
+  .faecher-box.active,
+  .karte.active .karten-content,
+  .karte.active .karten-body,
+  .karte.active .karten-title,
+  .karte.active .karten-meta,
+  .karte.active .karten-body ul,
+  .karte.active .karten-body li,
+  .karte.active {
+    transform: scale(1.04) !important;
+    transition: transform 0.5s cubic-bezier(.4,2,.6,1),
+  }
+  /* Entferne die Skalierung vom Elternelement */
+  .faecher-box:hover,
+  .faecher-box.active {
+    transform: none !important;
+    z-index: 10;
+}
+  .karte:hover,
+  .karte.active {
+    transform: none !important;
+    z-index: 10;
+}
+    #kontakt {
+    padding: 2rem 0 1rem 0;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+    .kontakt-footer-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .kontakt-headline {
+    font-size: 2rem;
+  }
+  .kontakt-img {
+    max-width: 90vw;
+  }
+  .kontakt-flex-row {
+    flex-direction: column;
+    align-items: center; /* mittig statt stretch */
+    gap: 1.5rem;
+    max-width: 98vw;
+  }
+  .kontakt-person-anica,
+  .kontakt-person-emily {
+    align-items: center; /* mittig */
+    text-align: center;  /* mittig */
+  }
+  .kontakt-mail {
+    font-size: 1rem;
+  }
+  .kontakt-name,
+  .kontakt-role,
+  .kontakt-tel {
+    font-size: 0.93rem;
+  }
+  .footer-links {
+    gap: 0.5rem;
+  }
+  .footer-link {
+    padding: 0.7rem 1.1rem;
+    font-size: 0.93rem;
+  }
+  .footer-sep {
+    margin: 0 0.2rem;
+  }
+  .scroll-arrow-btn#scrollDownBtn, .scroll-arrow-btn#scrollUpBtn {
+    width: 44px;
+    height: 44px;
+    right: 1rem;
+    bottom: 1rem;
+  }
+  .faecher-box:hover .faecher-content,
+  .faecher-box:hover .faecher-title,
+  .faecher-box:hover .faecher-details,
+  .faecher-box:hover .faecher-details li,
+  .faecher-box:hover,
+  .karte:hover .karten-content,
+  .karte:hover .karten-body,
+  .karte:hover .karten-title,
+  .karte:hover .karten-meta,
+  .karte:hover .karten-body ul,
+  .karte:hover .karten-body li,
+  .karte:hover {
+    transform: scale(1.04) !important;
+    transition: transform 0.5s cubic-bezier(.4,2,.6,1);
+  }
+}
+/* iPad Pro 11" und ähnliche Tablets */
+@media (max-width: 1400px) and (pointer: coarse) {
+  /* Leistungen Section: Grid 1x4, 90% Breite, Höhe nach Inhalt */
+  #leistungen {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: auto;
+    min-height: unset;
+    position: relative;
+    padding: 0;
+    background: #f1c1db;
+  }
+  .leistungen-faecher {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    width: 80%;
+    max-width: 650vw;
+    justify-items: center;
+  }
+  .faecher-box {
+    width: 85%;
+    max-width: 85%;
+    min-width: 625px;
+    height: 240px;
+  }
+  .faecher-content {
+    padding: 2rem 5rem 1.8rem 5rem;
+    justify-content: flex-start; /* Headline bleibt oben */
+  }
+  .faecher-title {
+    margin-top: 0;
+    margin-bottom: -0.3em;
+  }
+  .faecher-details,
+  .faecher-details ul,
+  .faecher-details li {
+    margin-top: 0.5em;
+    word-break: break-word;
+    hyphens: auto;
+  }
+    .faecher-details li {
+    margin-bottom: 0.05em; /* Weniger Abstand zwischen den Stichpunkten */
+    line-height: 1.15;     /* Optional: Zeilenabstand etwas enger */
+  }
+  .faecher-details ul {
+    columns: 1;
+  }
+
+  /* Profilbereich */
+  .profil-cards-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    max-width: 840px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center;
+  }
+  #profil,
+  #profil.section-diagonal,
+  .section-diagonal {
+    min-height: unset;
+    height: auto;
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  /* KEIN Hover-Effekt auf Mobil-Landscape */
+  .faecher-box:hover,
+  .faecher-box:hover .faecher-content,
+  .faecher-box:hover .faecher-title,
+  .faecher-box:hover .faecher-details,
+  .faecher-box:hover .faecher-details li,
+  .karte:hover,
+  .karte:hover .karten-content,
+  .karte:hover .karten-body,
+  .karte:hover .karten-title,
+  .karte:hover .karten-meta,
+  .karte:hover .karten-body ul,
+  .karte:hover .karten-body li {
+    transform: none !important;
+    color: inherit !important;
+    /* keine Skalierung, keine Farbe */
+  }
+/* KEIN Hover-Stroke auf Mobil-Landscape */
+.faecher-box:hover .frame-path {
+  stroke-dashoffset: 1550 !important; /* Wert wie oben im .faecher-box SVG */
+  transition: none !important;
+}
+.karte:hover .frame-path {
+  stroke-dashoffset: 1150 !important; /* Wert wie oben im .karte SVG */
+  transition: none !important;
+}
+    /* Fix: Aktive Karte/Fächerbox auf Mobil trotzdem skalieren! */
+  .faecher-box.active .faecher-content,
+  .faecher-box.active .faecher-title,
+  .faecher-box.active .faecher-details,
+  .faecher-box.active .faecher-details li,
+  .karte.active .karten-content,
+  .karte.active .karten-body,
+  .karte.active .karten-title,
+  .karte.active .karten-meta,
+  .karte.active .karten-body ul,
+  .karte.active .karten-body li {
+    transform: scale(1.025) !important;
+    transition: transform 0.5s cubic-bezier(.4,2,.6,1),
+  }
+    /* Nur .active animiert den Stroke */
+  .faecher-box.active .frame-path,
+  .karte.active .frame-path {
+    stroke-dashoffset: 0 !important;
+    transition: stroke-dashoffset 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  /* 2b. Cursor auf Mobil ausblenden */
+  #cursor, #cursorPt {
+    display: none;
+  }
+}
+
+/* Speziell für iPhone 12 Pro und ähnliche Geräte */
+@media (max-width: 700px) and (pointer: coarse), (max-height: 500px) and (pointer: coarse){
   /* 1. Home Logo vertikal mittig */
   #home {
     display: flex;
@@ -1096,29 +1601,6 @@ body {
   .faecher-details ul {
     columns: 1;
   }
-    /* Nur aktiver Zustand, kein Hover auf Mobil */
-  .faecher-box.active .faecher-content,
-  .faecher-box.active .faecher-title,
-  .faecher-box.active .faecher-details {
-    transform: scale(1.04);
-    color: #2d1a45;
-    transition: transform 0.5s cubic-bezier(.4,2,.6,1), color 0.4s;
-  }
-  .faecher-box.active .faecher-details li {
-    transform: scale(1.05);
-    color: #2d1a45;
-  }
-
-  /* Optional: Hover komplett entfernen auf Mobil */
-  .faecher-box:hover .faecher-content,
-  .faecher-box:hover .faecher-title,
-  .faecher-box:hover .faecher-details,
-  .faecher-box:hover .faecher-details li,
-  .faecher-box:hover {
-    transform: none !important;
-    color: inherit !important;
-  }
-
   /* Profil Section: Grid 2x2, 90% Breite, Höhe nach Inhalt */
   .section-diagonal {
     min-height: unset;
@@ -1162,32 +1644,6 @@ body {
     padding-right: 0.2rem;
     line-height: 1.5;
   }
-  /* Weniger Skalierung auf den Profilkarten auf Mobil */
-  .karte.active .karten-content,
-  .karte.active .karten-body,
-  .karte.active .karten-title,
-  .karte.active .karten-meta {
-    transform: scale(1.05);
-    color: #2d1a45 !important;
-    transition: transform 0.5s cubic-bezier(.4,2,.6,1), color 0.4s;
-  }
-  .karte.active .karten-body ul,
-  .karte.active .karten-body li {
-    transform: scale(1.06);
-    color: #2d1a45 !important;
-  }
-
-  /* Optional: Hover komplett entfernen auf Mobil */
-  .karte:hover .karten-content,
-  .karte:hover .karten-body,
-  .karte:hover .karten-title,
-  .karte:hover .karten-meta,
-  .karte:hover .karten-body ul,
-  .karte:hover .karten-body li,
-  .karte:hover {
-    transform: none !important;
-    color: inherit !important;
-  }
     /* Fix: Aktive Karte/Fächerbox auf Mobil trotzdem skalieren! */
   .faecher-box.active .faecher-content,
   .faecher-box.active .faecher-title,
@@ -1202,10 +1658,19 @@ body {
   .karte.active .karten-body li,
   .karte.active {
     transform: scale(1.04) !important;
-    color: #2d1a45 !important;
-    transition: transform 0.5s cubic-bezier(.4,2,.6,1), color 0.4s;
+    transition: transform 0.5s cubic-bezier(.4,2,.6,1),
   }
-  
+  /* Entferne die Skalierung vom Elternelement */
+  .faecher-box:hover,
+  .faecher-box.active {
+    transform: none !important;
+    z-index: 10;
+}
+  .karte:hover,
+  .karte.active {
+    transform: none !important;
+    z-index: 10;
+}
     #kontakt {
     padding: 2rem 0 1rem 0;
     flex: 1 0 auto;
@@ -1261,79 +1726,936 @@ body {
     right: 1rem;
     bottom: 1rem;
   }
+  /* KEIN Hover-Effekt auf Mobil-Landscape */
+  .faecher-box:hover,
   .faecher-box:hover .faecher-content,
   .faecher-box:hover .faecher-title,
   .faecher-box:hover .faecher-details,
   .faecher-box:hover .faecher-details li,
-  .faecher-box:hover,
+  .karte:hover,
   .karte:hover .karten-content,
   .karte:hover .karten-body,
   .karte:hover .karten-title,
   .karte:hover .karten-meta,
   .karte:hover .karten-body ul,
-  .karte:hover .karten-body li,
-  .karte:hover {
-    /* Entfernt Hover-Effekt auf Mobil */
-    transform: none;
+  .karte:hover .karten-body li {
+    transform: none !important;
+    color: inherit !important;
+    /* keine Skalierung, keine Farbe */
+  }
+/* KEIN Hover-Stroke auf Mobil-Landscape */
+.faecher-box:hover .frame-path {
+  stroke-dashoffset: 1550 !important; /* Wert wie oben im .faecher-box SVG */
+  transition: none !important;
+}
+.karte:hover .frame-path {
+  stroke-dashoffset: 1150 !important; /* Wert wie oben im .karte SVG */
+  transition: none !important;
+}
+    /* Fix: Aktive Karte/Fächerbox auf Mobil trotzdem skalieren! */
+  .faecher-box.active .faecher-content,
+  .faecher-box.active .faecher-title,
+  .faecher-box.active .faecher-details,
+  .faecher-box.active .faecher-details li,
+  .karte.active .karten-content,
+  .karte.active .karten-body,
+  .karte.active .karten-title,
+  .karte.active .karten-meta,
+  .karte.active .karten-body ul,
+  .karte.active .karten-body li {
+    transform: scale(1.025) !important;
+    transition: transform 0.5s cubic-bezier(.4,2,.6,1),
+  }
+    /* Nur .active animiert den Stroke */
+  .faecher-box.active .frame-path,
+  .karte.active .frame-path {
+    stroke-dashoffset: 0 !important;
+    transition: stroke-dashoffset 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 }
-/* Speziell für iPhone 12 Pro und ähnliche Geräte */
-@media (max-width: 400px) {
+/* Speziell für iPhone SE und ähnliche Geräte */
+@media (max-width: 400px) and (pointer: coarse), (max-height: 500px) and (pointer: coarse){
+  /* 1. Home Logo vertikal mittig */
+  #home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    min-height: 100vh;
+    position: relative;
+  }
+  .home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    min-height: 100vh;
+  }
+  .logo-adhs-container {
+    width: 100%;
+    max-width: 300px;
+    min-width: unset;
+    min-height: unset;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  #logoAdhsVideo, #logoAdhsImg {
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    min-width: unset;
+    min-height: unset;
+    left: 0;
+    top: 0;
+    object-fit: contain;
+    position: absolute;
+    margin: 0 auto;
+  }
+  /* 2. Navbar Bugfix + Farben + Position */
+  .navbar {
+    top: 1rem;
+    right: 1rem;
+    left: auto;
+    width: auto;
+    background: none;
+    box-shadow: none;
+    z-index: 3000;
+    position: fixed;
+  }
+  .menu-toggle {
+    display: block;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    max-width: 44px;
+    max-height: 44px;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+    z-index: 3003;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: var(--scrollDownBg, #d83f87);
+    color: var(--scrollDownActiveBg, #2d1a45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.3s;
+  }
+  .menu-toggle .burger-lines {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    color: inherit;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .menu-toggle .burger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--scrollDownActiveBg, #2d1a45);
+    border-radius: 2px;
+    transition: all 0.3s;
+    margin: 2.5px 0;
+  }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    left: auto;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2rem;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 5rem 1rem 2.2rem 2.2rem;
+    z-index: 2002;
+    min-width: 44px;
+    width: auto;
+    height: auto;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links a {
+    font-size: 1.1rem;
+    font-weight: 300;
+    padding: 0.6rem 1.2rem;
+    min-width: 100px;
+    text-align: right;
+    border-radius: 0rem;
+  }
+  /* 2b. Cursor auf Mobil ausblenden */
+  #cursor, #cursorPt {
+    display: none;
+  }
   /* Leistungen */
-  #leistungen > .inner,
-  .leistungen-faecher,
-  .faecher-box {
-    width: 95% !important;
-    max-width: 95% !important;
-    min-width: unset !important;
+  #leistungen {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: auto;
+    min-height: unset;
+    position: relative;
+    padding: 0;
+    background: #f1c1db;
+  }
+  .leistungen-headline {
+    margin-top: 4.5rem;
+    margin-bottom: 3rem;
+    line-height: 1.15;
+  }
+  .headline-flex {
+    font-size: 1.25rem;
+    max-width: 98vw;
+  }
+  .headline-word,
+  #headline-word-scroll {
+    font-size: 1.25rem;
+    padding: 0.22em 0.5em;
+  }
+  .wechselwort-dummy {
+    font-size: 1.25rem;
+  }
+  .headline-static {
+    font-size: 1.25rem;
+  }
+  .leistungen-faecher {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    width: 95%;
+    max-width: 650vw;
     margin-left: auto;
     margin-right: auto;
-    box-sizing: border-box;
+    justify-items: center;
+  }
+  .faecher-box {
+    width: 95%;
+    max-width: 95%;
+    min-width: 325px;
+    height: 170px;
   }
   .faecher-content {
-    padding: 1.5rem 2rem 2rem 2.1rem !important; /* Weniger Padding */
+    padding: 1.5rem 2.2rem 1rem 2.2rem; /* oben weniger, unten mehr */
+    justify-content: flex-start; /* Headline bleibt oben */
   }
-
-  /* Profil */
-  #profil.section-diagonal .inner,
-  .profil-cards-row,
-  .karte {
-    width: 95% !important;
-    max-width: 95% !important;
-    min-width: unset !important;
-    margin-left: auto;
-    margin-right: auto;
-    box-sizing: border-box;
+  .faecher-title {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: -0.5em;
   }
-  .karte .karten-content {
-    padding: 1rem 1rem 1rem 1rem !important; /* Weniger Padding */
-  }
-    /* Automatischer Zeilenumbruch für Inhalte */
-  .faecher-content,
-  .faecher-title,
   .faecher-details,
   .faecher-details ul,
-  .faecher-details li,
-  .karten-content,
-  .karten-title,
-  .karten-meta,
-  .karten-body {
-    white-space: normal !important;
-    word-break: break-word !important;
-    hyphens: auto !important;
-  }
-    .karte .karten-body {
+  .faecher-details li {
     font-size: 0.65rem;
+    margin-top: 0.5em;
+    word-break: break-word;
+    hyphens: auto;
+  }
+  .faecher-details li {
+    margin-bottom: 0.08em; /* Weniger Abstand zwischen den Stichpunkten */
+    line-height: 1.15;     /* Optional: Zeilenabstand etwas enger */
+  }
+  .faecher-details ul {
+    columns: 1;
+  }
+  /* Profil Section: Grid 2x2, 90% Breite, Höhe nach Inhalt */
+  .section-diagonal {
+    min-height: unset;
+    height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .profil-headline,
+  .safezone-claim {
+    font-size: 1.3rem;
+    margin-bottom: 5rem;
+  }
+  .profil-cards-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    max-width: 840px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center;
+  }
+  .karte {
+    max-width: 160px;
+    min-width: 160px;
+    width: 160px;
+    height: 240px;
+    padding: 0;
+  }
+  .karte .karten-content {
+    padding: 1.2rem 0.9rem 1rem 1rem;
+  }
+  .karte .karten-title {
+    font-size: 1.25rem;
+  }
+  .karte .karten-meta {
+    font-size: 0.9rem;
+  }
+  .karte .karten-body {
+    font-size: 0.69rem;
+    line-height: 1.3;
+  }
+  /* KEIN Hover-Effekt auf Mobil-Landscape */
+  .faecher-box:hover,
+  .faecher-box:hover .faecher-content,
+  .faecher-box:hover .faecher-title,
+  .faecher-box:hover .faecher-details,
+  .faecher-box:hover .faecher-details li,
+  .karte:hover,
+  .karte:hover .karten-content,
+  .karte:hover .karten-body,
+  .karte:hover .karten-title,
+  .karte:hover .karten-meta,
+  .karte:hover .karten-body ul,
+  .karte:hover .karten-body li {
+    transform: none !important;
+    color: inherit !important;
+    /* keine Skalierung, keine Farbe */
+  }
+/* KEIN Hover-Stroke auf Mobil-Landscape */
+.faecher-box:hover .frame-path {
+  stroke-dashoffset: 1550 !important; /* Wert wie oben im .faecher-box SVG */
+  transition: none !important;
+}
+.karte:hover .frame-path {
+  stroke-dashoffset: 1150 !important; /* Wert wie oben im .karte SVG */
+  transition: none !important;
+}
+    /* Fix: Aktive Karte/Fächerbox auf Mobil trotzdem skalieren! */
+  .faecher-box.active .faecher-content,
+  .faecher-box.active .faecher-title,
+  .faecher-box.active .faecher-details,
+  .faecher-box.active .faecher-details li,
+  .karte.active .karten-content,
+  .karte.active .karten-body,
+  .karte.active .karten-title,
+  .karte.active .karten-meta,
+  .karte.active .karten-body ul,
+  .karte.active .karten-body li {
+    transform: scale(1.025) !important;
+    transition: transform 0.5s cubic-bezier(.4,2,.6,1),
+  }
+    /* Nur .active animiert den Stroke */
+  .faecher-box.active .frame-path,
+  .karte.active .frame-path {
+    stroke-dashoffset: 0 !important;
+    transition: stroke-dashoffset 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+  #kontakt {
+    padding: 2rem 0 1rem 0;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .kontakt-footer-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .kontakt-headline {
+    font-size: 2rem;
+  }
+  .kontakt-img {
+    max-width: 90vw;
+  }
+  .kontakt-flex-row {
+    flex-direction: column;
+    align-items: center; /* mittig statt stretch */
+    gap: 1.5rem;
+    max-width: 98vw;
+  }
+  .kontakt-person-anica,
+  .kontakt-person-emily {
+    align-items: center; /* mittig */
+    text-align: center;  /* mittig */
+  }
+  .kontakt-mail {
+    font-size: 1rem;
+  }
+  .kontakt-name,
+  .kontakt-role,
+  .kontakt-tel {
+    font-size: 0.93rem;
+  }
+  .footer-links {
+    gap: 0.5rem;
+  }
+  .footer-link {
+    padding: 0.7rem 1.1rem;
+    font-size: 0.93rem;
+  }
+  .footer-sep {
+    margin: 0 0.2rem;
+  }
+  .scroll-arrow-btn#scrollDownBtn, .scroll-arrow-btn#scrollUpBtn {
+    width: 44px;
+    height: 44px;
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+/* Mobilgeräte im Landscape-Modus (Querformat) */
+@media (max-width: 1000px) and (pointer: coarse) and (orientation: landscape){
+  /* 1. Home Logo vertikal mittig */
+  #home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    min-height: 100vh;
+    position: relative;
+  }
+  .home-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    min-height: 100vh;
+  }
+  .logo-adhs-container {
+    width: 100%;
+    max-width: 300px;
+    min-width: unset;
+    min-height: unset;
+    height: 300px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  #logoAdhsVideo, #logoAdhsImg {
+    width: 100%;
+    max-width: 300px;
+    height: 100%;
+    min-width: unset;
+    min-height: unset;
+    left: 0;
+    top: 0;
+    object-fit: contain;
+    position: absolute;
+    margin: 0 auto;
+  }
+  /* 2. Navbar Bugfix + Farben + Position */
+  .navbar {
+    top: 1rem;
+    right: 1rem;
+    left: auto;
+    width: auto;
+    background: none;
+    box-shadow: none;
+    z-index: 3000;
+    position: fixed;
+  }
+  .menu-toggle {
+    display: block;
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+    max-width: 44px;
+    max-height: 44px;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    cursor: pointer;
+    z-index: 3003;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: var(--scrollDownBg, #d83f87);
+    color: var(--scrollDownActiveBg, #2d1a45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.3s;
+  }
+  .menu-toggle .burger-lines {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    color: inherit;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+  .menu-toggle .burger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--scrollDownActiveBg, #2d1a45);
+    border-radius: 2px;
+    transition: all 0.3s;
+    margin: 2.5px 0;
+  }
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    left: auto;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 2rem;
+    box-shadow: none;
+    border-radius: 0;
+    padding: 5rem 1rem 2.2rem 2.2rem;
+    z-index: 2002;
+    min-width: 44px;
+    width: auto;
+    height: auto;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .nav-links a {
+  font-size: 1.1rem;
+  font-weight: 300;
+  padding: 0.6rem 1.2rem;
+    min-width: 100px;
+    text-align: right;
+    border-radius: 0rem;
+  }
+  /* 2b. Cursor auf Mobil ausblenden */
+  #cursor, #cursorPt {
+    display: none;
+  }
+  /* Leistungen Section: Grid 1x4, 90% Breite, Höhe nach Inhalt */
+  #leistungen {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: auto;
+    min-height: unset;
+    position: relative;
+    padding: 0;
+    background: #f1c1db;
+  }
+    .leistungen-headline {
+    margin-top: 4.5rem;
+    margin-bottom: 3rem;
+    line-height: 1.15;
+  }
+  .headline-flex {
+    font-size: 2rem !important;
+    max-width: 98vw;
+  }
+  .headline-word,
+  #headline-word-scroll {
+    font-size: 2rem !important;
+    padding: 0.22em 0.5em;
+  }
+  .wechselwort-dummy {
+    font-size: 2rem !important;
+  }
+  .headline-static {
+    font-size: 2rem !important;
+  }
+  .leistungen-faecher {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    width: 95%;
+    max-width: 550vw;
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center;
+  }
+  .faecher-box {
+    width: 85%;
+    max-width: 85%;
+    min-width: 325px;
+    height: 210px;
+  }
+  .faecher-content {
+    padding: 1.5rem 3.5rem 1rem 3.5rem !important;
+    justify-content: flex-start; /* Headline bleibt oben */
+  }
+  .faecher-title {
+    font-size: 1.3rem !important;
+    margin-top: 0;
+    margin-bottom: -0.5em;
+  }
+  .faecher-details,
+  .faecher-details ul,
+  .faecher-details li {
+    font-size: 0.9rem !important;
+    margin-top: 0.5em;
+    word-break: break-word;
+    hyphens: auto;
+  }
+    .faecher-details li {
+    margin-bottom: 0.05em; /* Weniger Abstand zwischen den Stichpunkten */
+    line-height: 1.15;     /* Optional: Zeilenabstand etwas enger */
+  }
+  .faecher-details ul {
+    columns: 1;
+  }
+  /* Profil Section: Grid 2x2, 90% Breite, Höhe nach Inhalt */
+  .section-diagonal {
+    min-height: unset;
+    height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  .profil-headline,
+  .safezone-claim {
+    font-size: 2.3rem;
+    margin-bottom: 5rem;
+  }
+  .profil-cards-row {
+    display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        max-width: 840px;
+        margin-left: auto;
+        margin-right: auto;
+        justify-items: center;
+  }
+  .karte {
+        max-width: 180px;
+        min-width: 160px;
+        width: 180px;
+        height: 280px;
+        padding: 0;
+  }
+    .karte .karten-content {
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+  }
+  .karte .karten-title {
+    font-size: 1.3rem;
+  }
+  .karte .karten-meta {
+    font-size: 0.8rem;
+  }
+  .karte .karten-body {
+    font-size: 0.7rem;
     padding-left: 0.2rem;
     padding-right: 0.2rem;
-    line-height: 1.4;
+    line-height: 1.5;
+  }
+  /* KEIN Hover-Effekt auf Mobil-Landscape */
+  .faecher-box:hover,
+  .faecher-box:hover .faecher-content,
+  .faecher-box:hover .faecher-title,
+  .faecher-box:hover .faecher-details,
+  .faecher-box:hover .faecher-details li,
+  .karte:hover,
+  .karte:hover .karten-content,
+  .karte:hover .karten-body,
+  .karte:hover .karten-title,
+  .karte:hover .karten-meta,
+  .karte:hover .karten-body ul,
+  .karte:hover .karten-body li {
+    transform: none !important;
+    color: inherit !important;
+    /* keine Skalierung, keine Farbe */
+  }
+/* KEIN Hover-Stroke auf Mobil-Landscape */
+.faecher-box:hover .frame-path {
+  stroke-dashoffset: 1550 !important; /* Wert wie oben im .faecher-box SVG */
+  transition: none !important;
 }
+.karte:hover .frame-path {
+  stroke-dashoffset: 1150 !important; /* Wert wie oben im .karte SVG */
+  transition: none !important;
+}
+    /* Fix: Aktive Karte/Fächerbox auf Mobil trotzdem skalieren! */
+  .faecher-box.active .faecher-content,
+  .faecher-box.active .faecher-title,
+  .faecher-box.active .faecher-details,
+  .faecher-box.active .faecher-details li,
+  .karte.active .karten-content,
+  .karte.active .karten-body,
+  .karte.active .karten-title,
+  .karte.active .karten-meta,
+  .karte.active .karten-body ul,
+  .karte.active .karten-body li {
+    transform: scale(1.025) !important;
+    transition: transform 0.5s cubic-bezier(.4,2,.6,1),
+  }
+    /* Nur .active animiert den Stroke */
+  .faecher-box.active .frame-path,
+  .karte.active .frame-path {
+    stroke-dashoffset: 0 !important;
+    transition: stroke-dashoffset 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+    #kontakt {
+    padding: 2rem 0 1rem 0;
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+    .kontakt-footer-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .kontakt-headline {
+    font-size: 2rem;
+  }
+  .kontakt-img {
+    max-width: 90vw;
+  }
+  .kontakt-flex-row {
+    flex-direction: column;
+    align-items: center; /* mittig statt stretch */
+    gap: 1.5rem;
+    max-width: 98vw;
+  }
+  .kontakt-person-anica,
+  .kontakt-person-emily {
+    align-items: center; /* mittig */
+    text-align: center;  /* mittig */
+  }
+  .kontakt-mail {
+    font-size: 1rem;
+  }
+  .kontakt-name,
+  .kontakt-role,
+  .kontakt-tel {
+    font-size: 0.93rem;
+  }
+  .footer-links {
+    gap: 0.5rem;
+  }
+  .footer-link {
+    padding: 0.7rem 1.1rem;
+    font-size: 0.93rem;
+  }
+  .footer-sep {
+    margin: 0 0.2rem;
+  }
+  .scroll-arrow-btn#scrollDownBtn, .scroll-arrow-btn#scrollUpBtn {
+    width: 44px;
+    height: 44px;
+    right: 1rem;
+    bottom: 1rem;
+  }
+}
+@media (min-width: 2200px) {
+  html, body {
+    font-size: 1.35em;
+  }
+  .navbar {
+    top: 3.5rem;
+    right: 3.5rem;
+  }
+  .nav-links a {
+    font-size: 1.3rem;
+    padding: 0.7rem 1.3rem;
+    min-width: 120px;
+  }
+  #home {
+    max-width: 100vw;
+    height: 100vh;
+  }
+  .logo-adhs-container {
+    position: relative;
+    width: 1400px;
+    height: 800px;
+    max-width: 100vw;
+    max-height: 80vh;
+    margin: 0 auto 4rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #logoAdhsVideo,
+  #logoAdhsImg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    margin: 0;
+    display: block;
+  }
+  .profil-headline,
+  .safezone-claim,
+  .kontakt-headline {
+    font-size: 3.8rem !important;
+  }
+  #leistungen {
+  /* height: 100vh;  <-- ENTFERNEN */
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  background: #f1c1db;
+  margin: 0;
+  padding: 0;
+}
+  .leistungen-headline {
+    font-size: 3.8rem !important;
+  }
+  .headline-flex,
+  .headline-word,
+  #headline-word-scroll,
+  .wechselwort-dummy,
+  .headline-static {
+    font-size: 3.8rem !important;
+  }
+    .leistungen-headline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 14rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    max-width: 2200px;
+  }
+  .headline-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    gap: 0;
+    white-space: nowrap;
+    text-align: center;
+  }
+  .leistungen-faecher {
+    max-width: 2200px;
+    gap: 4rem;
+    margin-bottom: 15rem;
+  }
+  .faecher-box {
+    max-width: 1100px;
+    min-width: 600px;
+    height: 420px;
+    font-size: 1.5rem;
+  }
+  .faecher-content {
+    padding: 2.5rem 5rem 2.5rem 5rem;
+  }
+  .faecher-title {
+    font-size: 2.3rem;
+  }
+  .faecher-details,
+  .faecher-details ul,
+  .faecher-details li {
+    font-size: 1.25rem;
+  }
+.profil-cards-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  max-width: calc(4 * 300px + 3 * 2.5rem);
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: center;
+  justify-content: center; /* <--- Diese Zeile hinzufügen */
+  }
+  .karte {
+    min-width: 500px;
+    max-width: 500px;
+    height: 650px;
+    font-size: 1.5rem;
+  }
+  .karte .karten-content {
+    padding: 3rem 2rem 2rem 2.2rem;
+  }
+  .karte .karten-title {
+    font-size: 2.8rem;
+  }
+  .karte .karten-meta {
+    font-size: 1.3rem;
+  }
+  .karte .karten-body {
+    font-size: 1.4rem;
+  }
+  .kontakt-img {
+    max-width: 1400px;
+    width: 95vw;
+  }
+  .kontakt-flex-row {
+    max-width: 1400px;
+    gap: 4rem;
+  }
+  .kontakt-name,
+  .kontakt-role,
+  .kontakt-tel {
+    font-size: 1.7rem;
+  }
+  .kontakt-mail {
+    font-size: 2rem;
+  }
+  .footer-link {
+    font-size: 1.5rem;
+    padding: 1.5rem 4rem;
+  }
+  .scroll-arrow-btn#scrollDownBtn,
+  .scroll-arrow-btn#scrollUpBtn {
+    width: 80px;
+    height: 80px;
+    right: 3.5rem;
+    bottom: 3.5rem;
+  }
+  #cursor {
+    width: 60px;
+    height: 60px;
+  }
+  #cursorPt {
+    width: 16px;
+    height: 16px;
+  }
 }
   </style>
 </head>
 <body>
   <div id="cursor"></div>
   <div id="cursorPt"></div>
+    <div id="scale-wrapper">
 
   <!-- Navigation -->
   <nav class="navbar">
@@ -1401,7 +2723,7 @@ body {
               <ul>
                 <li>Kundenberatung</li>
                 <li>Koordination zwischen Kund:innen, Agentur, Produktion, Media und Dienstleistenden</li>
-                <li>Postproduktionberatung zu Abläufen, Aufwand & Machbarkeit</li>
+                <li>Postproduktionberatung zu Abläufen, Aufwand und Machbarkeit</li>
                 <li>Workflow Optimierung</li>
               </ul>
             </div>
@@ -1417,8 +2739,8 @@ body {
             <div class="faecher-title">Animation | Kreativentwicklung</div>
             <div class="faecher-details">
               <ul>
-                <li>Motion Design & 2D-/3D-Animation</li>
-                <li>Produktbühnen für TV, Retail, POS & Online</li>
+                <li>Motion Design und 2D-/3D-Animation</li>
+                <li>Produktbühnen für TV, Retail, POS und Online</li>
                 <li>Titelanimation</li>
                 <li>VFX, Retuschen</li>
               </ul>
@@ -1455,7 +2777,7 @@ body {
               <ul>
                 <li>Finishing, Mastering</li>
                 <li>Encodings</li>
-                <li>Sendekopie-Versand (national & international)</li>
+                <li>Sendekopie-Versand (national und international)</li>
                 <li>Versand der Deliverables an die Vermarkter</li>
               </ul>
             </div>
@@ -2066,5 +3388,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 </script>
+  </div>
 </body>
 </html>
